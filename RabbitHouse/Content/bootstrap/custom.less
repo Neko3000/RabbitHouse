@@ -1,0 +1,41 @@
+﻿html,body{
+    height:100%;
+    width:100%;
+}
+//welcome
+
+.welcome-container{
+    position:relative;
+    text-align:center;
+    width:100%;
+    height:100%;
+    .clearfix();
+    >.top-text{
+        position:absolute;
+        margin-left:-202px;
+        left:50%;
+        margin-top:-21px;
+        top:42%;
+        opacity:1;
+        z-index:2;
+        .allSmooth(0.5s);
+    }
+    >.beforeUpshow{
+        top:45%;
+        opacity:0;
+    }
+    >.center-image{
+        position:absolute;
+        margin-left:-480px;
+        left:50%;
+        margin-top:-285px;
+        top:50%;
+    }
+    >#door-closed{
+       z-index:1;
+    }
+    >#door-open{
+        z-index:-1;
+        opacity:0;
+    }
+}
