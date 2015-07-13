@@ -2,8 +2,24 @@
     height:100%;
     width:100%;
 }
-//welcome
 
+//factor
+@standard-brown:    #48321F;
+@standard-green:     #9EEE03;
+@standard-blue:       #42B2FF;
+@standard-red:        #FF208E;
+
+@honoka-min:    "Honoka-min";
+@yumincho: "Yumincho";
+@charlemagne: "Charlemagne";
+
+//common object
+.blank{
+    width:100%;
+    height:50px;
+}
+
+//welcome
 .welcome-container{
     position:relative;
     text-align:center;
@@ -37,5 +53,164 @@
     >#door-open{
         z-index:-1;
         opacity:0;
+    }
+}
+
+//index
+.navbar-cloud{
+    background-color:rgba(255,255,255,0.9);
+    height:55px;
+    min-height:55px;
+    ul{
+        margin:0 0;
+        >li{
+            text-align:center;
+            height:55px;
+            width:120px;
+            >a{               
+                width:100%;
+                height:100%;
+                padding:5px 0;
+                .backcolorSmooth(0.4s);
+                >span{
+                    margin:3px 0 2px 0;
+                    display:block;
+
+                    color:@standard-brown;
+                    text-align:center;
+                    font-family:@yumincho;
+                    font-weight:normal;
+                    font-size:15px;
+                    line-height:16px;
+                    .colorSmooth(0.5s);
+                }
+                >p{
+                    margin:3px 0;
+                    color:@standard-brown;
+                    text-align:center;
+                    font-family:@charlemagne;
+                    font-size:9px;
+                    line-height:10px;
+                    .colorSmooth(0.5s);
+                }
+                &:hover{
+                    >span,p{
+                     color:white;
+                    }
+                    background-color:@standard-brown;
+                }
+            }
+        }
+    }
+    .navbar-header{
+        height:100%;
+        .navbar-brand{            
+            height:55px;
+            width:55px;
+            text-align:center;
+            padding:0 0;
+
+            margin-right:1px;
+            iframe{
+                position:relative;
+                z-index:-1;
+                width:55px;
+                height:55px;
+                opacity:0.7;
+                .opacitySmooth(0.7s);
+
+            }
+            &:hover{
+                iframe{
+                opacity:1;
+                }
+            }
+        }
+        .navbar-toggle{
+            border-color:@standard-brown;
+            .icon-bar{
+                background-color:@standard-brown;
+            }
+        }
+    }
+}
+
+@media (max-width:768px)
+{
+    .navbar-cloud{
+        ul{
+            >li{
+                background-color:rgba(255,255,255,0.9);
+            }
+        }
+    }
+}
+
+//index flow tip
+.flow-tip{
+    display:inline-block;
+    position:absolute;
+    top:150px;
+    right:0;
+    .flow-tip-header{
+        width:200px;
+        height:30px;
+        background:@standard-blue;
+        .narrow{
+            float:left;
+            display:inline-block;
+            width:30px;
+            height:30px;
+            background-color:@standard-brown;
+        }
+        >span{
+            margin:5px 0 5px 10px;
+            float:left;
+            font-size:14px;
+            color:white;
+        }
+    }
+    .flow-tip-body{
+        position:relative;
+        width:200px;
+        height:139px;
+        background:url(/Content/img/index/off-dessert.jpg) no-repeat;
+        -moz-transform:rotateX(90deg);
+        transform-origin:50% 0;
+        transform:rotate(7deg);
+
+        
+        .detail-area{
+            position:relative;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.3);    
+            cursor:default;
+            .backcolorSmooth(0.5s);
+            &:hover{
+                background-color:rgba(0,0,0,0);    
+            }
+        >span{
+            position:absolute;
+            top:10px;
+            left:10px;
+            font-size:18px;
+            display:inline-block;
+            color:white;
+            opacity:0.9;
+
+        }
+        >p{
+            margin:0 0;
+            position:absolute;
+            bottom:10px;
+            right:10px;
+            font-size:16px;
+            display:inline-block;
+            color:white;
+            opacity:0.9;
+        }
+        }
+
     }
 }
