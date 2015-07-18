@@ -1,6 +1,5 @@
 ﻿html,body{
-    height:100%;
-    width:100%;
+
 }
 
 //factor
@@ -12,6 +11,8 @@
 @honoka-min:    "Honoka-min";
 @yumincho: "Yumincho";
 @charlemagne: "Charlemagne";
+@quicksand: "Quicksand";
+@gotham:"Gotham";
 
 //common object
 .blank{
@@ -145,72 +146,273 @@
         }
     }
 }
+//
+.interface-image{
+    position:relative;
+    overflow:hidden;
+}
 
 //index flow tip
-.flow-tip{
-    display:inline-block;
-    position:absolute;
-    top:150px;
-    right:0;
-    .flow-tip-header{
-        width:200px;
-        height:30px;
-        background:@standard-blue;
-        .narrow{
-            float:left;
-            display:inline-block;
-            width:30px;
-            height:30px;
-            background-color:@standard-brown;
-        }
-        >span{
-            margin:5px 0 5px 10px;
-            float:left;
-            font-size:14px;
-            color:white;
+.flow-tip {
+    display: inline-block;
+    position: absolute;
+    top: 150px;
+    right: -150px;
+    width: 200px;
+    height: 30px;
+    .transitionCommon(right,0.5s,ease,0.5s);
+
+    &:hover {
+        -moz-transition-delay: 0s;
+        -o-transition-delay: 0s;
+        -webkit-transition-delay: 0s;
+       
+         transition-delay: 0s;
+        right: 0;
+
+        .flow-tip-body {
+            -moz-transition-delay: 0.5s;
+            -o-transition-delay: 0.5s;
+            -webkit-transition-delay: 0.5s;
+            transition-delay: 0.5s;
+
+            
+            -moz-transform: rotateX(0deg);
+            -o-transform: rotateX(0deg);
+            -webkit-transform: rotateX(0deg);
+            -ms-transform: rotateX(0deg);
+            transform: rotateX(0deg);
         }
     }
-    .flow-tip-body{
-        position:relative;
-        width:200px;
-        height:139px;
-        background:url(/Content/img/index/off-dessert.jpg) no-repeat;
-        -moz-transform:rotateX(90deg);
-        transform-origin:50% 0;
-        transform:rotate(7deg);
+
+    .flow-tip-header {
+        width: 200px;
+        height: 30px;
+        background: @standard-blue;
+
+        .narrow {
+            float: left;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: @standard-brown;
+        }
+
+        > span {
+            margin: 5px 0 5px 10px;
+            float: left;
+            font-size: 14px;
+            color: white;
+        }
+
+        &:hover {
+        }
+
+        &:hover + div, & + div:hover {
+        }
+    }
+
+    .flow-tip-body {
+        width: 200px;
+        height: 139px;
+        background: url(/Content/img/index/off-dessert.jpg) no-repeat;
+        //.transformSmooth(0.5s);
+        .transitionCommon(transform,0.5s,ease,0s);
 
         
-        .detail-area{
-            position:relative;
-            width:100%;
-            height:100%;
-            background-color:rgba(0,0,0,0.3);    
-            cursor:default;
+        -moz-transform: rotateX(90deg) perspective(1000px);
+        -o-transform: rotateX(90deg) perspective(1000px);
+        -webkit-transform: rotateX(90deg) perspective(1000px);
+        -ms-transform: rotateX(90deg) perspective(1000px);
+        transform: rotateX(90deg) perspective(1000px);
+
+        
+        -moz-transform-origin: 50% 0 0;
+        -o-transform-origin: 50% 0 0;
+        -webkit-transform-origin: 50% 0 0;
+        -ms-transform-origin: 50% 0 0;
+        transform-origin: 50% 0 0;
+
+        &.afterRotate {        
+            -moz-transform: rotateX(0deg);
+            -o-transform: rotateX(0deg);
+            -webkit-transform: rotateX(0deg);
+            -ms-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+        }
+
+        .detail-area {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            cursor: default;
             .backcolorSmooth(0.5s);
-            &:hover{
-                background-color:rgba(0,0,0,0);    
+
+            &:hover {
+                background-color: rgba(0,0,0,0);
             }
+
+            > span {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 20px;
+                display: inline-block;
+                color: white;
+            }
+
+            > p {
+                margin: 0 0;
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                font-size: 16px;
+                display: inline-block;
+                color: white;
+            }
+        }
+    }
+}
+
+//index section
+.question{
+    width:100%;
+    padding:70px 0;
+    text-align:center;
+    span{
+        font-family:@quicksand;
+        font-weight:100;
+        font-size:30px;
+        display:block;
+    }
+}
+
+.variable-time{
+    position:relative;
+    width:100%;
+    height:300px;
+    background-color:@standard-brown;
+    .section-left-part{
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    .section-right-part{
+        position:absolute;
+        top:0;
+        right:0;
+    }
+    .section-center-part{
+        position:absolute;
+        margin-top:-125px;
+        margin-left:-125px;
+        top:50%;
+        left:50%;
+    }
+    .center-bottom-text{
+        position:absolute;
+        bottom:20px;
+        margin-left:-125px;
+        left:50%;
+
+        font-family:@quicksand;
+        font-weight:100;
+        color:white;
+        font-size:23px;
+
+        text-align:center;
+    }
+}
+
+.operator{
+    width:100%;
+    text-align:center;
+    span{
+        display:block;
+        margin:auto auto;
+        font-family:@quicksand;
+        font-weight:100;
+        color:black;
+        font-size:28px;
+        padding:0 0;
+    }
+}
+
+.variable-block{
+    overflow:hidden;
+    width:100%;
+    height:300px;
+    .single-block{
+        position:relative;
+        display:inline-block;
+        background:@standard-brown;
+        margin:2px;
+        float:left;
+
+        .backcolorSmooth(0.5s);
+        >i{
+            position:absolute;
+            margin-left:-10px;
+            left:50%;
+            margin-top:-10px;
+            top:50%;
+
+            text-align:center;
+            display:inline-block;
+            width:20px;
+            height:20px;
+            font-size:20px;
+
+            color:white;
+
+            .colorSmooth(0.5s);
+        }
         >span{
+           color:white;
+           font-family:@quicksand;
+
+           padding:10px;
+
+           .colorSmooth(0.5s);
+        }
+        >.block-name{
             position:absolute;
-            top:10px;
-            left:10px;
+            left:0;
+            bottom:0;
+
+            font-weight:200;
             font-size:18px;
-            display:inline-block;
-            color:white;
-            opacity:0.9;
-
         }
-        >p{
-            margin:0 0;
+        >.block-percentage{
             position:absolute;
-            bottom:10px;
-            right:10px;
-            font-size:16px;
-            display:inline-block;
-            color:white;
-            opacity:0.9;
-        }
-        }
+            right:0;
+            top:0;
 
+            font-weight:100;
+            font-size:40px;
+        }
+        &:hover{
+            >span{
+               // color:@standard-brown;
+            }
+            >i{
+               // color:@standard-brown;
+            }
+        }
+        &{
+            &#coffee-block:hover{
+                background-color:#544292;
+            }
+            &#dessert-block:hover{
+                background-color:#106fb0;
+            }
+            &#music-block:hover{
+                background-color:#8f114f;
+            }
+            &#drink-block:hover{
+                background-color:#7c9a43;
+            }
+        }
     }
 }

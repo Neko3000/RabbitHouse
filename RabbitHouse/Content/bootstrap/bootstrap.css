@@ -30,6 +30,36 @@
   font-family: "Charlemagne";
   src: url('/Content/fonts/CharlemagneStd-Bold.otf') format('truetype');
 }
+@font-face {
+  font-family: "Quicksand";
+  src: url('/Content/fonts/Quicksand-Light.ttf') format('truetype');
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url('/Content/fonts/Quicksand-Regular.ttf') format('truetype');
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url('/Content/fonts/Quicksand-Bold.ttf') format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url('/Content/fonts/GothamRnd-Light.otf') format('truetype');
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url('/Content/fonts/GothamRnd-Book.otf') format('truetype');
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url('/Content/fonts/GothamRnd-Bold.otf') format('truetype');
+  font-weight: 300;
+}
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -6791,11 +6821,6 @@ button.close {
     display: none !important;
   }
 }
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
 .blank {
   width: 100%;
   height: 50px;
@@ -6943,11 +6968,39 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
   }
 }
+.interface-image {
+  position: relative;
+  overflow: hidden;
+}
 .flow-tip {
   display: inline-block;
   position: absolute;
   top: 150px;
+  right: -150px;
+  width: 200px;
+  height: 30px;
+  transition: right 0.5s ease 0.5s;
+  -moz-transition: right 0.5s ease 0.5s;
+  -o-transition: right 0.5s ease 0.5s;
+  -webkit-transition: right 0.5s ease 0.5s;
+}
+.flow-tip:hover {
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
   right: 0;
+}
+.flow-tip:hover .flow-tip-body {
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+  -moz-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
 }
 .flow-tip .flow-tip-header {
   width: 200px;
@@ -6968,13 +7021,30 @@ body {
   color: white;
 }
 .flow-tip .flow-tip-body {
-  position: relative;
   width: 200px;
   height: 139px;
   background: url(/Content/img/index/off-dessert.jpg) no-repeat;
-  -moz-transform: rotateX(90deg);
-  transform-origin: 50% 0;
-  transform: rotate(7deg);
+  transition: transform 0.5s ease 0s;
+  -moz-transition: transform 0.5s ease 0s;
+  -o-transition: transform 0.5s ease 0s;
+  -webkit-transition: transform 0.5s ease 0s;
+  -moz-transform: rotateX(90deg) perspective(1000px);
+  -o-transform: rotateX(90deg) perspective(1000px);
+  -webkit-transform: rotateX(90deg) perspective(1000px);
+  -ms-transform: rotateX(90deg) perspective(1000px);
+  transform: rotateX(90deg) perspective(1000px);
+  -moz-transform-origin: 50% 0 0;
+  -o-transform-origin: 50% 0 0;
+  -webkit-transform-origin: 50% 0 0;
+  -ms-transform-origin: 50% 0 0;
+  transform-origin: 50% 0 0;
+}
+.flow-tip .flow-tip-body.afterRotate {
+  -moz-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
 }
 .flow-tip .flow-tip-body .detail-area {
   position: relative;
@@ -6994,10 +7064,9 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 18px;
+  font-size: 20px;
   display: inline-block;
   color: white;
-  opacity: 0.9;
 }
 .flow-tip .flow-tip-body .detail-area > p {
   margin: 0 0;
@@ -7007,6 +7076,131 @@ body {
   font-size: 16px;
   display: inline-block;
   color: white;
-  opacity: 0.9;
+}
+.question {
+  width: 100%;
+  padding: 70px 0;
+  text-align: center;
+}
+.question span {
+  font-family: "Quicksand";
+  font-weight: 100;
+  font-size: 30px;
+  display: block;
+}
+.variable-time {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #48321f;
+}
+.variable-time .section-left-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.variable-time .section-right-part {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.variable-time .section-center-part {
+  position: absolute;
+  margin-top: -125px;
+  margin-left: -125px;
+  top: 50%;
+  left: 50%;
+}
+.variable-time .center-bottom-text {
+  position: absolute;
+  bottom: 20px;
+  margin-left: -125px;
+  left: 50%;
+  font-family: "Quicksand";
+  font-weight: 100;
+  color: white;
+  font-size: 23px;
+  text-align: center;
+}
+.operator {
+  width: 100%;
+  text-align: center;
+}
+.operator span {
+  display: block;
+  margin: auto auto;
+  font-family: "Quicksand";
+  font-weight: 100;
+  color: black;
+  font-size: 28px;
+  padding: 0 0;
+}
+.variable-block {
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+}
+.variable-block .single-block {
+  position: relative;
+  display: inline-block;
+  background: #48321f;
+  margin: 2px;
+  float: left;
+  transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -webkit-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+}
+.variable-block .single-block > i {
+  position: absolute;
+  margin-left: -10px;
+  left: 50%;
+  margin-top: -10px;
+  top: 50%;
+  text-align: center;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  color: white;
+  transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -webkit-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+}
+.variable-block .single-block > span {
+  color: white;
+  font-family: "Quicksand";
+  padding: 10px;
+  transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -webkit-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+}
+.variable-block .single-block > .block-name {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-weight: 200;
+  font-size: 18px;
+}
+.variable-block .single-block > .block-percentage {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 100;
+  font-size: 40px;
+}
+.variable-block .single-block#coffee-block:hover {
+  background-color: #544292;
+}
+.variable-block .single-block#dessert-block:hover {
+  background-color: #106fb0;
+}
+.variable-block .single-block#music-block:hover {
+  background-color: #8f114f;
+}
+.variable-block .single-block#drink-block:hover {
+  background-color: #7c9a43;
 }
 /*# sourceMappingURL=bootstrap.css.map */

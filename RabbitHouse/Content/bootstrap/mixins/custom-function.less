@@ -18,7 +18,21 @@
 }
 .backcolorSmooth(@time){
     transition:background-color @time ease;
-    -moz-transition: background-color@time ease;
-    -webkit-transition: background-color@time ease;
+    -moz-transition: background-color @time ease;
+    -webkit-transition: background-color @time ease;
     -o-transition: background-color @time ease;
 }
+.transformSmooth(@time){
+    transition:transform @time ease;
+    -moz-transition: transform @time ease;
+    -webkit-transition: transform @time ease;
+    -o-transition: transform @time ease;
+}
+
+.transitionCommon(@property,@duration,@curves,@delay) {
+    transition: @property @duration @curves @delay;
+    -moz-transition: @property @duration @curves @delay;
+    -o-transition: @property @duration @curves @delay;
+    -webkit-transition: @property @duration @curves @delay;
+}
+

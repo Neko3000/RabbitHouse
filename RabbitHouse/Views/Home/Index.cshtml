@@ -8,41 +8,63 @@
     <img  class="img-responsive" src="~/Content/img/index/index-main.jpg" />
 
     <div class="flow-tip">
+
         <div class="flow-tip-header">
             <div class="narrow"></div>
             <span>今週特価~off weekly~</span>
         </div>
+
         <div class="flow-tip-body">
             <div class="detail-area">
                 <span>Latte</span>
-                <p>price:<del>$2 </del>1.2$</p>
+                <p>price:<del>2$ </del>1.2$</p>
             </div>
         </div>
+
     </div>
 </div>
 
+<section class="question">
+    <span>what is rabbit house?</span>
+</section>
 
+<section class="variable-time">
+    <img class="section-left-part" src="~/Content/img/index/textwall-left.png"/>
+    <img class="section-right-part" src="~/Content/img/index/textwall-right.png" />
+    <img class="section-center-part" src="~/Content/img/index/clock.png" />
+    <span class="center-bottom-text">24-Hours Roasting Purely </span>
+</section>
 
-<div class="container body-content">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
+<section class="operator">
+    <span>+</span>
+    <span>(Add.)</span>
+</section>
+
+<section class="variable-block">
+    <div class="single-block" id="coffee-block">
+        <i class="fa fa-coffee"></i>
+        <span class="block-name">coffee</span>
+        <span class="block-percentage">40%</span>
     </div>
-</div>
+    <div class="single-block" id="dessert-block">
+        <i class="fa fa-cutlery"></i>
+        <span class="block-name">dessert</span>
+        <span class="block-percentage">30%</span>
+    </div>
+    <div class="single-block" id="music-block">
+        <i class="fa fa-music"></i>
+        <span class="block-name">classic music</span>
+        <span class="block-percentage">10%</span>
+    </div>
+    <div class="single-block" id="drink-block">
+        <i class="fa fa-beer"></i>
+        <span class="block-name">drink</span>
+        <span class="block-percentage">20%</span>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        $('.variable-block').variableBlock();
+    </script>
+}

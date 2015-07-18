@@ -23,6 +23,12 @@ namespace RabbitHouse
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/sitebehavior").Include(
+                      "~/Scripts/site-behavior.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryUI").Include(
+                      "~/Scripts/jquery-ui-1.11.4.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
                       "~/Content/css/font-awesome.min.css"));
 
