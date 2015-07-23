@@ -195,12 +195,15 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\index\index-cover.jpg" />
     <Content Include="Content\img\index\clock.png" />
+    <Content Include="Content\img\index\coffee-scoop.jpg" />
     <Content Include="Content\img\index\index-main.jpg" />
     <Content Include="Content\img\index\off-dessert.jpg" />
     <Content Include="Content\img\index\textwall-left.png" />
     <Content Include="Content\img\index\textwall-right.png" />
     <Content Include="Content\img\index\white-rize.png" />
+    <Content Include="Content\img\index\logo.png" />
     <Content Include="Content\img\welcome\door-closed.png" />
     <Content Include="Content\img\welcome\door-open.png" />
     <Content Include="Content\img\welcome\welcome-text.png" />
