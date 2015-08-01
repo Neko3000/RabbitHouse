@@ -1,6 +1,13 @@
 ﻿html,body{
 
 }
+ul{
+    padding:0 0;
+    li{
+    list-style:none;
+    }
+}
+
 a:focus{
     outline:none;
 }
@@ -148,6 +155,70 @@ a:focus{
         }
     }
 }
+
+//footer
+.main-footer{
+    background-color:lighten(@standard-brown,5%);
+    padding:30px 0;
+    .top-content{
+        position:relative;
+        border-bottom:rgba(255,255,255,0.7) solid 1px;
+        .block-top-text{
+            margin-bottom:25px;
+            font-family:@quicksand;
+            font-weight:100;
+            font-size:25px;
+            color:white;
+        }
+        .stand-part{
+            display:inline-block;
+            color:white;
+            font-size:15px;
+            margin-right:120px;
+            float:left;
+            span{
+                display:block;
+                margin-bottom:10px;
+            }
+            ul{
+                margin:10px 0 30px 0;
+                >li{
+                    opacity:0.7;
+                    .opacitySmooth(0.5s);
+                    >a{
+                       color:white;
+                       font-size:13px;
+                       text-decoration:none;
+                        &:hover{
+                            
+                        }
+                    }
+                    &:hover{
+                        opacity:1;
+                    }
+                }
+            }
+        }
+        .social-buttons{
+            position:absolute;
+            bottom:10px;
+            right:10px;
+            display:inline-block;
+        }
+    } 
+    .bottom-content{
+        span{
+            margin-top:5px;
+            font-family:'Microsoft YaHei';
+            font-weight:200;
+            color:white;
+            font-size:13px;
+            display:block;
+            text-align:right;
+        }
+    }
+}
+
 //
 .interface-image{
     position:relative;
@@ -507,5 +578,15 @@ a:focus{
     img{
         position:absolute;
         left:50%;
+    }
+}
+
+.result{
+    position:relative;
+    .sign{
+        position:absolute;
+        right:30px;
+        bottom:30px;
+        opacity:0.85;
     }
 }

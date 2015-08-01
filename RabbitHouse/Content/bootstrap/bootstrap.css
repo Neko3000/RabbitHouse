@@ -6915,6 +6915,12 @@ button.close {
     display: none !important;
   }
 }
+ul {
+  padding: 0 0;
+}
+ul li {
+  list-style: none;
+}
 a:focus {
   outline: none;
 }
@@ -7056,6 +7062,65 @@ a:focus {
   .navbar-cloud ul > li {
     background-color: rgba(255, 255, 255, 0.9);
   }
+}
+.main-footer {
+  background-color: #5a3e27;
+  padding: 30px 0;
+}
+.main-footer .top-content {
+  position: relative;
+  border-bottom: rgba(255, 255, 255, 0.7) solid 1px;
+}
+.main-footer .top-content .block-top-text {
+  margin-bottom: 25px;
+  font-family: "Quicksand";
+  font-weight: 100;
+  font-size: 25px;
+  color: white;
+}
+.main-footer .top-content .stand-part {
+  display: inline-block;
+  color: white;
+  font-size: 15px;
+  margin-right: 120px;
+  float: left;
+}
+.main-footer .top-content .stand-part span {
+  display: block;
+  margin-bottom: 10px;
+}
+.main-footer .top-content .stand-part ul {
+  margin: 10px 0 30px 0;
+}
+.main-footer .top-content .stand-part ul > li {
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+}
+.main-footer .top-content .stand-part ul > li > a {
+  color: white;
+  font-size: 13px;
+  text-decoration: none;
+}
+.main-footer .top-content .stand-part ul > li:hover {
+  opacity: 1;
+}
+.main-footer .top-content .social-buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: inline-block;
+}
+.main-footer .bottom-content span {
+  margin-top: 5px;
+  font-family: 'Microsoft YaHei';
+  font-weight: 200;
+  color: white;
+  font-size: 13px;
+  display: block;
+  text-align: right;
 }
 .interface-image {
   position: relative;
@@ -7372,4 +7437,13 @@ a:focus {
 .variable-service img {
   position: absolute;
   left: 50%;
+}
+.result {
+  position: relative;
+}
+.result .sign {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0.85;
 }

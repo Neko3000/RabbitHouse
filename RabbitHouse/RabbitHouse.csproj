@@ -196,6 +196,7 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\index\coffee-inside.jpg" />
     <Content Include="Content\img\index\index-cover.jpg" />
     <Content Include="Content\img\index\clock.png" />
     <Content Include="Content\img\index\coffee-scoop.jpg" />
@@ -203,6 +204,7 @@
     <Content Include="Content\img\index\off-dessert.jpg" />
     <Content Include="Content\img\index\textwall-left.png" />
     <Content Include="Content\img\index\textwall-right.png" />
+    <Content Include="Content\img\index\title-logo-rRect.png" />
     <Content Include="Content\img\index\white-rize.png" />
     <Content Include="Content\img\index\logo.png" />
     <Content Include="Content\img\welcome\door-closed.png" />
@@ -350,6 +352,7 @@
     <Content Include="Content\fonts\GothamRnd-Book.otf" />
     <Content Include="Content\fonts\GothamRnd-Light.otf" />
     <None Include="compilerconfig.json" />
+    <None Include="Properties\PublishProfiles\RabbitHouse.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
