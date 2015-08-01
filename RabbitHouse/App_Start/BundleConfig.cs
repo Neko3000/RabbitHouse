@@ -29,11 +29,13 @@ namespace RabbitHouse
             bundles.Add(new ScriptBundle("~/bundles/jqueryUI").Include(
                       "~/Scripts/jquery-ui-1.11.4.min.js"));
 
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                      "~/Content/bootstrap/bootstrap.min.css"));
+
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
                       "~/Content/css/font-awesome.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap/bootstrap.css"));
+            
         }
     }
 }
