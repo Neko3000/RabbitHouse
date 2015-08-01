@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -323,9 +324,6 @@
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\bootstrap\custom.less" />
-    <Content Include="Content\bootstrap\bootstrap.css.map">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap\fonts.less" />
     <Content Include="Content\fonts\Lora-Regular.ttf" />
     <Content Include="Content\bootstrap\custom.css.map">
@@ -351,6 +349,7 @@
     <Content Include="Content\fonts\GothamRnd-Bold.otf" />
     <Content Include="Content\fonts\GothamRnd-Book.otf" />
     <Content Include="Content\fonts\GothamRnd-Light.otf" />
+    <None Include="compilerconfig.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
