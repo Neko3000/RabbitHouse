@@ -6942,7 +6942,7 @@ a:focus {
   background-position: right;
 }
 .navbar-cloud ul > li:nth-child(5) {
-  background-image: url(/Content/img/index/nav/onlineorder.png);
+  background-image: url(/Content/img/index/nav/employee.png);
   background-repeat: no-repeat;
   background-position: left;
 }
@@ -6950,11 +6950,19 @@ a:focus {
   background-position: right;
 }
 .navbar-cloud ul > li:nth-child(6) {
-  background-image: url(/Content/img/index/nav/about.png);
+  background-image: url(/Content/img/index/nav/onlineorder.png);
   background-repeat: no-repeat;
   background-position: left;
 }
 .navbar-cloud ul > li:nth-child(6):hover {
+  background-position: right;
+}
+.navbar-cloud ul > li:nth-child(7) {
+  background-image: url(/Content/img/index/nav/about.png);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.navbar-cloud ul > li:nth-child(7):hover {
   background-position: right;
 }
 .navbar-cloud .navbar-header {
