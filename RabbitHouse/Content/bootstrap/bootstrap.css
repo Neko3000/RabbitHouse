@@ -6904,43 +6904,58 @@ a:focus {
   width: 100%;
   height: 100%;
   padding: 5px 0;
-  transition: background-color 0.4s ease;
-  -moz-transition: background-color 0.4s ease;
-  -webkit-transition: background-color 0.4s ease;
-  -o-transition: background-color 0.4s ease;
-}
-.navbar-cloud ul > li > a > span {
-  margin: 3px 0 2px 0;
-  display: block;
-  color: #48321f;
-  text-align: center;
-  font-family: "Yumincho";
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 16px;
-  transition: color 0.5s ease;
-  -moz-transition: color 0.5s ease;
-  -webkit-transition: color 0.5s ease;
-  -o-transition: color 0.5s ease;
-}
-.navbar-cloud ul > li > a > p {
-  margin: 3px 0;
-  color: #48321f;
-  text-align: center;
-  font-family: "Charlemagne";
-  font-size: 9px;
-  line-height: 10px;
-  transition: color 0.5s ease;
-  -moz-transition: color 0.5s ease;
-  -webkit-transition: color 0.5s ease;
-  -o-transition: color 0.5s ease;
+  background: none;
 }
 .navbar-cloud ul > li > a:hover {
-  background-color: #48321f;
+  background: none;
 }
-.navbar-cloud ul > li > a:hover > span,
-.navbar-cloud ul > li > a:hover p {
-  color: white;
+.navbar-cloud ul > li:nth-child(1) {
+  background-image: url(/Content/img/index/nav/intros.png);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.navbar-cloud ul > li:nth-child(1):hover {
+  background-position: right;
+}
+.navbar-cloud ul > li:nth-child(2) {
+  background-image: url(/Content/img/index/nav/priceoff.png);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.navbar-cloud ul > li:nth-child(2):hover {
+  background-position: right;
+}
+.navbar-cloud ul > li:nth-child(3) {
+  background-image: url(/Content/img/index/nav/news.png);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.navbar-cloud ul > li:nth-child(3):hover {
+  background-position: right;
+}
+.navbar-cloud ul > li:nth-child(4) {
+  background-image: url(/Content/img/index/nav/goodinfos.png);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.navbar-cloud ul > li:nth-child(4):hover {
+  background-position: right;
+}
+.navbar-cloud ul > li:nth-child(5) {
+  background-image: url(/Content/img/index/nav/onlineorder.png);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.navbar-cloud ul > li:nth-child(5):hover {
+  background-position: right;
+}
+.navbar-cloud ul > li:nth-child(6) {
+  background-image: url(/Content/img/index/nav/about.png);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.navbar-cloud ul > li:nth-child(6):hover {
+  background-position: right;
 }
 .navbar-cloud .navbar-header {
   height: 100%;

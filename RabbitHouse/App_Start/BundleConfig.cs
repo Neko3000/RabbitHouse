@@ -30,7 +30,7 @@ namespace RabbitHouse
                       "~/Scripts/jquery-ui-1.11.4.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrapRedefined").Include(
-                      "~/Content/bootstrap/bootstrap.min.css",new CssRewriteUrlTransform()));
+                      "~/Content/bootstrap/bootstrap.min.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
                       "~/Content/css/font-awesome.min.css", new CssRewriteUrlTransform()));

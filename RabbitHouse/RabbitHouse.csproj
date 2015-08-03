@@ -201,6 +201,13 @@
     <Content Include="Content\img\index\clock.png" />
     <Content Include="Content\img\index\coffee-scoop.jpg" />
     <Content Include="Content\img\index\index-main.jpg" />
+    <Content Include="Content\img\index\nav\about.png" />
+    <Content Include="Content\img\index\nav\employee.png" />
+    <Content Include="Content\img\index\nav\goodinfos.png" />
+    <Content Include="Content\img\index\nav\intros.png" />
+    <Content Include="Content\img\index\nav\news.png" />
+    <Content Include="Content\img\index\nav\onlineorder.png" />
+    <Content Include="Content\img\index\nav\priceoff.png" />
     <Content Include="Content\img\index\off-dessert.jpg" />
     <Content Include="Content\img\index\textwall-left.png" />
     <Content Include="Content\img\index\textwall-right.png" />
@@ -368,7 +375,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\site-behavior.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
