@@ -4,9 +4,10 @@
     "inputFile": "Content/bootstrap/bootstrap.less",
     "minify": {
       "enabled": true
-    },
-    "includeInProject": true,
-    "sourceMap": false,
-    "options": {}
+    }
+  },
+  {
+    "outputFile": "Content/SiteStyle.css",
+    "inputFile": "Content/SiteStyle.less"
   }
 ]

@@ -6,59 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
 
-    @Styles.Render("~/Content/bootstrapRedefined")
+    @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/fontawesome")
+    @Styles.Render("~/Content/style")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-cloud navbar-fixed-top">
+   <div class="main-nav visible-lg visible-md">
+       <div class="top-area">
+           <div class="brand-text">RabbitHouse.</div>
+       </div>
 
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+       <div class="middle-area">
+           <div class="main-brand">
+               <div class="circle">
+                   <div class="round">
+                       <img src="~/Content/svg/cafe-rabbit.svg" />
+                   </div>
+               </div>
+           </div>
+           <div class="main-brand-info">
+               <p>Anytime,Anywhere,<br />We Are Only Focusing Classic Coffee.</p>
+           </div>
+       </div>
 
-                <a class="navbar-brand" href="@Url.Action("Index","Home")">
-                        <iframe frameborder="0" src="~/Content/svg/rabbit-brand.svg"></iframe>
-                </a>
+       <div class="bottom-area">
+           <div class="link-list">
+               <ul>
+                   <li>
+                       <a href="@Url.Action("Index","Home")"></a>
+                   </li>
+                   <li>
+                       <a href="@Url.Action("Index","Home")"></a>
+                   </li>
+                   <li>
+                       <a href="@Url.Action("Index","Home")"></a>
+                   </li>
+                   <li>
+                       <a href="@Url.Action("Index","Home")"></a>
+                   </li>
+               </ul>
+               <div class="bottom-white-line"></div>
+           </div>
+       </div>
+   </div>
 
-            </div>
+    <div class="navbar navbar-cloud navbar-fixed-top visible-sm visible-xs">
 
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="@Url.Action("Index","Home")">                                             
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Home")">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Home")">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Home")">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Home")">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Home")">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Home")">
-                        </a>
-                    </li>
-                </ul>
-            </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                <img src="~/Content/svg/rabbit-brand.svg" />
+            </a>
+        </div>
+
+        <div class="navbar-collapse collapse navbar-ul-container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                    </a>
+                </li>
+            </ul>
+        </div>
 
     </div>
     
@@ -66,59 +105,88 @@
 
     <footer class="main-footer">
         <div class="container top-content">
-            <div class="block-top-text">RabbitHouse.Application.For learning and thinking</div>
-            <div class="stand-part">
-                <span>外部サイト</span>
-                <ul>
-                    <li>
-                        <a href="http://www.gochiusa.com">公式サイト</a>
-                    </li>
-                    <li>
-                        <a href="https://ja.wikipedia.org/wiki/%E3%81%94%E6%B3%A8%E6%96%87%E3%81%AF%E3%81%86%E3%81%95%E3%81%8E%E3%81%A7%E3%81%99%E3%81%8B%3F">wikipedia</a>
-                    </li>
-                    <li>
-                        <a href="http://www.coffeereview.com/coffee-reference/coffee-basics/introduction/">coffee basics</a>
-                    </li>
-                    <li>
-                        <a href="http://papers.co/tag/daily-best/">wallpaper</a>
-                    </li>
-                    <li>
-                        <a href="http://www.live365.com/index.live">classic music</a>
-                    </li>
-                </ul>
+            <div class="row top-sentence">
+                <div class="col-lg-12">RabbitHouse.Application.For learning and thinking.</div>
             </div>
-            <div class="stand-part">
-                <span>技術支援</span>
-                <ul>
-                    <li>
-                        <a href="https://www.visualstudio.com/">visual studio</a>
-                    </li>
-                    <li>
-                        <a href="http://asp.net/">ASP.NET</a>
-                    </li>
-                    <li>
-                        <a href="https://azure.microsoft.com">azure</a>
-                    </li>
-                    <li>
-                        <a href="http://jquery.com/">jQuery</a>
-                    </li>
-                    <li>
-                        <a href="http://getbootstrap.com/">bootstrap.com</a>
-                    </li>
-                    <li>
-                        <a href="http://fontawesome.io/">fontawesome</a>
-                    </li>
-                </ul>
+            <div class="row link-group">
+                <div class="link-block col-sm-2 col-xs-12">
+                    <span>外部站点</span>
+                    <ul>
+                        <li>
+                            <a href="http://www.gochiusa.com">官方站点</a>
+                        </li>
+                        <li>
+                            <a href="https://ja.wikipedia.org/wiki/%E3%81%94%E6%B3%A8%E6%96%87%E3%81%AF%E3%81%86%E3%81%95%E3%81%8E%E3%81%A7%E3%81%99%E3%81%8B%3F">Wikipedia</a>
+                        </li>
+                        <li>
+                            <a href="http://www.coffeereview.com/coffee-reference/coffee-basics/introduction/">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="http://papers.co/tag/daily-best/">Wallpaper</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="link-block col-sm-2 col-xs-12">
+                    <span>技术支援</span>
+                    <ul>
+                        <li>
+                            <a href="https://azure.microsoft.com">Azure</a>
+                        </li>
+                        <li>
+                            <a href="">设计中心</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="link-block col-sm-2 col-xs-12">
+                    <span>联系我们</span>
+                    <ul>
+                        <li>
+                            <a href="">BLOG</a>
+                        </li>
+                        <li>
+                            <a href="">电子邮件</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="social-buttons bottom-right">
-                <div class="fb-like"></div>
-                <div><a href="https://twitter.com/share" class="twitter-share-button" data-via="SNeko3000">Tweet</a></div>
-            </div>       
+            <div class="row social-button-group">
+                <div class="col-xs-12">
+                    <div class="pull-right">
+                        <a href="">
+                            <img class="social-button" src="~/Content/img/shared/social-button/facebook.png" />
+                        </a>
+                        <a href="">
+                            <img class="social-button" src="~/Content/img/shared/social-button/twitter.png" />
+                        </a>
+                        <a href="">
+                            <img class="social-button" src="~/Content/img/shared/social-button/google-plus.png" />
+                        </a>
+                        <a href="">
+                            <img class="social-button" src="~/Content/img/shared/social-button/weibo.png" />
+                        </a>
+                        <a href="">
+                            <img class="social-button" src="~/Content/img/shared/social-button/wechat.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row language-select-group">
+                <div class="col-xs-12">
+                    <div class="pull-right">
+                        <select id="language-selector">
+                            <option>简体中文</option>
+                            <option>繁体中文</option>
+                            <option>日文</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container bottom-content">
-            <span>and always waiting</span>
+            <span>and always be waiting</span>
         </div>
     </footer>
+
 
     
     @Scripts.Render("~/bundles/jquery")
@@ -129,17 +197,9 @@
 
     @RenderSection("scripts", required: false)
 
-    <div id="fb-root"></div>
     
     <script>
-            (function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = "//connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v2.4";
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');
+       
     </script>
 </body>
 </html>

@@ -3,7 +3,6 @@
     $.fn.variableBlock = function () {
         var $this = $(this);
 
-        
         update = function () {
             var fullWidth = parseInt($this.css('width').replace('px',' '));
             var fullHeight = parseInt($this.css('height').replace('px', ' '));
@@ -35,7 +34,6 @@
         $(function () {
             update();
         });
-
 
     }
 })(jQuery);
