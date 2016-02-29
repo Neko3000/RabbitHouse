@@ -16,6 +16,10 @@ namespace RabbitHouse.Controllers
         {
             return View();
         }
+        public ActionResult Intros()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {

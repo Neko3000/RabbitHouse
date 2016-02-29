@@ -200,6 +200,10 @@
     <Content Include="Content\img\index\title-logo-rRect.png" />
     <Content Include="Content\img\index\white-rize.png" />
     <Content Include="Content\img\index\logo.png" />
+    <Content Include="Content\img\intros\094.jpg" />
+    <Content Include="Content\img\intros\coffee-beans-grinde.jpg" />
+    <Content Include="Content\img\intros\logo-injection.jpg" />
+    <Content Include="Content\img\intros\town10.jpg" />
     <Content Include="Content\img\shared\social-button\facebook.png" />
     <Content Include="Content\img\shared\social-button\google-plus.png" />
     <Content Include="Content\img\shared\social-button\twitter.png" />
@@ -346,6 +350,7 @@
     <Content Include="Views\Shared\_LayoutForHead.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Content\hidden\Index-org.cshtml" />
+    <Content Include="Views\Home\Intros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
