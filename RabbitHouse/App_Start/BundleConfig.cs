@@ -38,7 +38,7 @@ namespace RabbitHouse
 
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
-                      "~/Content/bootstrap.min.css"));
+                      "~/Content/bootstrap.min.css", new CssRewriteUrlTransform()));
 
         }
     }
