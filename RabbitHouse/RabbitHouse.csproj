@@ -162,6 +162,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +205,8 @@
     <Content Include="Content\img\intros\coffee-beans-grinde.jpg" />
     <Content Include="Content\img\intros\logo-injection.jpg" />
     <Content Include="Content\img\intros\town10.jpg" />
+    <Content Include="Content\img\news\news-img\news1.jpg" />
+    <Content Include="Content\img\news\wallhaven-180537.jpg" />
     <Content Include="Content\img\shared\social-button\facebook.png" />
     <Content Include="Content\img\shared\social-button\google-plus.png" />
     <Content Include="Content\img\shared\social-button\twitter.png" />
@@ -351,6 +354,7 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Content\hidden\Index-org.cshtml" />
     <Content Include="Views\Home\Intros.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

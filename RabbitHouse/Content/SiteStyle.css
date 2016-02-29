@@ -390,7 +390,7 @@ ul li {
   background-color: black;
   opacity: 0.6;
 }
-.glass-board > p {
+.glass-board > p.center-text {
   display: inline-block;
   position: absolute;
   width: 500px;
@@ -406,12 +406,30 @@ ul li {
   opacity: 0.85;
 }
 @media (max-width: 767px) {
-  .glass-board > p {
+  .glass-board > p.center-text {
     font-size: 20px;
     width: 200px;
     margin-left: -100px;
     left: 50%;
   }
+}
+.glass-board .left-bottom-text-block {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  z-index: 3;
+}
+.glass-board .left-bottom-text-block .left-bottom-text {
+  margin-bottom: 0;
+  font-family: 'Microsoft YaHei';
+  font-weight: 200;
+  font-size: 30px;
+  color: white;
+  opacity: 0.85;
+  text-align: left;
+}
+.glass-board .left-bottom-text-block .left-bottom-text-smaller {
+  font-size: 25px;
 }
 .glass-board > img {
   position: absolute;
@@ -549,4 +567,155 @@ ul li {
 }
 .position-middle-container .position-middle-object {
   margin: 0 auto;
+}
+.news-list-block {
+  padding: 30px 0;
+  background-color: #dbe8ec;
+}
+.news-list-block .single-news {
+  position: relative;
+  margin: 20px auto;
+  width: 260px;
+  height: 325px;
+  background-color: #5a3e27;
+  border: solid #5a3e27 1px;
+  overflow: hidden;
+}
+.news-list-block .single-news > img {
+  height: 214px;
+}
+.news-list-block .single-news > .text-area {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 110px;
+  background-color: #5a3e27;
+}
+.news-list-block .single-news > .text-area h2 {
+  position: absolute;
+  padding: 0 0;
+  margin: 0 0;
+  left: 4px;
+  top: 8px;
+  font-family: 'Microsoft YaHei';
+  font-weight: 200;
+  font-size: 15px;
+  color: white;
+}
+.news-list-block .single-news > .text-area h2 > a {
+  color: white;
+}
+.news-list-block .single-news > .text-area h2 > a:hover {
+  color: white;
+}
+.news-list-block .single-news > .text-area p {
+  position: absolute;
+  padding: 0 0;
+  margin: 0 0;
+  left: 4px;
+  top: 33px;
+  font-family: 'Microsoft YaHei';
+  font-weight: 200;
+  font-size: 12px;
+  color: white;
+}
+.news-list-block .single-news > .text-area span {
+  position: absolute;
+  padding: 0 0;
+  margin: 0 0;
+  right: 8px;
+  bottom: 7px;
+  font-family: 'Microsoft YaHei';
+  font-weight: 200;
+  font-size: 12px;
+  color: white;
+}
+.page-list {
+  text-align: center;
+}
+.page-list .page-list-box {
+  display: inline-block;
+  margin: 17px auto;
+}
+.page-list .pervious-btn {
+  position: relative;
+  top: 3px;
+  float: left;
+  width: 12px;
+  height: 12px;
+  border-bottom: solid #a77348 1px;
+  border-left: solid #a77348 1px;
+  -moz-transition: border-color ease 0.5s;
+  -o-transition: border-color ease 0.5s;
+  -webkit-transition: border-color ease 0.5s;
+  transition: border-color ease 0.5s;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.page-list .pervious-btn:hover {
+  border-color: #5a3e27;
+}
+.page-list .next-btn {
+  position: relative;
+  top: 3px;
+  float: left;
+  width: 12px;
+  height: 12px;
+  border-bottom: solid #a77348 1px;
+  border-left: solid #a77348 1px;
+  -moz-transition: border-color ease 0.5s;
+  -o-transition: border-color ease 0.5s;
+  -webkit-transition: border-color ease 0.5s;
+  transition: border-color ease 0.5s;
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.page-list .next-btn:hover {
+  border-color: #5a3e27;
+}
+.page-list .page-btn {
+  float: left;
+  margin: 0 7px;
+  width: 18px;
+  height: 18px;
+  background-color: #a77348;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transition: background-color ease 0.5s;
+  -o-transition: background-color ease 0.5s;
+  -webkit-transition: background-color ease 0.5s;
+  transition: background-color ease 0.5s;
+}
+.page-list .page-btn:hover {
+  background-color: #5a3e27;
+}
+.page-list .page-btn > a {
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  width: 100%;
+  height: 100%;
+  font-family: 'Microsoft YaHei';
+  font-weight: 200;
+  font-size: 10px;
+  color: white;
+  text-decoration: none;
+}
+.page-list .page-btn-current {
+  position: relative;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+  padding: 2px 2px;
+}
+.page-list .page-btn-current > a {
+  top: 0;
+  font-size: 13px;
 }
