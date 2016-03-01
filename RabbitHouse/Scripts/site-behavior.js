@@ -37,3 +37,39 @@
 
     }
 })(jQuery);
+
+(function ($) {
+
+    $.fn.singleDialog = function () {
+        var $this = $(this);
+
+        update = function () {
+            var parentWidthSpace = parseInt($this.parent().css('width').replace('px', ' ')) - 2*parseInt($this.parent().css('padding-left').replace('px', ' '));          
+
+            var avatorWidth = parseInt($this.find('.avator').css('width').replace('px', ' '));
+            var avatorMarginRight = parseInt($this.find('.avator').css('margin-right').replace('px', ' '));
+
+            $this.find('.dialog').css('width', parentWidthSpace - avatorWidth - avatorMarginRight);
+
+            var dialogWidth = parseInt($this.find('.dialog').css('width').replace('px', ' '));
+            var dialogPadding = parseInt($this.find('.dialog').css('padding-left').replace('px', ' '));
+            var dialogPWidth = parseInt($this.find('p').css('width').replace('px', ' '));
+
+            //alert(dialogWidth.toString());
+            //alert(dialogPadding.toString());
+            //alert(dialogPWidth.toString());
+            if(dialogPWidth<=dialogWidth-2*dialogPadding)
+            {
+                $this.find('.dialog').css('width', dialogPWidth+2*dialogPadding);
+            }
+                
+        };
+
+        $(window).bind('resize', update);
+
+        $(function () {
+            update();
+        });
+
+    }
+})(jQuery);

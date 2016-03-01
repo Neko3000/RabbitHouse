@@ -45,6 +45,11 @@ ul{
     padding:2px 2px;
 }
 
+.page-body{
+    position:relative;
+    z-index:10;
+}
+
 //welcome
 .welcome-container {
     position: relative;
@@ -882,3 +887,175 @@ ul{
         }
     }
 }
+
+.article-bg {
+    padding: 100px 0;
+    background-color: #dbe8ec;
+    text-align: center;
+
+    .article {
+        display: inline-block;
+        padding: 15px 0;
+        margin: 0 auto;
+        background-color: white;
+        text-align: left;
+
+        border-right:solid  1px;
+        border-bottom:solid 1px;
+        border-color:#bfbfbf;
+        @media(max-width:@screen-xs-max){
+            border:0;
+        }
+        .article-top-area {
+            display: inline-block;
+            margin: 0 auto;
+
+            .article-position {
+                margin-bottom: 30px;
+                font-family: 'Microsoft YaHei';
+                font-weight: @light;
+                font-size: 14px;
+                color: #8f8f8f;
+                span{
+                    display:inline-block;
+                    width:20px;
+
+                    text-align:center;
+                }
+            }
+
+            .article-info-box {
+                padding: 16px 0;
+                border-bottom: solid #c2c2c2 1px;
+
+                .article-title {
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                    font-family: 'Microsoft YaHei';
+                    font-weight: @light;
+                    font-size: 36px;
+                    color: #555555;
+                }
+
+                .article-discription {
+                    margin-top: 0;
+                    margin-bottom: 22px;
+                    font-family: 'Microsoft YaHei';
+                    font-weight: @light;
+                    font-size: 18px;
+                    color: #6a6a6a;
+                }
+
+                .article-category {
+                    margin-top: 0;
+                    margin-bottom: 6px;
+                    font-family: 'Microsoft YaHei';
+                    font-weight: @light;
+                    font-size: 14px;
+                    color: #6e6e6e;
+                }
+
+                .article-time {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    font-family: 'Microsoft YaHei';
+                    font-weight: @light;
+                    font-size: 14px;
+                    color: #6e6e6e;
+                }
+            }
+        }
+
+        .article-middle-area {
+            padding-top: 20px;
+
+            .single-dialog.single-dialog-right {
+                float: right;
+
+                .avator {
+                    float: right;
+                    margin-right: 0;
+                    margin-left: 27px;
+                }
+
+                .dialog {
+                    float: right;
+                    &:after{
+                        right: -6px;
+                        left:auto;
+                    }
+                }
+            }
+
+            .single-dialog {
+                display: inline-block;
+                float: left;
+                margin-bottom: 20px;
+
+                .avator {
+                    float: left;
+                    position: relative;
+                    top: 1px;
+                    margin-right: 27px;
+                    width: 70px;
+                    height: 70px;
+                    overflow: hidden;
+                    border: solid #b5b5b5 1px;
+                    -moz-border-radius: 6px;
+                    -webkit-border-radius: 6px;
+                    border-radius: 6px;
+
+                    img {
+                    }
+                }
+
+                .dialog {
+                    float: left;
+                    position: relative;
+                    padding: 27px 27px;
+                    -moz-border-radius: 6px;
+                    -webkit-border-radius: 6px;
+                    border-radius: 6px;
+
+                    > p {
+                        display: inline-block;
+                        margin: 0 0;
+
+                        font-size:14px;
+                        color:#434343;            
+                    }
+
+                    &:after {
+                        display: inline-block;
+                        content: '';
+                        position: absolute;
+                        top: 30px;
+                        left: -6px;
+                        width: 12px;
+                        height: 12px;
+                         background-color:inherit;
+
+                        -moz-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        -o-transform: rotate(45deg);
+                        -webkit-transform: rotate(45deg); 
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+
+        .article-bottom-area{
+            .article-editor{
+                padding:14px 0 0 0;
+                text-align:right;
+
+                font-family:'Microsoft YaHei';
+                font-weight:@light;
+                font-size:14px;
+                color:#555555;
+            }
+        }
+    }
+}
+

@@ -205,6 +205,8 @@
     <Content Include="Content\img\intros\coffee-beans-grinde.jpg" />
     <Content Include="Content\img\intros\logo-injection.jpg" />
     <Content Include="Content\img\intros\town10.jpg" />
+    <Content Include="Content\img\news\avator\Chiya.jpg" />
+    <Content Include="Content\img\news\avator\Rize.jpg" />
     <Content Include="Content\img\news\news-img\news1.jpg" />
     <Content Include="Content\img\news\wallhaven-180537.jpg" />
     <Content Include="Content\img\shared\social-button\facebook.png" />
@@ -355,6 +357,7 @@
     <Content Include="Content\hidden\Index-org.cshtml" />
     <Content Include="Views\Home\Intros.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Article.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

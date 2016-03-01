@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Article";
+}
+
+<div class="page-body">
+    <section class="article-bg">
+        <div class="article">
+            <div class="article-top-area">
+                <div class="container">
+                    <div class="article-position">新闻公告<span>></span>店内主题音乐已更新-5月</div>
+                </div>
+
+                <div class="container">
+                    <div class="article-info-box">
+                        <h2 class="article-title">店内主题音乐已更新-5月</h2>
+                        <h3 class="article-discription">本月是古典音乐主题月</h3>
+                        <p class="article-category">文章分类-<span class="single-category">更新</span></p>
+                        <time class="article-time">更新时间-2016/5/1</time>
+                    </div>
+                </div>
+            </div>
+            <div class="article-middle-area">
+                <div class="container">
+                    <div class="single-dialog single-dialog-left">
+                        <div class="avator">
+                            <img src="~/Content/img/news/avator/Rize.jpg" />
+                        </div>
+
+                        <div class="dialog" style="background-color:#c7b6ff">
+                            <p>说到古典音乐的话，就和流行音乐截然相反，会显得更加的优雅稳重一些，也就会让人直接联想起小提琴和钢琴呢！</p>
+                        </div>
+                    </div>
+                    <div class="single-dialog single-dialog-right">
+                        <div class="avator">
+                            <img src="~/Content/img/news/avator/Chiya.jpg" />
+                        </div>
+
+                        <div class="dialog" style="background-color:#b9ecba">
+                            <p>而对欧洲古典音乐而言，不能不提到中世纪的伊丽莎白时期，格力高利时期的音乐呢，其中占主导地位的当然是宗教音乐。当时的人们源于对基督教的信仰与崇拜直接影响到了当时社会的政治与音乐。此时的音乐还只是仅限于宗教用途，只在教堂中演唱，没有乐器的伴奏，但是却对于今后的音乐发展起了非常重要的作用。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-bottom-area">
+                <div class="container">
+                    <div class="article-content">
+                        又到了月间更新店内BGM的时候了！<br />
+                        店内播放的音乐列表已经从上个月的&lt;独唱合集-甲&gt;更新为&lt;古典音乐合集①&gt;<br />
+                        <br />
+                        <div style="text-align:center">
+                            &lt;古典音乐合集①&gt;曲目列表:<br />
+                            仲夏夜之梦（门德尔松）<br />
+                            自新大陆（德沃夏克）<br />
+                            维也纳森林故事（小约翰·施特劳斯）<br />
+                            横笛协奏曲1号（莫扎特）<br />
+                            行星组曲（霍斯特）<br />
+                            船歌（巴赫）<br />
+                            爱之梦（李斯特）<br />
+                            黄昏时的幻想（李斯特）<br />
+                            美丽的罗丝玛丽（克莱斯勒）<br />
+                            雨滴（萧邦）<br />
+                            棕发少女（德彪西）<br />
+                            小夜曲（舒伯特）<br />
+                            天鹅湖序曲（柴可夫斯基）<br />
+                            <br />
+                            现在就伴随着古典音乐的旋律来一杯咖啡吧！
+                        </div>
+                    </div>
+                    <div class="article-editor">店长</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+    <script>
+        $('.single-dialog').singleDialog();
+    </script>
+}
