@@ -559,9 +559,11 @@ ul li {
   background-color: #7c9a43;
 }
 .position-middle-container {
+  position: relative;
   text-align: center;
 }
 .position-middle-container .position-middle-object {
+  position: relative;
   margin: 0 auto;
 }
 .news-list-block {
@@ -853,4 +855,178 @@ ul li {
   font-weight: 200;
   font-size: 14px;
   color: #555555;
+}
+.tablet-bg {
+  padding: 83px 0 119px 0;
+  background-color: #dbe8ec;
+}
+.tablet-bg .tablet .tablet-part-bg {
+  padding: 0 0;
+  margin: 0 0;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.tablet-bg .tablet .tablet-part-bg-1 {
+  padding-top: 50px;
+  background-image: url(/Content/img/discount/tablet/tablet-bg-1.png);
+}
+.tablet-bg .tablet .tablet-part-bg-2 {
+  background-image: url(/Content/img/discount/tablet/tablet-bg-2.png);
+}
+.tablet-bg .tablet .tablet-part-bg-3 {
+  background-image: url(/Content/img/discount/tablet/tablet-bg-3.png);
+}
+.tablet-bg .tablet .tablet-part-bg-4 {
+  background-image: url(/Content/img/discount/tablet/tablet-bg-4.png);
+}
+.tablet-bg .tablet .tablet-part-bg-5 {
+  padding-bottom: 166px;
+  background-position: top;
+  background-image: url(/Content/img/discount/tablet/tablet-bg-5.png);
+}
+.tablet-bg .tablet .tablet-block {
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.tablet-bg .tablet .tablet-block .app-container.app-arrow:after {
+  display: inline-block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  margin-left: -10px;
+  left: 50%;
+  bottom: -29px;
+  background-color: #5a3e27;
+  -moz-transition: all ease 0.7s;
+  -o-transition: all ease 0.7s;
+  -webkit-transition: all ease 0.7s;
+  transition: all ease 0.7s;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.tablet-bg .tablet .tablet-block .app-arrow.app-arrow-off:after {
+  bottom: -42px;
+  opacity: 0;
+}
+.tablet-bg .tablet .tablet-block .app-container {
+  position: relative;
+  margin: 133px 0 19px 0;
+  padding: 7px 0;
+  text-align: center;
+}
+.tablet-bg .tablet .tablet-block .app-container .app {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: solid #878787 1px;
+}
+.glass-button {
+  position: relative;
+  margin: 0 auto;
+  display: inline-block;
+  padding: 5px 8px;
+  border: solid white 1px;
+  white-space: nowrap;
+  color: white;
+}
+@media (min-width: 970px) {
+  .snap-to-right-bottom-excepet-xs {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+.property-group {
+  padding: 1px 0;
+}
+.property-group .property {
+  display: inline-block;
+  padding: 0 2px;
+}
+.show-item-block-container.show-item-block-container-off {
+  max-height: 0;
+}
+.show-item-block-container {
+  position: relative;
+  max-height: 800px;
+  overflow: hidden;
+  -moz-transition: all ease 0.7s;
+  -o-transition: all ease 0.7s;
+  -webkit-transition: all ease 0.7s;
+  transition: all ease 0.7s;
+  background-color: #5a3e27;
+}
+.show-item-block {
+  max-height: 800px;
+  overflow: visible;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  position: relative;
+  padding: 19px 0;
+  background-color: #5a3e27;
+}
+.show-item-block .show-item-thumbnail {
+  text-align: center;
+}
+.show-item-block .show-item-thumbnail > img {
+  margin: 0 auto;
+}
+@media (max-width: 1199px) {
+  .show-item-block .show-item-thumbnail {
+    margin-bottom: 15px;
+  }
+}
+.show-item-block .show-item-content {
+  text-align: left;
+  color: white;
+}
+@media (max-width: 767px) {
+  .show-item-block .show-item-content {
+    margin-bottom: 15px;
+  }
+}
+.show-item-block .show-item-content > h3 {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 15px;
+  font-weight: 200;
+}
+.show-item-block .show-item-content > h2 {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 200;
+}
+.show-item-block .show-item-content > p {
+  display: block;
+  line-height: 1;
+  padding: 0 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 0;
+  font-size: 30px;
+  font-weight: 200;
+}
+.show-item-block .show-item-content > time {
+  display: block;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 200;
+}
+@media (max-width: 969px) {
+  .show-item-block .glass-button {
+    width: 100%;
+  }
 }

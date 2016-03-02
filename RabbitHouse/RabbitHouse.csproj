@@ -160,6 +160,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -183,6 +184,20 @@
     <Content Include="Content\hidden\fonts.min.css">
       <DependentUpon>fonts.css</DependentUpon>
     </Content>
+    <Content Include="Content\img\discount\app-icon\app-anko.jpg" />
+    <Content Include="Content\img\discount\app-icon\app-chino.jpg" />
+    <Content Include="Content\img\discount\app-icon\app-kokoa.jpg" />
+    <Content Include="Content\img\discount\app-icon\app-megu.jpg" />
+    <Content Include="Content\img\discount\app-icon\app-rize.jpg" />
+    <Content Include="Content\img\discount\app-icon\app-syaro.jpg" />
+    <Content Include="Content\img\discount\product\inca6.jpg" />
+    <Content Include="Content\img\discount\property\hot.png" />
+    <Content Include="Content\img\discount\property\ice.png" />
+    <Content Include="Content\img\discount\tablet\tablet-bg-1.png" />
+    <Content Include="Content\img\discount\tablet\tablet-bg-2.png" />
+    <Content Include="Content\img\discount\tablet\tablet-bg-3.png" />
+    <Content Include="Content\img\discount\tablet\tablet-bg-4.png" />
+    <Content Include="Content\img\discount\tablet\tablet-bg-5.png" />
     <Content Include="Content\img\index\coffee-inside.jpg" />
     <Content Include="Content\img\index\index-cover.jpg" />
     <Content Include="Content\img\index\clock.png" />
@@ -358,6 +373,7 @@
     <Content Include="Views\Home\Intros.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Article.cshtml" />
+    <Content Include="Views\Discount\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

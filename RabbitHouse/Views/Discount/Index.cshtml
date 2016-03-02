@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="page-body">
+    <section class="tablet-bg">
+        <div class="tablet">
+            <div class="tablet-part-bg tablet-part-bg-1">
+                <div class="tablet-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4 app-container">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-chino.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4 app-container app-arrow">
+                                <div id="app-touchable" class="app" data-aim="coffee-category">
+                                    <img src="~/Content/img/discount/app-icon/app-chino.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="coffee-category" class="show-item-block-container">
+                <div class="show-item-block show-item-block-off">
+                    <div class="container position-middle-container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-3">
+                                <div class="show-item-thumbnail">
+                                    <img src="~/Content/img/discount/product/inca6.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-9">
+                                <div class="show-item-content">
+                                    <h3>所谓COFFEEMOCHA，就是那段在办公桌上的午休时光</h3>
+                                    <h2>经典摩卡咖啡</h2>
+                                    <p>￥12.00</p>
+                                    <div class="property-group">
+                                        <div class="property">
+                                            <img src="~/Content/img/discount/property/hot.png" />
+                                        </div>
+                                        <div class="property">
+                                            <img src="~/Content/img/discount/property/ice.png" />
+                                        </div>
+                                    </div>
+                                    <time>持续时间：2016.3.1-2016.3.7</time>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-button snap-to-right-bottom-excepet-xs"> 就是她了！</div>
+                    </div>
+                </div>
+            </div>            
+            <div class="tablet-part-bg tablet-part-bg-2">
+                <div class="tablet-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4 app-container">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-syaro.jpg" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tablet-part-bg tablet-part-bg-3">
+                <div class="tablet-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4 app-container">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-rize.jpg" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tablet-part-bg tablet-part-bg-4">
+                <div class="tablet-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4 app-container">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-megu.jpg" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tablet-part-bg tablet-part-bg-5">
+                <div class="tablet-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4 app-container">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-anko.jpg" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+@section scripts{
+    <script>
+        $('#app-touchable').click(function () {
+            $('#' + $(this).data('aim')).toggleClass('show-item-block-container-off');
+            $(this).parent().toggleClass('app-arrow-off');
+        });
+    </script>
+}
