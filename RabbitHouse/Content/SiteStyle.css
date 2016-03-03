@@ -1033,12 +1033,12 @@ ul li {
 .btn-group-solid.open > button.btn {
   background-color: #774b27;
   color: white;
-  border: solid #2198e8 1px;
+  border: solid #55bbff 1px;
 }
 .btn-group-solid.open > button.btn:hover {
   background-color: #774b27;
   color: white;
-  border: solid #2198e8 1px;
+  border: solid #55bbff 1px;
 }
 .btn-group-solid.open > button.btn:focus {
   background-color: #774b27;
@@ -1056,13 +1056,14 @@ ul li {
 .btn-group-solid > button.btn:hover {
   background-color: #774b27;
   color: white;
-  border: solid #2198e8 1px;
+  border: solid #55bbff 1px;
 }
 .btn-group-solid > button.btnfocus {
   background-color: #774b27;
   color: white;
 }
 .btn-group-solid > button.btn > img {
+  margin-left: 10px;
   position: relative;
   top: -1px;
 }
