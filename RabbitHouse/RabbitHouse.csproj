@@ -164,6 +164,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\OrderingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +225,7 @@
     <Content Include="Content\img\news\avator\Rize.jpg" />
     <Content Include="Content\img\news\news-img\news1.jpg" />
     <Content Include="Content\img\news\wallhaven-180537.jpg" />
+    <Content Include="Content\img\ordering\common\narrow-drop.png" />
     <Content Include="Content\img\shared\social-button\facebook.png" />
     <Content Include="Content\img\shared\social-button\google-plus.png" />
     <Content Include="Content\img\shared\social-button\twitter.png" />
@@ -374,6 +376,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Article.cshtml" />
     <Content Include="Views\Discount\Index.cshtml" />
+    <Content Include="Views\Ordering\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

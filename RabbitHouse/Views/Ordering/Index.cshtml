@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="page-body">
+    <section class="user-block">
+        <div class="container">
+            <div class="pull-right">
+                <div class="user-button-group">
+                    <button class="btn btn-default btn-coffee">注册</button> 
+                    <button class="btn btn-default">登陆</button> 
+                </div>
+            </div>           
+        </div>
+    </section>
+    <section class="filter-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="filter catagory-filter">
+                        <div class="filter-head">类别：</div>
+                        <div class="filter-content">
+                            <div class="filter-factor catagory-filter-property">咖啡</div>
+                            <div class="filter-factor catagory-filter-property">饮品</div>
+                            <div class="filter-factor catagory-filter-property">主食</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="filter order-filter">
+                        <div class="filter-head">排序：</div>
+                        <div class="filter-content">
+                            <select class="solid-select filter-factor order-filter-property">
+                                <option>价格从高到低</option>
+                                <option>价格从低到高</option>
+                            </select>
+                            <select class="solid-select filter-factor order-filter-property">
+                                <option>销量从高到低</option>
+                                <option>销量从低到高</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="filter specific-filter">
+                        <div class="filter-head">筛选：</div>
+                        <div class="filter-content">
+                            <div class="filter-factor specific-filter-property">
+                                <div class="solid-input-radio">
+                                    <div class="rect-outline"><div class="rect"></div></div>
+                                    <div class="show-text">特价商品</div>
+                                </div>
+                            </div>
+
+                            <div class="filter-factor specific-filter-property">
+                                <div class="solid-input-radio">
+                                    <div class="rect-outline"><div class="rect"></div></div>
+                                    <div class="show-text">时季商品</div>
+                                </div>
+                            </div>
+                        </div>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="product-list-block"></section>
+</div>
+
