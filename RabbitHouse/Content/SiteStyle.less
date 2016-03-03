@@ -1446,3 +1446,90 @@ ul {
         }
     }
 }
+
+.product-list-block{
+    text-align:center;
+    padding:20px 0;
+    background-color:@light-blue;
+
+    overflow:hidden;
+    .single-product{
+        text-align:left;
+        display:inline-block;
+        padding:1px 0;
+        @media(max-width:@screen-md-max){
+            //for img's top distance
+            padding-top:10px;
+        }
+
+        background-color:@standard-coffee;
+        .product-thumbnail{
+            text-align: center;
+            >img{
+                margin:0 auto;
+            }
+        }
+        .product-content{
+            
+            color:white;
+            >h3{
+                
+                font-size:15px;
+                font-weight:@light;
+
+                margin-top:15px;
+                margin-bottom:5px;
+
+                @media(min-width:@scrren-lg-min)
+                {
+                    //lg-screen word too much
+                    white-space:nowrap;
+                    overflow:hidden;
+                }
+            }
+            >h2{
+                
+                margin-top:10px;
+                font-size:24px;
+                font-weight:@light;
+            }
+            >p{
+                margin-top:18px;
+                margin-bottom:0;
+
+                font-size:30px;
+                font-weight:@light;
+            }
+        }
+        .product-button-block{
+            position:relative;
+            background-color:#412c1c;
+            height:172px;
+            margin-right:-15px;
+            @media(max-width:@screen-md-max){
+                //adjust in md-screen
+                margin-left:-15px;
+                height:100px;
+            }
+            .button-group{
+                position:absolute;
+
+                margin-left:-45px;
+                left:50%;
+                margin-top:-32px;
+                top:50%;
+
+                display:inline-block;
+                width:91px;
+                height:65px;
+                .glass-button{
+                    display:block;
+
+                    margin-bottom:5px;
+                    width:100%;
+                    text-align:center;
+                }
+            }
+        }
+    }
+}
