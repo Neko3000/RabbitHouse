@@ -1103,7 +1103,7 @@ ul li {
   font-size: 13px;
 }
 .filter-block {
-  padding: 28px 0;
+  padding: 10px 0;
   background-color: #5a3e27;
 }
 .filter-block .filter {
@@ -1133,22 +1133,24 @@ ul li {
 }
 .filter-block .filter .filter-content .filter-factor {
   float: left;
+  width: 76px;
   color: white;
 }
 .filter-block .catagory-filter .catagory-filter-property {
   padding: 7px 9px;
-  margin: 2px 21px 2px 0;
+  margin: 0 21px 5px 0;
   width: 76px;
   height: 100%;
   text-align: right;
   font-size: 12px;
   background-color: #412c1c;
+  border: solid white 1px;
 }
 .filter-block .order-filter .order-filter-property {
-  margin: 4px 14px 4px 0;
+  margin: 4px 21px 4px 0;
 }
 .filter-block .specific-filter .specific-filter-property {
-  padding: 6px 24px 6px 0;
+  margin: 6px 21px 6px 0;
 }
 .product-list-block {
   text-align: center;
