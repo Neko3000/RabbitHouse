@@ -11,6 +11,11 @@ ul {
     }
 }
 
+//fix the problem where img-responsive in xs-screen
+.img-responsive{
+    
+}
+
 //font-weight
 @light: 200;
 @normal: 400;
@@ -1341,9 +1346,7 @@ ul {
     }
 }
 
-.btn-coffee{
-    
-}
+
 
 .user-block{
     padding:5px 0;
@@ -1550,7 +1553,11 @@ ul {
                     margin-bottom:5px;
                     width:100%;
                     text-align:center;
+                    >a{
+                        color:white;
+                    }
                 }
+                
             }
         }
     }
@@ -1569,6 +1576,23 @@ ul {
         margin: 0 auto;
         text-align: left;
 
+        -moz-filter: drop-shadow(1px 1px 1px rgba(0,0,0,.15));
+        -ms-filter: drop-shadow(1px 1px 1px rgba(0,0,0,.15));
+        -webkit-filter: drop-shadow(1px 1px 1px rgba(0,0,0,.15));
+        filter: drop-shadow(1px 1px 1px rgba(0,0,0,.15));
+
+        .product-detail-position {
+                margin-bottom: 30px;
+                font-weight: @light;
+                font-size: 14px;
+                color: #8f8f8f;
+
+                span {
+                    display: inline-block;
+                    width: 20px;
+                    text-align: center;
+                }
+         }
         .product-detail-info {
             padding: 10px 0;
 
@@ -1589,6 +1613,8 @@ ul {
             }
 
             > p {
+                display:inline-block;
+                margin-right:6px;
                 margin-top: 16px;
                 margin-bottom: 0;
                 color: #6a6a6a;
@@ -1596,13 +1622,17 @@ ul {
                 font-weight: @light;
             }
 
+            .price-off-label{
+                top:-16px;
+            }
+
             > hr {
                 margin: 5px 0;
             }
 
             > span {
-                display: inline-block;
-                margin-top: 8px;
+                display: block;
+                margin-top: 5px;
                 margin-bottom: 8px;
                 color: #565656;
                 font-size: 14px;
@@ -1675,8 +1705,105 @@ ul {
                 }
             }
             .product-detail-buy-button-group{
-                    padding:10px 0;
+                    padding:10px 0 0 0;
            }
+        }
+        .product-detail-content{
+            margin:30px 0 50px 0;
+            font-size:16px;
+            color:#565656;
+        }
+    }
+}
+
+.btn-coffee{
+    color:white;
+    background-color:@standard-coffee;
+    &:hover{
+        color:white;
+        background-color:#553924;
+    }
+}
+.btn-azure{
+    color:white;
+    background-color:#54abed;
+    border-color:#4897d3;
+    &:hover{
+        color:white;
+        background-color:#168ce5;
+        border-color:#4897d3;
+    }
+}
+
+.product-detail-img{
+    >img{
+
+        width:100%;
+    }    
+}
+//carousel
+.fill-round {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.carousel-solid {
+    .carousel-indicators {
+        margin-bottom: 0;
+        bottom: 11px;
+
+        > li {
+            padding: 2px 2px;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            border: solid transparent 1px;
+
+            .fill-round {
+                width: 100%;
+                height: 100%;
+                background-color: #646464;
+            }
+
+            &.active {
+                width: 16px;
+                height: 16px;
+                background-color: none;
+                border-color: #32aed4;
+
+                .fill-round {
+                    background-color: #32aed4;
+                }
+            }
+        }
+    }
+
+    .carousel-control {
+        background-image: none;
+        opacity: 1;
+        margin-top: -25px;
+        top: 50%;
+        width: 20px;
+        height: 50px;
+
+        .control-block {
+            width: 100%;
+            height: 100%;
+            background-color: @standard-coffee;
+
+            -moz-transition: background-color ease 0.5s;
+            -o-transition: background-color ease 0.5s;
+            -webkit-transition: background-color ease 0.5s;
+            transition: background-color ease 0.5s;
+
+            &:hover {
+                background-color: #412c1c;
+            }
+
+            > i {
+                position: relative;
+                top: 9px;
+            }
         }
     }
 }
