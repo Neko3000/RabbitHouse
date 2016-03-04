@@ -13,5 +13,9 @@ namespace RabbitHouse.Controllers
         {
             return View();
         }
+        public ActionResult ProductDetail()
+        {
+            return View();
+        }
     }
 }

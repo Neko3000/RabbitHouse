@@ -976,10 +976,9 @@ ul li {
   background-color: #5a3e27;
 }
 .show-item-block .show-item-thumbnail {
-  text-align: center;
-}
-.show-item-block .show-item-thumbnail > img {
-  margin: 0 auto;
+  overflow: hidden;
+  width: 260px;
+  height: 172px;
 }
 @media (max-width: 1199px) {
   .show-item-block .show-item-thumbnail {
@@ -1152,6 +1151,14 @@ ul li {
 .filter-block .specific-filter .specific-filter-property {
   margin: 6px 21px 6px 0;
 }
+.price-off-label {
+  display: inline-block;
+  position: relative;
+  padding: 2px 4px;
+  background-color: #5ff027;
+  font-size: 12px;
+  color: white;
+}
 .product-list-block {
   text-align: center;
   padding: 20px 0;
@@ -1170,10 +1177,9 @@ ul li {
   }
 }
 .product-list-block .single-product .product-thumbnail {
-  text-align: center;
-}
-.product-list-block .single-product .product-thumbnail > img {
-  margin: 0 auto;
+  overflow: hidden;
+  width: 260px;
+  height: 172px;
 }
 .product-list-block .single-product .product-content {
   color: white;
@@ -1196,10 +1202,15 @@ ul li {
   font-weight: 200;
 }
 .product-list-block .single-product .product-content > p {
+  display: inline-block;
   margin-top: 18px;
   margin-bottom: 0;
+  margin-right: 6px;
   font-size: 30px;
   font-weight: 200;
+}
+.product-list-block .single-product .product-content > .price-off-label {
+  top: -16px;
 }
 .product-list-block .single-product .product-button-block {
   position: relative;
@@ -1228,4 +1239,112 @@ ul li {
   margin-bottom: 5px;
   width: 100%;
   text-align: center;
+}
+.product-detail-bg {
+  background-color: #dbe8ec;
+  padding: 100px 0;
+  text-align: center;
+}
+.product-detail-bg .product-detail {
+  background-color: white;
+  display: inline-block;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: left;
+}
+.product-detail-bg .product-detail .product-detail-info {
+  padding: 10px 0;
+}
+.product-detail-bg .product-detail .product-detail-info > h2 {
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: #626262;
+  font-size: 28px;
+  font-weight: 200;
+}
+.product-detail-bg .product-detail .product-detail-info > h3 {
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #6b6b6b;
+  font-size: 15px;
+  font-weight: 200;
+}
+.product-detail-bg .product-detail .product-detail-info > p {
+  margin-top: 16px;
+  margin-bottom: 0;
+  color: #6a6a6a;
+  font-size: 30px;
+  font-weight: 200;
+}
+.product-detail-bg .product-detail .product-detail-info > hr {
+  margin: 5px 0;
+}
+.product-detail-bg .product-detail .product-detail-info > span {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #565656;
+  font-size: 14px;
+  font-weight: 200;
+}
+.product-detail-bg .product-detail .product-detail-property-select {
+  padding: 10px 0;
+  text-align: left;
+}
+@media (max-width: 970px) {
+  .product-detail-bg .product-detail .product-detail-property-select {
+    text-align: center;
+  }
+}
+@media (max-width: 970px) {
+  .product-detail-bg .product-detail .product-detail-property-select .select-block-container {
+    margin: 0 auto;
+    display: inline-block;
+  }
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block {
+  padding: 8px 0;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .select-head {
+  font-size: 14px;
+  color: #565656;
+  margin-bottom: 5px;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector {
+  position: relative;
+  width: 170px;
+  height: 30px;
+  text-align: left;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector input {
+  width: 152px;
+  height: 100%;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector #button-sub {
+  top: 0;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector #button-sub > i {
+  position: relative;
+  top: -3px;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector #button-add {
+  bottom: 0;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector #button-add > i {
+  position: relative;
+  top: -2px;
+}
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector #button-sub,
+.product-detail-bg .product-detail .product-detail-property-select .select-block .count-selector #button-add {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background-color: #5a3e27;
+  text-align: center;
+  color: white;
+}
+.product-detail-bg .product-detail .product-detail-property-select .product-detail-buy-button-group {
+  padding: 10px 0;
 }

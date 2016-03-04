@@ -226,6 +226,7 @@
     <Content Include="Content\img\news\news-img\news1.jpg" />
     <Content Include="Content\img\news\wallhaven-180537.jpg" />
     <Content Include="Content\img\ordering\common\narrow-drop.png" />
+    <Content Include="Content\img\ordering\product-detail\product-1\p1-d1.jpg" />
     <Content Include="Content\img\shared\social-button\facebook.png" />
     <Content Include="Content\img\shared\social-button\google-plus.png" />
     <Content Include="Content\img\shared\social-button\twitter.png" />
@@ -377,6 +378,7 @@
     <Content Include="Views\News\Article.cshtml" />
     <Content Include="Views\Discount\Index.cshtml" />
     <Content Include="Views\Ordering\Index.cshtml" />
+    <Content Include="Views\Ordering\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
