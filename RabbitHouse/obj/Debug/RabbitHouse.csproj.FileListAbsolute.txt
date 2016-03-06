@@ -57,8 +57,6 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\System.Web.R
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\System.Web.WebPages.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\EntityFramework.resources.dll
-N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.AspNet.Identity.Core.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.AspNet.Identity.Owin.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.AspNet.Identity.EntityFramework.resources.dll
@@ -69,6 +67,8 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.Ow
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.Owin.Security.Google.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.csprojResolveAssemblyReference.cache
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.pdb
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.csprojResolveAssemblyReference.cache
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
