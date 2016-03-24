@@ -19,6 +19,8 @@ namespace RabbitHouse.Models
         {
         }
 
-        public System.Data.Entity.DbSet<RabbitHouse.Models.Article> Articles { get; set; }
+        public DbSet<RabbitHouse.Models.Article> Articles { get; set; }
+        public DbSet<RabbitHouse.Models.ArticleCategory> ArticleCategories { get; set; }
+        public DbSet<RabbitHouse.Models.ArticleTag> ArticleTags { get; set; }
     }
 }
