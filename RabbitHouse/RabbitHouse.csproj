@@ -175,8 +175,15 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleCategory.cs" />
     <Compile Include="Models\ArticleTag.cs" />
+    <Compile Include="Models\CartElement.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ExternalClasses\ShoppingCart.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\ProductProperty.cs" />
     <Compile Include="Models\RabbitHouseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -396,6 +403,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\video\" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
