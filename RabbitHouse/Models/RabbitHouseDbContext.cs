@@ -6,7 +6,7 @@ using System.Web;
 
 namespace RabbitHouse.Models
 {
-    public class RabbitHouseContext : DbContext
+    public class RabbitHouseDbContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -15,12 +15,19 @@ namespace RabbitHouse.Models
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public RabbitHouseContext() : base("name=RabbitHouseContext")
+        public RabbitHouseDbContext() : base("name=RabbitHouseDbContextConnection")
         {
         }
 
         public DbSet<RabbitHouse.Models.Article> Articles { get; set; }
         public DbSet<RabbitHouse.Models.ArticleCategory> ArticleCategories { get; set; }
         public DbSet<RabbitHouse.Models.ArticleTag> ArticleTags { get; set; }
+
+        public DbSet<RabbitHouse.Models.Product> Products { get; set; }
+        public DbSet<RabbitHouse.Models.ProductCategory> ProductCategories { get; set; }
+        public DbSet<RabbitHouse.Models.ProductProperty> ProductProperties { get; set; }
+        public DbSet<RabbitHouse.Models.CartElement> CartElements { get; set; }
+        public DbSet<RabbitHouse.Models.Order> Orders { get; set; }
+        public DbSet<RabbitHouse.Models.OrderDetail> OrderDetails { get; set; }
     }
 }

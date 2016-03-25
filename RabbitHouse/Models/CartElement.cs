@@ -10,7 +10,7 @@ namespace RabbitHouse.Models
     {
         [Key]
         public virtual int Id { get; set; }
-        public virtual Guid UserId { get; set; }
+        public virtual Guid CartId { get; set; }
         public virtual Product Product { get; set; }
         public virtual ProductProperty ProductProperty { get; set; }
         public virtual int Count { get; set; }

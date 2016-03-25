@@ -69,6 +69,12 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.Ow
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.pdb
-N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.csprojResolveAssemblyReference.cache
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.ApplicationDbContext.InitialDatabaseCreation.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.csproj.GenerateResource.Cache
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.InitialDatabaseCreation.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.RebuildInitialRelationship.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ChangeCartElementUserIdToCartId.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.csprojResolveAssemblyReference.cache
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ResetDiscountFromFloatdToDecimal.resources

@@ -14,11 +14,10 @@ namespace RabbitHouse.Models
         public virtual string ShortDescription { get; set; }
         public virtual string Description { get; set; }
         public virtual string Remark { get; set; }
-        public virtual ProductCategory Category { get; set; }
-        public virtual IList<string> ImgUrls { get; set; }
+        public virtual List<string> ImgUrls { get; set; }
 
         public virtual decimal Price { get; set; }
-        public virtual float? CurrentDiscount { get; set; }
+        public virtual decimal? CurrentDiscount { get; set; }
         public virtual DateTime? DiscountStartTime { get; set; }
         public virtual DateTime? DiscountEndTime { get; set; }
 
@@ -29,5 +28,8 @@ namespace RabbitHouse.Models
         public virtual DateTime? SaleEndTime { get; set; }
 
         public virtual IList<ProductProperty> Properties { get; set; }
+
+        public virtual int CategoryId { get; set; }
+        public virtual ProductCategory Category { get; set; }
     }
 }

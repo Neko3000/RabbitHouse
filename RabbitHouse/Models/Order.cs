@@ -10,7 +10,7 @@ namespace RabbitHouse.Models
     {
         [Key]
         public virtual int Id { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public virtual Guid UserId { get; set; }
 
         public virtual string RecipientName { get; set; }
         public virtual string PhoneNumber { get; set; }

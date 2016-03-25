@@ -12,7 +12,7 @@ namespace RabbitHouse.Controllers
 {
     public class ArticleManageController : Controller
     {
-        private RabbitHouseContext db = new RabbitHouseContext();
+        private RabbitHouseDbContext db = new RabbitHouseDbContext();
 
         // GET: ArticleManage
         public ActionResult Index()

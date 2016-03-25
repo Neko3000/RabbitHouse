@@ -15,6 +15,7 @@ namespace RabbitHouse.Models
         public virtual int Count { get; set; }
         public virtual decimal UnitPrice { get; set; }
 
+        public virtual int OrderId { get; set; }
         public virtual Order Order { get; set; }
     }
 }
