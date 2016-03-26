@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RabbitHouse.Models;
+using RabbitHouse.Migrations.RabbitHouseDbContext;
 
 namespace RabbitHouse.Controllers
 {
     public class HomeController : Controller
     {
+        RabbitHouseDbContext context = new RabbitHouseDbContext();
         public ActionResult Welcome()
         {
             return View();
@@ -18,6 +21,9 @@ namespace RabbitHouse.Controllers
         }
         public ActionResult Intros()
         {
+            var config = new Configuration();
+            config.SeedDebug(context);
+
             return View();
         }
 

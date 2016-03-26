@@ -76,5 +76,4 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.cs
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.InitialDatabaseCreation.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.RebuildInitialRelationship.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ChangeCartElementUserIdToCartId.resources
-N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.csprojResolveAssemblyReference.cache
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ResetDiscountFromFloatdToDecimal.resources

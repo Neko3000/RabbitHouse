@@ -1,0 +1,39 @@
+﻿@model RabbitHouse.ViewModels.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>
+    <em>Review</em>your cart
+</h3>
+<button class="btn btn-primary">That's right</button>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Property</th>
+        <th>Price(each)</th>
+        <th>Count</th>
+        <th></th>
+    </tr>
+
+        @foreach (var item in Model.CartElements)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.ProductProperty.Name</td>
+                <td>@(item.Product.Price*item.Product.CurrentDiscount)</td>
+                <td>@item.Count</td>
+                <td>
+                    <button class="btn btn-default">Remove it</button>
+                </td>
+            </tr>
+        }
+    <tr>
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>@Model.CartTotal</td>
+    </tr>
+</table>
