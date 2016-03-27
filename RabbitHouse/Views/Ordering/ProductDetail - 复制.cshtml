@@ -57,52 +57,45 @@
                 <div class="row">
                     <div class="col-md-9 col-sm-12">
                         <div class="product-detail-info">
-                            <h2>@Model.Name</h2>
-                            <h3>@Model.ShortDescription</h3>
-                            <p>@Model.Price</p>
-                            @if (Model.CurrentDiscount != null)
-                            {
-                                <div class="price-off-label">@(string.Format("{0:D2}", (int)(100 * (1 - @Model.CurrentDiscount))))%OFF</div>
-                            }
+                            <h2>经典摩卡咖啡</h2>
+                            <h3>所谓咖啡摩卡，就是那段在办公桌上的午休时光</h3>
+                            <p>￥12.00</p>
+                            <div class="price-off-label">20%OFF</div>
                             <!--
                                 <hr />
                                 -->
                             <span>
-                                @Model.Remark
+                                经典摩卡咖啡现在正在8折优惠中，外送以及堂食都可享受此次优惠<br />
+                                ※此商品外送时提供纸杯包装
                             </span>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="product-detail-property-select">
                             <div class="select-block-container">
-                                @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post))
-                                {
-                                    @Html.Hidden("ProductId",Model.Id)
-                                    <input name="ProductPropertyId" />
-                                    <div class="select-block">
-                                        <div class="select-head">数量</div>
-                                        <div class="count-selector">
-                                            <input type="text" />
-                                            <div id="button-sub"><i class="fa fa-angle-up"></i></div>
-                                            <div id="button-add"><i class="fa fa-angle-down"></i></div>
+                                <div class="select-block">
+                                    <div class="select-head">数量</div>
+                                    <div class="count-selector">
+                                        <input type="text" />
+                                        <div id="button-sub"><i class="fa fa-angle-up"></i></div>
+                                        <div id="button-add"><i class="fa fa-angle-down"></i></div>
+                                    </div>
+                                </div>
+                                <div class="select-block">
+                                    <div class="select-head">属性</div>
+                                    <div class="property-group">
+                                        <div class="property">
+                                            <img src="~/Content/img/discount/property/hot.png" />
+                                        </div>
+                                        <div class="property">
+                                            <img src="~/Content/img/discount/property/ice.png" />
                                         </div>
                                     </div>
-                                    <div class="select-block">
-                                        <div class="select-head">属性</div>
-                                        <div class="property-group">
-                                            <div class="property">
-                                                <img src="~/Content/img/discount/property/hot.png" />
-                                            </div>
-                                            <div class="property">
-                                                <img src="~/Content/img/discount/property/ice.png" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="position-middle-container product-detail-buy-button-group">
-                                        <button class="btn btn-coffee buy-button position-middle-object" id="add-to-cart">加入购物车</button>
-                                        <a href="@Url.Action("AddToCart", "ShoppingCart", new { productId = Model.Id, productPropertyId = 1 })">Add to cart</a>
-                                    </div>
-                                }
+                                </div>
+                                <div class="position-middle-container product-detail-buy-button-group">
+                                    <button class="btn btn-coffee buy-button position-middle-object">加入购物车</button>
+                                    @Html.ActionLink("Add to cart","AddToCart","ShoppingCart",new { productId=Model.Id,productPropertyId=1})
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -132,41 +125,3 @@
     </section>
 </div>
 
-@section scripts{
-    <script>
-        $(function () {
-            $('form').submit(function () {
-
-                    $.ajax({
-                        url: "@Url.Action("AddToCart","ShoppingCart")",
-                        type: this.method,
-                        data: $(this).serialize(),
-                        success: function (result) {
-                            $('#result').html(result);
-                        }
-                    });
-
-                return false;
-            });
-        });
-    </script>
-    @*<script>
-        $(function () {
-            $("#add-to-cart").click(
-                function (e) {
-                    alert("Good click");
-                    $.ajax({
-                        url: "/ShoppingCart/AddToCart",
-                        type: "POST",
-                        data: {
-                            productId: "@Model.Id",
-                            productPropertyId: "1"
-                        }
-                    }).success(function (data) {
-                        alert(data);
-                    });
-                    e.preventDefault();
-                });
-        });
-    </script>*@
-    }

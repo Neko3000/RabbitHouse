@@ -26,18 +26,18 @@ namespace RabbitHouse.Models
             return GetCart(controller.HttpContext);
         }
 
-        public void AddToCart(CartElement cartElement)
+        public void AddToCart(int productId,int productPropertyId)
         {
             //if the database has existed the CartElement contains same Product && same ProductProperty for the user
-            var cartItem = db.CartElements.SingleOrDefault(c => c.CartId.ToString() == ShoppingCartId && c.Product.Id == cartElement.Product.Id && c.ProductProperty.Id == cartElement.ProductProperty.Id);
+            var cartItem = db.CartElements.SingleOrDefault(c => c.CartId.ToString() == ShoppingCartId && c.Product.Id == productId && c.ProductProperty.Id == productPropertyId);
 
             if(cartItem==null)
             {
                 cartItem = new CartElement
                 {
                     CartId = new Guid(ShoppingCartId),
-                    Product = cartElement.Product,
-                    ProductProperty = cartElement.ProductProperty,
+                    Product = db.Products.Find(productId),
+                    ProductProperty = db.ProductProperties.Find(productPropertyId),
                     Count = 1,
                     RecordTime = DateTime.Now
                 };
@@ -83,7 +83,7 @@ namespace RabbitHouse.Models
             db.SaveChanges();
         }
 
-        public List<CartElement> GetCartItems()
+        public List<CartElement> GetCartElements()
         {
             return db.CartElements.Where(c => c.CartId.ToString() == ShoppingCartId).ToList();
         }
@@ -106,7 +106,7 @@ namespace RabbitHouse.Models
         public int CreateOrder(Order order)
         {
             decimal orderTotal = 0;
-            var cartItems = GetCartItems();
+            var cartItems = GetCartElements();
             foreach(var item in cartItems)
             {
                 var orderDetail = new OrderDetail

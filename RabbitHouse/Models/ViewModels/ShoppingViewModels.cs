@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 using RabbitHouse.Models;
 
 namespace RabbitHouse.ViewModels
@@ -19,5 +20,13 @@ namespace RabbitHouse.ViewModels
         public int CartCount { get; set; }
         public int ItemCount { get; set; }
         public int DeleteId { get; set; }
+    }
+
+    public class AddToCartPostViewModel
+    {
+        [Required]
+        public int ProductId { get; set; }
+        [Required]
+        public int ProductPropertyId { get; set; }
     }
 }

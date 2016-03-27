@@ -217,9 +217,9 @@
     <Content Include="App_Data\ApplicationDbContext_log.ldf">
       <DependentUpon>ApplicationDbContext.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\RabbitHouseContext.mdf" />
-    <Content Include="App_Data\RabbitHouseContext_log.ldf">
-      <DependentUpon>RabbitHouseContext.mdf</DependentUpon>
+    <Content Include="App_Data\RabbitHouseDbContext.mdf" />
+    <Content Include="App_Data\RabbitHouseDbContext_log.ldf">
+      <DependentUpon>RabbitHouseDbContext.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -432,6 +432,7 @@
     <Content Include="Views\ArticleManage\Edit.cshtml" />
     <Content Include="Views\ArticleManage\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Ordering\ProductDetail - 复制.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />
