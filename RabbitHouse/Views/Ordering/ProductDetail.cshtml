@@ -142,7 +142,7 @@
                         type: this.method,
                         data: $(this).serialize(),
                         success: function (result) {
-                            $('#result').html(result);
+                            alert(result);
                         }
                     });
 
@@ -150,23 +150,4 @@
             });
         });
     </script>
-    @*<script>
-        $(function () {
-            $("#add-to-cart").click(
-                function (e) {
-                    alert("Good click");
-                    $.ajax({
-                        url: "/ShoppingCart/AddToCart",
-                        type: "POST",
-                        data: {
-                            productId: "@Model.Id",
-                            productPropertyId: "1"
-                        }
-                    }).success(function (data) {
-                        alert(data);
-                    });
-                    e.preventDefault();
-                });
-        });
-    </script>*@
     }

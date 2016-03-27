@@ -68,6 +68,9 @@ namespace RabbitHouse.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            //get the anonymous user's cart
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -79,7 +82,11 @@ namespace RabbitHouse.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    {
+                        cart.MigrateCart(UserManager.FindByEmail(model.Email).Id);
+
+                        return RedirectToLocal(returnUrl);
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
