@@ -14,7 +14,8 @@ namespace RabbitHouse.Models
         public virtual string ShortDescription { get; set; }
         public virtual string Description { get; set; }
         public virtual string Remark { get; set; }
-        public virtual IList<string> ImgUrls { get; set; }
+        public virtual string CoverImgUrl { get; set; }
+        public virtual IList<ProductImage> Imgs { get; set; }
 
         public virtual decimal Price { get; set; }
         public virtual decimal? CurrentDiscount { get; set; }

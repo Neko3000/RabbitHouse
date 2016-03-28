@@ -1,4 +1,4 @@
-﻿
+﻿@model RabbitHouse.ViewModels.ProductListViewModel
 @{
     Layout = "~/Views/Shared/_LayoutNormal.cshtml";
     ViewBag.Title = "Index";
@@ -9,10 +9,10 @@
         <div class="container">
             <div class="pull-right">
                 <div class="user-button-group">
-                    <button class="btn btn-default btn-azure">注册</button> 
-                    <button class="btn btn-default">登陆</button> 
+                    <button class="btn btn-default btn-azure">注册</button>
+                    <button class="btn btn-default">登陆</button>
                 </div>
-            </div>           
+            </div>
         </div>
     </section>
     <section class="filter-block">
@@ -76,51 +76,56 @@
                                     <div class="show-text">时季商品</div>
                                 </div>
                             </div>
-                        </div>                     
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <section class="product-list-block">
-        <div class="single-product center-block  bg-coffee">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-3 position-middle-container">
-                        <div class="product-thumbnail position-middle-object">
-                            <img src="~/Content/img/discount/product/inca6.jpg" />
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-7">
-                        <div class="product-content">
-                            <h3>所谓COFFEEMOCHA，就是那段在办公桌上的午休时光</h3>
-                            <h2>经典摩卡咖啡</h2>
-                            
-                            <div class="property-group">
-                                <div class="property">
-                                    <img src="~/Content/img/discount/property/hot.png" />
-                                </div>
-                                <div class="property">
-                                    <img src="~/Content/img/discount/property/ice.png" />
-                                </div>
+        @foreach (var item in Model.Products)
+        {
+            <div class="single-product center-block  bg-coffee">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-3 position-middle-container">
+                            <div class="product-thumbnail position-middle-object">
+                                <img src="@item.CoverImgUrl" />
                             </div>
-
-                            <p>￥12.00</p>
-                            <div class="price-off-label">20%OFF</div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-lg-2">
-                        <div class="product-button-block">
-                            <div class="button-group">
-                                <div class="glass-button"><a href="@Url.Action("ProductDetail","Ordering")">商品详情</a></div>
-                                <div class="glass-button">加入购物车</div>
+                        <div class="col-md-12 col-lg-7">
+                            <div class="product-content">
+                                <h3>@item.ShortDescription</h3>
+                                <h2>@item.Name</h2>
+
+                                <div class="property-group">
+                                    @foreach (var prop in item.Properties)
+                                    {
+                                        <div class="property">
+                                            <img src="@prop.ImgUrl" />
+                                        </div>
+                                    }
+                                </div>
+
+                                <p>￥@item.Price</p>
+                                @if (item.CurrentDiscount != null)
+                                {
+                                    <div class="price-off-label">@string.Format("{0:D2}", (int)((1 - item.CurrentDiscount) * 100))%OFF</div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-2">
+                            <div class="product-button-block">
+                                <div class="button-group">
+                                    <div class="glass-button"><a href="@Url.Action("ProductDetail","Ordering",new { id =item.Id })">商品详情</a></div>
+                                    <div class="glass-button">加入购物车</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
+        }
         <div class="page-list">
             <div class="page-list-box">
                 <a href="" class="pervious-btn"></a>

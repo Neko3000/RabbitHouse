@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using RabbitHouse.Models;
+using RabbitHouse.ViewModels;
 
 namespace RabbitHouse.Controllers
 {
@@ -14,7 +15,12 @@ namespace RabbitHouse.Controllers
         // GET: Ordering
         public ActionResult Index()
         {
-            return View();
+            var vm = new ProductListViewModel
+            {
+                Products = db.Products.ToList()
+            };
+
+            return View(vm);
         }
         public ActionResult ProductDetail(int? id)
         {

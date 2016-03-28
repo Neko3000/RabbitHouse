@@ -29,4 +29,9 @@ namespace RabbitHouse.ViewModels
         [Required]
         public int ProductPropertyId { get; set; }
     }
+
+    public class ProductListViewModel
+    {
+        public IEnumerable<Product> Products { get; set; }
+    }
 }

@@ -13,44 +13,47 @@
 
 </head>
 <body>
-   <div class="main-nav visible-lg visible-md">
-       <div class="top-area">
-           <div class="brand-text">RabbitHouse.</div>
-       </div>
+    <div class="main-nav visible-lg visible-md">
+        <div class="top-area">
+            <div class="brand-text">RabbitHouse.</div>
+            <div class="login-container">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
 
-       <div class="middle-area">
-           <div class="main-brand">
-               <div class="circle">
-                   <div class="round">
-                       <img src="~/Content/svg/cafe-rabbit.svg" />
-                   </div>
-               </div>
-           </div>
-           <div class="main-brand-info">
-               <p>Anytime,Anywhere,<br />We Are Only Focusing Classic Coffee.</p>
-           </div>
-       </div>
-       @Html.Partial("_LoginPartial")
-       <div class="bottom-area">
-           <div class="link-list">
-               <ul>
-                   <li>
-                       <a href="@Url.Action("Intros","Home")"></a>
-                   </li>
-                   <li>
-                       <a href="@Url.Action("Index","News")"></a>
-                   </li>
-                   <li>
-                       <a href="@Url.Action("Index","Discount")"></a>
-                   </li>
-                   <li>
-                       <a href="@Url.Action("Index","Ordering")"></a>
-                   </li>
-               </ul>
-               <div class="bottom-white-line"></div>
-           </div>
-       </div>
-   </div>
+        <div class="middle-area">
+            <div class="main-brand">
+                <div class="circle">
+                    <div class="round">
+                        <img src="~/Content/svg/cafe-rabbit.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="main-brand-info">
+                <p>Anytime,Anywhere,<br />We Are Only Focusing Classic Coffee.</p>
+            </div>
+        </div>
+
+        <div class="bottom-area">
+            <div class="link-list">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Intros","Home")"></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","News")"></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Discount")"></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Ordering")"></a>
+                    </li>
+                </ul>
+                <div class="bottom-white-line"></div>
+            </div>
+        </div>
+    </div>
 
     <div class="navbar navbar-cloud navbar-fixed-top visible-sm visible-xs">
 
@@ -100,8 +103,8 @@
         </div>
 
     </div>
-    
-        @RenderBody()
+
+    @RenderBody()
 
     <footer class="main-footer">
         <div class="container top-content">
@@ -188,7 +191,7 @@
     </footer>
 
 
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryUI")
@@ -197,7 +200,7 @@
 
     @RenderSection("scripts", required: false)
 
-   
+
 </body>
 </html>
 

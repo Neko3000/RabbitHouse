@@ -61,6 +61,28 @@ ul {
     position: relative;
     z-index: 10;
 }
+//login
+.login-container{
+    position:absolute;
+    right:0;
+    margin:0 0;
+    padding:20px 20px;
+    display:inline-block;
+    text-align:center;
+    ul{
+        display:inline-block;
+        >li{
+            margin:0 10px;
+            float:left;
+            a{
+                color:white;
+                &:hover{
+                    color:white;
+                }
+            }
+        }
+    }
+}
 
 //welcome
 .welcome-container {
@@ -111,6 +133,7 @@ ul {
     background-color: #5a3e27;
 
     .top-area {
+
         .brand-text {
             display: inline-block;
             padding: 20px 20px;
@@ -1187,6 +1210,9 @@ ul {
     .property{
         display:inline-block;
         padding:0 2px;
+        &.active{
+            border:solid #2c77ba 1px;
+        }
     }
 }
 
@@ -1474,6 +1500,7 @@ ul {
         text-align:left;
         display:inline-block;
         padding:1px 0;
+        margin:12px 0 12px 0;
         @media(max-width:@screen-md-max){
             //for img's top distance
             padding-top:10px;

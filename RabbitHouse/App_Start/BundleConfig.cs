@@ -33,12 +33,11 @@ namespace RabbitHouse
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
                      "~/Content/css/font-awesome.min.css", new CssRewriteUrlTransform()));
 
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                    "~/Content/bootstrap.min.css"));
+
             bundles.Add(new StyleBundle("~/Content/style").Include(
                       "~/Content/SiteStyle.min.css", new CssRewriteUrlTransform()));
-
-
-            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
-                      "~/Content/bootstrap.min.css"));
 
         }
     }

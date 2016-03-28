@@ -193,6 +193,14 @@
     <Compile Include="Migrations\RabbitHouseDbContext\201603251016086_ResetDiscountFromFloatdToDecimal.Designer.cs">
       <DependentUpon>201603251016086_ResetDiscountFromFloatdToDecimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201603271020433_AddImgsForProduct.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201603271020433_AddImgsForProduct.Designer.cs">
+      <DependentUpon>201603271020433_AddImgsForProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201603280301403_AddCoverImgUrlForProduct.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201603280301403_AddCoverImgUrlForProduct.Designer.cs">
+      <DependentUpon>201603280301403_AddCoverImgUrlForProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RabbitHouseDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -206,6 +214,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Models\ProductProperty.cs" />
     <Compile Include="Models\RabbitHouseDbContext.cs" />
     <Compile Include="Models\ViewModels\ShoppingViewModels.cs" />
@@ -361,6 +370,13 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\hidden\_LayoutNormal-org.cshtml" />
+    <Content Include="ImgRepository\ProductImgs\10\dark-chocolate-mocha-avocado-mousse-4.jpg" />
+    <Content Include="ImgRepository\ProductImgs\12\tea-01.jpg" />
+    <Content Include="ImgRepository\ProductImgs\11\wallhaven-284723.jpg" />
+    <Content Include="ImgRepository\ProductImgs\10\mocha.jpg" />
+    <Content Include="ImgRepository\ProductPropertyImgs\hot.png" />
+    <Content Include="ImgRepository\ProductPropertyImgs\ice.png" />
+    <Content Include="ImgRepository\ProductPropertyImgs\orange.png" />
     <Content Include="Models\app.config" />
     <None Include="Properties\PublishProfiles\RabbitHouse.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
@@ -456,6 +472,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201603251016086_ResetDiscountFromFloatdToDecimal.resx">
       <DependentUpon>201603251016086_ResetDiscountFromFloatdToDecimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201603271020433_AddImgsForProduct.resx">
+      <DependentUpon>201603271020433_AddImgsForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201603280301403_AddCoverImgUrlForProduct.resx">
+      <DependentUpon>201603280301403_AddCoverImgUrlForProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
