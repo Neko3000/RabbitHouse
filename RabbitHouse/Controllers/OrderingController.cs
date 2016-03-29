@@ -35,5 +35,6 @@ namespace RabbitHouse.Controllers
             }
             return View(product);
         }
+
     }
 }

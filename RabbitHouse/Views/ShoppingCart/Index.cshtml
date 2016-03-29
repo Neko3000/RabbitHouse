@@ -1,39 +1,67 @@
 ﻿@model RabbitHouse.ViewModels.ShoppingCartViewModel
 
 @{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
     ViewBag.Title = "Index";
 }
 
-<h3>
-    <em>Review</em>your cart
-</h3>
-<button class="btn btn-primary">That's right</button>
-<table class="table table-striped">
-    <tr>
-        <th>Name</th>
-        <th>Property</th>
-        <th>Price(each)</th>
-        <th>Count</th>
-        <th></th>
-    </tr>
+<div class="page-body">
+    <div class="cart">
+        <section class="cart-header">
+            <div class="container">
+                <div class="cart-position">在线下单<span>></span>的购物车</div>
+                <div class="cart-reminder">请确认以下商品的信息</div>
+            </div>
+        </section>
+        <section class="cart-content">
 
-        @foreach (var item in Model.CartElements)
-        {
-            <tr>
-                <td>@item.Product.Name</td>
-                <td>@item.ProductProperty.Name</td>
-                <td>@(item.Product.Price*item.Product.CurrentDiscount)</td>
-                <td>@item.Count</td>
-                <td>
-                    <button class="btn btn-default">Remove it</button>
-                </td>
-            </tr>
-        }
-    <tr>
-        <td>Total</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>@Model.CartTotal</td>
-    </tr>
-</table>
+            <div class="single-cart-block">
+                <time></time>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-3 position-middle-container">
+                            <div class="single-cart-thumbnail position-middle-object">
+                                <img src="~/ImgRepository/ProductImgs/11/wallhaven-284723.jpg" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="single-cart-info">
+                                <h2>布丁奶酪迷你甜蛋糕</h2>
+                                <h3>当布丁和奶酪碰撞在一起，会是怎样的一番火花？！</h3>
+                                <div class="property-group">
+                                    <div class="property">
+                                        <img src="~/ImgRepository/ProductPropertyImgs/orange.png" />
+                                    </div>
+                                </div>
+                                <p>￥10.00*0.8+1.0=￥10.00</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-3">
+                            <div class="single-cart-count-sum-container">
+                                <div class="single-cart-count-sum">
+                                    <span class="count">x 5</span>
+                                    <span class="sum">= ￥50.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-2">
+                            <div class="single-cart-delete position-middle-container">
+                                <a class="">删除</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="cart-footer">
+            <div class="cart-summary">
+                <p>合计：￥59.60</p>
+            </div>
+            <div class="cart-submit">
+                <button class="btn btn-coffee">就是她们了！</button>
+            </div>
+        </section>
+    </div>
+</div>
