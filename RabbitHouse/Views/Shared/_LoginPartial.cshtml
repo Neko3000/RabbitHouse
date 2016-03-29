@@ -11,6 +11,13 @@
                 @Html.ActionLink("你好，" + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>
+            <li>
+                <a href="@Url.Action("Index","ShoppingCart")">
+                    <div class="cart-btn">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                </a>
+            </li>
         </ul>
     }
 }
@@ -19,5 +26,12 @@ else
     <ul>
         <li>@Html.ActionLink("注册", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("登录", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>
+            <a href="@Url.Action("Index","ShoppingCart")">
+                <div class="cart-btn">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </a>
+        </li>
     </ul>
 }

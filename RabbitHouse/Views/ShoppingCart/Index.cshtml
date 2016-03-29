@@ -14,45 +14,48 @@
             </div>
         </section>
         <section class="cart-content">
-
-            <div class="single-cart-block">
-                <time></time>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-3 position-middle-container">
-                            <div class="single-cart-thumbnail position-middle-object">
-                                <img src="~/ImgRepository/ProductImgs/11/wallhaven-284723.jpg" />
+            @foreach (var item in Model.CartElements)
+            {
+                <div class="single-cart-block">
+                    <time></time>
+                    <div class="seasonal-mark"></div>
+                    <div class="discount-mark"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-3 position-middle-container">
+                                <div class="single-cart-thumbnail position-middle-object">
+                                    <img src="@item.Product.CoverImgUrl" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4">
-                            <div class="single-cart-info">
-                                <h2>布丁奶酪迷你甜蛋糕</h2>
-                                <h3>当布丁和奶酪碰撞在一起，会是怎样的一番火花？！</h3>
-                                <div class="property-group">
-                                    <div class="property">
-                                        <img src="~/ImgRepository/ProductPropertyImgs/orange.png" />
+                            <div class="col-md-12 col-lg-4">
+                                <div class="single-cart-info">
+                                    <h2>@item.Product.Name</h2>
+                                    <h3>@item.Product.ShortDescription</h3>
+                                    <div class="property-group">
+                                        <div class="property">
+                                            <img src="@item.ProductProperty.ImgUrl" />
+                                        </div>
+                                    </div>
+                                    <p>￥@item.Product.Price*0.8+1.0=￥10.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-3">
+                                <div class="single-cart-count-sum-container">
+                                    <div class="single-cart-count-sum">
+                                        <span class="count">x @item.Count</span>
+                                        <span class="sum">= ￥50.00</span>
                                     </div>
                                 </div>
-                                <p>￥10.00*0.8+1.0=￥10.00</p>
                             </div>
-                        </div>
-                        <div class="col-md-12 col-lg-3">
-                            <div class="single-cart-count-sum-container">
-                                <div class="single-cart-count-sum">
-                                    <span class="count">x 5</span>
-                                    <span class="sum">= ￥50.00</span>
+                            <div class="col-md-12 col-lg-2">
+                                <div class="single-cart-delete position-middle-container">
+                                    <a class="">删除</a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-2">
-                            <div class="single-cart-delete position-middle-container">
-                                <a class="">删除</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            }
         </section>
 
         <section class="cart-footer">

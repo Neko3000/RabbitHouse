@@ -135,32 +135,50 @@ namespace RabbitHouse.Models
         //using HttpContextBase to allow access to cookies
         public string GetCartId(HttpContextBase context)
         {
-            if(context.Session[CartSessionKey]==null)
+            if(string.IsNullOrWhiteSpace(context.User.Identity.GetUserId()))
             {
-                if(!string.IsNullOrWhiteSpace(context.User.Identity.GetUserId()))
-                {
-                    context.Session[CartSessionKey] = context.User.Identity.GetUserId();
-                }
-                else
+                if (context.Session[CartSessionKey] == null)
                 {
                     //generate a new random GUID using System.Guid class
                     Guid tempCartId = Guid.NewGuid();
                     //send tempCartId back to client as a cookie
                     context.Session[CartSessionKey] = tempCartId.ToString();
+
+                    return context.Session[CartSessionKey].ToString();
+                }
+                else
+                {
+                    return context.Session[CartSessionKey].ToString();
                 }
             }
-            return context.Session[CartSessionKey].ToString();
+
+            return context.User.Identity.GetUserId();
         }
         
         //when a user has logged in,migrate their shopping cart to
         //be associated with their Id
         public void MigrateCart(string userId)
         {
+            //find the anonymous user's cart elements
             var shoppingCart = db.CartElements.Where(c => c.CartId.ToString() == ShoppingCartId);
 
             foreach(var item in shoppingCart)
             {
-                item.CartId = new Guid(userId);
+                //find the login user's cart elements
+                var loginUserCartElements = db.CartElements.Where(c => c.CartId.ToString() == userId);
+                //try to find if there is the same Product&&ProductProperty's cart element in login user's cart
+                var theSameCartElement = loginUserCartElements.Single(c => c.Product.Id == item.Product.Id && c.ProductProperty.Id == item.ProductProperty.Id);
+
+                //the same cart element exists, just need to add count to it
+                if (theSameCartElement!=null)
+                {
+                    theSameCartElement.Count += item.Count;
+                }
+                else
+                {
+                    item.CartId = new Guid(userId);
+                }
+
             }
             db.SaveChanges();
         }
