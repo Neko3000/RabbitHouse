@@ -62,6 +62,23 @@ ul {
     z-index: 10;
 }
 
+.solid-button {
+    padding: 10px 20px;
+
+    -moz-border-radius: 0 0;
+    -webkit-border-radius: 0 0;
+    border-radius: 0 0;
+
+    font-size:12px;
+    font-weight:@light;
+    &:focus{
+
+    }
+    >i{
+        margin-right:8px;
+    }
+}
+
 input.solid-input-box {
     border: #976e4b solid 1px;
     -moz-border-radius: 2px 2px;
@@ -77,6 +94,27 @@ input.solid-input-box {
         border-color: #5a3e27;
     }
 }
+
+.form-label{
+    padding-top:6px;
+    text-align:right;
+
+    font-family:'Microsoft YaHei';
+    font-weight:@light;
+    font-size:14px;
+    color:black;
+}
+
+.modal{
+    .modal-content{
+        .modal-header{
+            .modal-title{
+                font-size:16px;
+            }
+        }
+    }
+}
+
 //login
 .cart-btn {
     position: relative;
@@ -1539,6 +1577,9 @@ input.solid-input-box {
     background-color:@light-blue;
 
     overflow:hidden;
+    .single-product-container{
+        display:block;
+    }
     .single-product{
         text-align:left;
         display:inline-block;
@@ -1789,9 +1830,9 @@ input.solid-input-box {
 .btn-coffee{
     color:white;
     background-color:@standard-coffee;
-    &:hover{
+    &:hover,&:focus{
         color:white;
-        background-color:#553924;
+        background-color:#462f1e;
     }
 }
 .btn-azure{
@@ -1910,8 +1951,12 @@ input.solid-input-box {
     .cart-content {
         text-align: center;
         padding: 21px 0;
+        .single-cart-block-container{
+            display:block;
+        }
 
         .single-cart-block {
+            position:relative;
             text-align: left;
             display: inline-block;
             padding: 43px 0;
@@ -1925,6 +1970,10 @@ input.solid-input-box {
             -o-transition: box-shadow ease-in 0.2s;
             -webkit-transition: box-shadow ease-in 0.2s;
             transition: box-shadow ease-in 0.2s;
+            @media(max-width:@screen-xs-max)
+            {
+                width:262px;
+            }
 
             &:hover {
                 -moz-box-shadow: 5px 5px 1px rgba(0,0,0,0.05);
@@ -1934,15 +1983,66 @@ input.solid-input-box {
 
             time {
             }
+            .mark{
+                padding:5px 8px;
+                font-weight:@light;
+                font-size:12px;
+                color:white;
+                text-align:center;
+                >i{
+                    margin-right:5px;
+                }
+                &:after{
+                    display:block;
+                    position:absolute;
+                    left:0;
+                    bottom:-10px;
+                    z-index:12;
+
+                    content:"";
+                    width:0;
+                    height:0;
+
+                    border:solid transparent;
+                    border-width:0 10px 10px 0;
+                }
+            }
+            .coffee-mark{
+                position:absolute;
+                z-index:10;
+                left:-10px;
+                top:10px;
+                background-color:#724f32;
+
+                &:after{
+                    border-right-color:#3d2918;
+                }
+            }
             .seasonal-mark{
+                position:absolute;
+                z-index:10;
+                left:-10px;
+                top:8px;
                 background-color:#00b7ee;
-                width:100px;
-                height:20px;
+                width:70px;
+                height:22px;
+
+                &:after{
+                    border-right-color:#077596;
+                }
             }
             .discount-mark{
+                position:absolute;
+                z-index:10;
+                left:-10px;
+                top:40px;
                 background-color:#ff3271;
-                width:100px;
-                height:20px;
+                width:70px;
+                height:22px;
+
+                &:after{
+                    border-right-color:#c62b5a;
+                }
             }
             .single-cart-thumbnail {
                 > img {
@@ -2062,8 +2162,7 @@ input.solid-input-box {
 
         .cart-submit {
             button {
-                font-size: 12px;
-                width:500px;
+
             }
         }
     }

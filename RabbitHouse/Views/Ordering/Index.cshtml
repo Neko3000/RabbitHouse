@@ -85,40 +85,42 @@
     <section class="product-list-block">
         @foreach (var item in Model.Products)
         {
-            <div class="single-product center-block  bg-coffee">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-3 position-middle-container">
-                            <div class="product-thumbnail position-middle-object">
-                                <img src="@item.CoverImgUrl" />
+            <div class="single-product-container">
+                <div class="single-product center-block  bg-coffee">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-3 position-middle-container">
+                                <div class="product-thumbnail position-middle-object">
+                                    <img src="@item.CoverImgUrl" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-12 col-lg-7">
-                            <div class="product-content">
-                                <h3>@item.ShortDescription</h3>
-                                <h2>@item.Name</h2>
+                            <div class="col-md-12 col-lg-7">
+                                <div class="product-content">
+                                    <h3>@item.ShortDescription</h3>
+                                    <h2>@item.Name</h2>
 
-                                <div class="property-group">
-                                    @foreach (var prop in item.Properties)
+                                    <div class="property-group">
+                                        @foreach (var prop in item.Properties)
+                                        {
+                                            <div class="property">
+                                                <img src="@prop.ImgUrl" />
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <p>￥@item.Price</p>
+                                    @if (item.CurrentDiscount != null)
                                     {
-                                        <div class="property">
-                                            <img src="@prop.ImgUrl" />
-                                        </div>
+                                        <div class="price-off-label">@string.Format("{0:D2}", (int)((1 - item.CurrentDiscount) * 100))%OFF</div>
                                     }
                                 </div>
-
-                                <p>￥@item.Price</p>
-                                @if (item.CurrentDiscount != null)
-                                {
-                                    <div class="price-off-label">@string.Format("{0:D2}", (int)((1 - item.CurrentDiscount) * 100))%OFF</div>
-                                }
                             </div>
-                        </div>
-                        <div class="col-md-12 col-lg-2">
-                            <div class="product-button-block">
-                                <div class="button-group">
-                                    <div class="glass-button"><a href="@Url.Action("ProductDetail","Ordering",new { id =item.Id })">商品详情</a></div>
-                                    <div class="glass-button">加入购物车</div>
+                            <div class="col-md-12 col-lg-2">
+                                <div class="product-button-block">
+                                    <div class="button-group">
+                                        <div class="glass-button"><a href="@Url.Action("ProductDetail","Ordering",new { id =item.Id })">商品详情</a></div>
+                                        <div class="glass-button">加入购物车</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

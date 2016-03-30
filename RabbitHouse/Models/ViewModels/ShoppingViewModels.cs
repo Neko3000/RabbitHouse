@@ -9,8 +9,31 @@ namespace RabbitHouse.ViewModels
 {
     public class ShoppingCartViewModel
     {
+        //get
         public List<CartElement> CartElements { get; set; }
         public decimal CartTotal { get; set; }
+
+        //post
+        [Display(Name ="邮政编码")]
+        public string PostalCode { get; set; }
+        [Display(Name = "国家")]
+        public string Country { get; set; }
+        [Display(Name = "州/省")]
+        public string Province { get; set; }
+        [Display(Name = "城市")]
+        public string City { get; set; }
+        [Display(Name = "详细地址")]
+        public string Locality { get; set; }
+
+        [Display(Name = "收件人")]
+        public string RecipientName { get; set; }
+        [Display(Name = "联系电话")]
+        public string PhoneNumber { get; set; }
+        [Display(Name = "电子邮件")]
+        public string Email { get; set; }
+
+        [Display(Name = "备注")]
+        public string Note { get; set; }
     }
 
     public class ShoppingCartRemoveViewModel
@@ -29,6 +52,7 @@ namespace RabbitHouse.ViewModels
         [Required]
         public int ProductPropertyId { get; set; }
     }
+
 
     public class ProductListViewModel
     {

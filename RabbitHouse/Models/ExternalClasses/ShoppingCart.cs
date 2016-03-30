@@ -107,12 +107,17 @@ namespace RabbitHouse.Models
         {
             decimal orderTotal = 0;
             var cartItems = GetCartElements();
-            foreach(var item in cartItems)
+
+            db.Orders.Add(order);
+            db.SaveChanges();
+
+            foreach (var item in cartItems)
             {
                 var orderDetail = new OrderDetail
                 {
                     OrderId = order.Id,
                     Product = item.Product,
+                    ProductProperty=item.ProductProperty,
                     UnitPrice = item.Product.Price * item.Product.CurrentDiscount ?? 1,
                     Count = item.Count
                 };
@@ -123,7 +128,7 @@ namespace RabbitHouse.Models
             }
 
             order.Total = orderTotal;
-
+            order.RecordTime = DateTime.Now;
             //save the order
             db.SaveChanges();
             //empty the shopping cart
