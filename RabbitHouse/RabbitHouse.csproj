@@ -169,6 +169,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrderingController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\UserCenterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -449,6 +450,7 @@
     <Content Include="Views\ArticleManage\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Ordering\ProductDetail - 复制.cshtml" />
+    <Content Include="Views\UserCenter\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />

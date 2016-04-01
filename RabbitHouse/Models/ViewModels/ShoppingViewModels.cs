@@ -10,7 +10,7 @@ namespace RabbitHouse.ViewModels
     public class ShoppingCartViewModel
     {
         //get
-        public List<CartElement> CartElements { get; set; }
+        public IEnumerable<CartElement> CartElements { get; set; }
         public decimal CartTotal { get; set; }
 
         //post
@@ -57,5 +57,10 @@ namespace RabbitHouse.ViewModels
     public class ProductListViewModel
     {
         public IEnumerable<Product> Products { get; set; }
+    }
+
+    public class OrderRecordViewModel
+    {
+        public IEnumerable<Order> Orders { get; set; }
     }
 }
