@@ -1814,6 +1814,10 @@ input.solid-input-box:focus {
 .order-list-block .order-list-bg .single-order {
   border: #d2d2d2 solid 1px;
   color: #8f8f8f;
+  margin-bottom: 15px;
+}
+.order-list-block .order-list-bg .single-order:last-child {
+  margin-bottom: 0;
 }
 .order-list-block .order-list-bg .single-order .single-order-header {
   border-bottom: #d2d2d2 solid 1px;

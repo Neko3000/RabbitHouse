@@ -15,9 +15,10 @@ namespace RabbitHouse.Controllers
         // GET: UserCenter
         public ActionResult Index()
         {
+            var userId = this.HttpContext.User.Identity.GetUserId();
             var vm = new OrderRecordViewModel
             {
-                Orders = db.Orders.Where(o => o.UserId.ToString() == this.HttpContext.User.Identity.GetUserId())
+                Orders = db.Orders.Where(o => o.UserId.ToString() == userId).ToList()
             };
             return View(vm);
         }
