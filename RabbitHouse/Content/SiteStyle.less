@@ -2240,22 +2240,44 @@ input.solid-input-box {
         padding: 15px 0;
         display: inline-block;
         background-color: white;
-        @media(max-width:@screen-xs-max)
+        box-shadow:1px 1px 1px rgba(0,0,0,0.15);
+        /*@media(max-width:@screen-xs-max)
         {
             width:@standard-item-width;
-        }
-        
+        }*/
         .single-order {
             border: #d2d2d2 solid 1px;
-            color:#8f8f8f;
-            margin-bottom:15px;
-            &:last-child{
-                margin-bottom:0;
+            color: #8f8f8f;
+            margin-bottom: 15px;
+
+            -moz-transition: border-color ease-in 0.4s;
+            -o-transition: border-color ease-in 0.4s;
+            -webkit-transition: border-color ease-in 0.4s;
+            transition: border-color ease-in 0.4s;
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:hover {
+                border-color: @standard-coffee;
+
+
+
+                .single-order-header {
+                    color: white;
+                    background-color: @standard-coffee;
+                    border-bottom-color: @standard-coffee;
+                }
             }
 
             .single-order-header {
                 border-bottom: #d2d2d2 solid 1px;
                 background-color: #f3f3f3;
+
+                -moz-transition: all ease-in 0.4s;
+                -o-transition: all ease-in 0.4s;
+                -webkit-transition: all ease-in 0.4s;
+                transition: all ease-in 0.4s;
             }
 
             .single-order-content {
@@ -2263,87 +2285,98 @@ input.solid-input-box {
 
                 .order-detail-list {
                     .single-order-detail {
-                        padding:12px 0;
-                        border-bottom:#d2d2d2 solid 1px;
+                        padding: 12px 0;
+                        border-bottom: #d2d2d2 solid 1px;
                         text-align: left;
+
                         .order-detail-thumbnail {
                             width: 50px;
                             height: 50px;
-
                             -moz-border-radius: 50% 50%;
                             -webkit-border-radius: 50% 50%;
                             border-radius: 50% 50%;
+                            overflow: hidden;
 
-                            overflow:hidden;
-                            @media(max-width:@screen-md-max)
-                            {
-                                margin:0 auto;
+                            @media(max-width:@screen-md-max) {
+                                margin: 0 auto;
                             }
+
                             img {
-                                position:relative;
+                                position: relative;
                                 //left:-50%;
                                 height: 50px;
                             }
                         }
-                        .order-detail-name{
-                            text-align:center;
-                            padding:15px 0;
+
+                        .order-detail-name {
+                            text-align: center;
+                            padding: 15px 0;
                         }
-                        .order-detail-property{
-                            text-align:center;
-                            padding:15px 0;
+
+                        .order-detail-property {
+                            text-align: center;
+                            padding: 15px 0;
                         }
-                        .order-detail-price{
-                            text-align:center;
-                            padding:15px 0;
+
+                        .order-detail-price {
+                            text-align: center;
+                            padding: 15px 0;
                         }
-                        .order-detail-count{
-                            text-align:center;
-                            padding:15px 0;
+
+                        .order-detail-count {
+                            text-align: center;
+                            padding: 15px 0;
                         }
-                        .order-detail-sum{
-                            text-align:right;
-                            padding:15px 17px 0 0;
+
+                        .order-detail-sum {
+                            text-align: right;
+                            padding: 15px 17px 0 0;
                         }
                     }
                 }
-                .order-sum-container{
-                    position:relative;
-                    height:55px;
-                }
-                .order-sum{ 
-                    line-height:1;
-                    position:absolute;
-                    right:0;
-                    top:0;
 
-                    display:inline-block;
-                    padding:20px 17px 20px 30px ;
-                    border-bottom:#d2d2d2 solid 1px;
-                    text-align:right;
+                .order-sum-container {
+                    position: relative;
+                    height: 55px;
+                }
+
+                .order-sum {
+                    line-height: 1;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    display: inline-block;
+                    padding: 20px 17px 20px 30px;
+                    border-bottom: #d2d2d2 solid 1px;
+                    text-align: right;
                 }
             }
 
             .single-order-footer {
                 padding: 15px 12px;
                 text-align: right;
-                p{
-                    margin-bottom:2px;
+
+                p {
+                    margin-bottom: 2px;
                 }
-                .order-address{
-                    margin-bottom:16px;
+
+                .order-address {
+                    margin-bottom: 16px;
                 }
-                .order-contact-info{
-                    margin-bottom:16px;
+
+                .order-contact-info {
+                    margin-bottom: 16px;
                 }
-                .order-note{
-                    margin-bottom:16px;
-                    i{
-                        margin-right:6px;
+
+                .order-note {
+                    margin-bottom: 16px;
+
+                    i {
+                        margin-right: 6px;
                     }
                 }
-                .order-time{
 
+                .order-time {
                 }
             }
         }

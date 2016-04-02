@@ -12,9 +12,11 @@ namespace RabbitHouse.ViewModels
         //get
         public IEnumerable<CartElement> CartElements { get; set; }
         public decimal CartTotal { get; set; }
+    }
 
-        //post
-        [Display(Name ="邮政编码")]
+    public class OrderInfoSubmitViewModel
+    {
+        [Display(Name = "邮政编码")]
         public string PostalCode { get; set; }
         [Display(Name = "国家")]
         public string Country { get; set; }

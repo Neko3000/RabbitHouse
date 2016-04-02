@@ -451,6 +451,7 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Ordering\ProductDetail - 复制.cshtml" />
     <Content Include="Views\UserCenter\Index.cshtml" />
+    <Content Include="Views\Shared\_OrderInfoSubmitPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />

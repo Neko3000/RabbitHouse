@@ -1,78 +1,6 @@
-﻿@model RabbitHouse.ViewModels.ShoppingCartViewModel
+﻿@model RabbitHouse.ViewModels.OrderInfoSubmitViewModel
 
-@{
-    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
-    ViewBag.Title = "Index";
-}
-
-<div class="page-body">
-    <div class="cart">
-        <section class="cart-header">
-            <div class="container">
-                <div class="cart-position">在线下单<span>></span>的购物车</div>
-                <div class="cart-reminder">请确认以下商品的信息</div>
-            </div>
-        </section>
-        <section class="cart-content">
-            @foreach (var item in Model.CartElements)
-            {
-                <div class="single-cart-block-container">
-                    <div class="single-cart-block">
-                        <time></time>
-                        <div class="mark coffee-mark"><i class="fa fa-clock-o"></i>特惠商品</div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-3 position-middle-container">
-                                    <div class="single-cart-thumbnail position-middle-object">
-                                        <img src="@item.Product.CoverImgUrl" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-4">
-                                    <div class="single-cart-info">
-                                        <h2>@item.Product.Name</h2>
-                                        <h3>@item.Product.ShortDescription</h3>
-                                        <div class="property-group">
-                                            <div class="property">
-                                                <img src="@item.ProductProperty.ImgUrl" />
-                                            </div>
-                                        </div>
-                                        <p>￥@item.Product.Price*0.8+1.0=￥10.00</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-3">
-                                    <div class="single-cart-count-sum-container">
-                                        <div class="single-cart-count-sum">
-                                            <span class="count">x @item.Count</span>
-                                            <span class="sum">= ￥50.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-2">
-                                    <div class="single-cart-delete position-middle-container">
-                                        <a class="">删除</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        </section>
-
-        <section class="cart-footer">
-            <div class="cart-summary">
-                <p>合计：￥59.60</p>
-            </div>
-            <div class="cart-submit">
-                <button class="btn btn-coffee solid-button" data-toggle="modal" data-target="#myModal"><i class="fa fa-caret-right"></i>就是她们了！</button>
-            </div>
-        </section>
-    </div>
-</div>
-
-@Html.Partial("_OrderInfoSubmitPartial",new RabbitHouse.ViewModels.OrderInfoSubmitViewModel())
-
-@*<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -145,7 +73,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "col-sm-3 form-label" })
                         <div class="col-sm-6">
-                            @Html.TextAreaFor(model => model.Note, htmlAttributes : new { @class = "form-control",@rows="5", @placeholder = "" })
+                            @Html.TextAreaFor(model => model.Note, htmlAttributes: new { @class = "form-control", @rows = "5", @placeholder = "" })
                             @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -158,4 +86,4 @@
             }
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->*@
+</div><!-- /.modal -->
