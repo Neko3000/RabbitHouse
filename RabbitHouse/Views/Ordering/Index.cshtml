@@ -3,15 +3,11 @@
     Layout = "~/Views/Shared/_LayoutNormal.cshtml";
     ViewBag.Title = "Index";
 }
-
 <div class="page-body">
     <section class="user-block">
         <div class="container">
-            <div class="pull-right">
-                <div class="user-button-group">
-                    <button class="btn btn-default btn-azure">注册</button>
-                    <button class="btn btn-default">登陆</button>
-                </div>
+            <div class="login-container  visible-xs visible-sm">
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </section>

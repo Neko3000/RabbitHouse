@@ -1,16 +1,21 @@
 ﻿@using Microsoft.AspNet.Identity
-
 @if (Request.IsAuthenticated)
-{
+{       
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
     {
         @Html.AntiForgeryToken()
-
-        <ul>
+        <ul class="user-area">
             <li>
-                @Html.ActionLink("你好，" + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @*@Html.ActionLink("你好，" + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                <div class="btn-group btn-group-solid">
+                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@User.Identity.GetUserName()</a>       
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index","UserCenter")">我的信息</a></li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>
+                    </ul>
+                </div>
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>
+            @*<li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>*@
             <li>
                 <a href="@Url.Action("Index","ShoppingCart")">
                     <div class="cart-btn">
@@ -23,7 +28,7 @@
 }
 else
 {
-    <ul>
+    <ul class="user-area">
         <li>@Html.ActionLink("注册", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("登录", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         <li>

@@ -20,7 +20,6 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-
         <div class="middle-area">
             <div class="main-brand">
                 <div class="circle">
@@ -72,31 +71,19 @@
         <div class="navbar-collapse collapse navbar-ul-container">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="@Url.Action("Index","Home")">
+                    <a href="@Url.Action("Intros","Home")">
                     </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index","Home")">
+                    <a href="@Url.Action("Index","News")">
                     </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index","Home")">
+                    <a href="@Url.Action("Index","Discount")">
                     </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index","Home")">
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index","Home")">
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index","Home")">
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index","Home")">
+                    <a href="@Url.Action("Index","Ordering")">
                     </a>
                 </li>
             </ul>
@@ -104,6 +91,7 @@
 
     </div>
 
+    <div class="nav-space visible-sm visible-xs"></div>
     @RenderBody()
 
     <footer class="main-footer">

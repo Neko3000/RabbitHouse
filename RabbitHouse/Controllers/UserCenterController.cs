@@ -20,7 +20,7 @@ namespace RabbitHouse.Controllers
             {
                 Orders = db.Orders.Where(o => o.UserId.ToString() == userId).ToList()
             };
-            return View(vm);
+            return RedirectToAction("Index", "UserCenter");
         }
     }
 }

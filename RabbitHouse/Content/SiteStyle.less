@@ -132,10 +132,21 @@ input.solid-input-box {
     -moz-border-radius: 50% 50%;
     -webkit-border-radius: 50% 50%;
     border-radius: 50% 50%;
-    &:hover{
-         >i{
-             opacity: 1.0;
-         }
+
+    -moz-transition: transform ease-in 0.2s;
+    -o-transition: transform ease-in 0.2s;
+    -webkit-transition: transform ease-in 0.2s;
+    transition: transform ease-in 0.2s;
+    &:hover {
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+
+        > i {
+            opacity: 1.0;
+        }
     }
 
     > i {
@@ -157,12 +168,17 @@ input.solid-input-box {
     padding:20px 20px;
     display:inline-block;
     text-align:center;
-    ul{
+    ul.user-area{
         display:inline-block;
+        .btn-group{
+            >a{
+                color:white;
+            }
+        }
         >li{
             margin:0 10px;
             float:left;
-            a{
+            >a{
                 color:white;
                 &:hover{
                     color:white;
@@ -363,6 +379,10 @@ input.solid-input-box {
     }
 }
 
+.nav-space{
+    height:55px;
+}
+
 .navbar-cloud {
     background-color: rgba(255,255,255,0.9);
     height: 55px;
@@ -426,7 +446,7 @@ input.solid-input-box {
         }
 
         > li:nth-child(4) > a {
-            background-image: url(/Content/img/index/nav/goodinfos.png);
+            background-image: url(/Content/img/index/nav/onlineorder.png);
             background-repeat: no-repeat;
             background-position: left;
 
@@ -446,7 +466,7 @@ input.solid-input-box {
         }
 
         > li:nth-child(6) > a {
-            background-image: url(/Content/img/index/nav/onlineorder.png);
+            background-image: url(/Content/img/index/nav/goodinfos.png);
             background-repeat: no-repeat;
             background-position: left;
 
@@ -655,10 +675,18 @@ input.solid-input-box {
             color: white;
             opacity: 0.85;
             text-align: left;
+            @media(max-width:@screen-xs-max)
+            {
+                font-size:25px;
+            }
         }
 
         .left-bottom-text-smaller {
             font-size: 25px;
+            @media(max-width:@screen-xs-max)
+            {
+                font-size:20px;
+            }
         }
     }
 
@@ -717,7 +745,7 @@ input.solid-input-box {
             display: inline-block;
             margin: 0 auto;
             font-weight: @light;
-            font-size: 25px;
+            font-size: 20px;
             color: #404040;
             letter-spacing: 2px;
 
@@ -843,12 +871,21 @@ input.solid-input-box {
 
     .single-news {
         position: relative;
+        top:0;
         margin: 20px auto;
         width: 260px;
         height: 325px;
         background-color: #5a3e27;
         border: solid #5a3e27 1px;
         overflow: hidden;
+
+        -moz-transition: all ease-in-out 0.2s;
+        -o-transition: all ease-in-out 0.2s;
+        -webkit-transition: all ease-in-out 0.2s;
+        transition: all ease-in-out 0.2s;
+        &:hover {
+            top: -10px;
+        }
 
         > img {
             height: 214px;
@@ -1273,15 +1310,38 @@ input.solid-input-box {
     }
 }
 
-.glass-button{
-    position:relative;
-    margin:0 auto;
-    display:inline-block;
-    padding:5px 8px;
-    border:solid white 1px;
+.glass-button {
+    position: relative;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 5px 8px;
+    border: solid white 1px;
+    white-space: nowrap;
+    color: white;
 
-    white-space:nowrap;
-    color:white;
+    -moz-transition: all ease-in-out 0.2s;
+    -o-transition: all ease-in-out 0.2s;
+    -webkit-transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+        background-color: white;
+        color: @standard-coffee;
+
+        a {
+            color: @standard-coffee;
+        }
+    }
+
+    a {
+        -moz-transition: all ease-in-out 0.2s;
+        -o-transition: all ease-in-out 0.2s;
+        -webkit-transition: all ease-in-out 0.2s;
+        transition: all ease-in-out 0.2s;
+
+        text-decoration: none;
+        color: white;
+    }
 }
 
 .snap-to-right-bottom-excepet-xs{
@@ -1337,11 +1397,9 @@ input.solid-input-box {
     .show-item-thumbnail {
         overflow:hidden;
 
-        width:260px;
-        height:172px;
-
         > img {
-            
+            width:260px;
+            height:172px;
         }
 
         @media(max-width:@screen-md-max) {
@@ -1421,40 +1479,42 @@ input.solid-input-box {
     }  
 }
 .btn-group-solid {
-      
-    >button.btn{ 
-       
-        padding:2px 4px 2px 10px;
 
+    > button.btn {
+        padding: 2px 4px 2px 10px;
         -moz-border-radius: 0;
         -webkit-border-radius: 0;
         border-radius: 0;
-
-        color:white;
+        color: white;
         background-color: #774b27;
-       
-        border:solid 1px  #37200d;     
-        &:hover{
-            background-color: #774b27;
-            color:white;
+        border: solid 1px #37200d;
 
-            border:solid #55bbff 1px;
-        }
-        &focus{
+        &:hover {
             background-color: #774b27;
-            color:white;
+            color: white;
+            border: solid #55bbff 1px;
         }
-        >img{
-            margin-left:10px;
-            position:relative;
-            top:-1px;       
+
+        &focus {
+            background-color: #774b27;
+            color: white;
+        }
+
+        > img {
+            margin-left: 10px;
+            position: relative;
+            top: -1px;
+        }
     }
-    }    
-    ul{      
-        >li{                    
-            &:hover a{
-                color:white;
-                background-color:#774b27;
+
+    ul.dropdown-menu {
+        -moz-border-radius: 0 0;
+        -webkit-border-radius: 0 0;
+        border-radius: 0 0;
+        > li {
+            &:hover a {
+                color: white;
+                background-color: #774b27;
             }
         }
     }
@@ -1463,6 +1523,10 @@ input.solid-input-box {
 
 
 .user-block{
+    .login-container{
+        padding:8px 0;
+    }
+    height:50px;
     padding:5px 0;
 
     background-color:#412c1c;
@@ -1680,7 +1744,7 @@ input.solid-input-box {
                     width:100%;
                     text-align:center;
                     >a{
-                        color:white;
+                        //color:white;
                     }
                 }
                 
@@ -2187,51 +2251,69 @@ input.solid-input-box {
 .user-center-bg{
     padding:27px 0 60px 0;
 }
-.user-center-nav{
-    margin-bottom:10px;
-    a{
-        display:inline-block;
+.user-center-nav {
+    margin-bottom: 27px;
+
+    a {
+        display: inline-block;
     }
-    .user-center-nav-link{
-        display:inline-block;
-        color:#8c8c8c;
 
-        background-color:white;
-        border:#bfbfbf solid 1px;
+    .user-center-nav-link {
+        display: inline-block;
+        color: #8c8c8c;
+        background-color: white;
+        border: #bfbfbf solid 1px;
 
+        -moz-transition: all ease-in-out 0.2s;
+        -o-transition: all ease-in-out 0.2s;
+        -webkit-transition: all ease-in-out 0.2s;
+        transition: all ease-in-out 0.2s;
         //fix the distance between inline block
-        font-size:0;
-        &:hover{
-            color:white;
-            background-color:@standard-coffee;
-        }
-        .symbol{
-            display:inline-block;
-            vertical-align:middle;
-            padding:22px 25px;
-            >i{
-                font-size:32px;
+        font-size: 0;
+        >a{
+            color: #8c8c8c;
+            &:hover{
+                color: white;
             }
         }
-        .description{
-            display:inline-block;
-            
-            width:124px;
-            
-            border-left:#dddddd solid 1px;
-            vertical-align:middle;
+        &:hover {
+            color: white;
+            background-color: @standard-coffee;
+        }
 
-            text-align:center;
-            .description-ch{
-                font-size:14px;
+        .symbol {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 22px 25px;
 
+            @media(max-width:@screen-xs-max){
+                padding: 15px 15px;
             }
-            .description-en{
-                font-size:10px;
+            > i {
+                font-size: 32px;
+
+                @media(max-width:@screen-xs-max){
+                    font-size:20px;
+                }
+            }
+        }
+
+        .description {
+            display: inline-block;
+            width: 124px;
+            border-left: #dddddd solid 1px;
+            vertical-align: middle;
+            text-align: center;
+
+            .description-ch {
+                font-size: 14px;
+            }
+
+            .description-en {
+                font-size: 10px;
             }
         }
     }
-
 }
 
 .order-list-block {
@@ -2250,18 +2332,16 @@ input.solid-input-box {
             color: #8f8f8f;
             margin-bottom: 15px;
 
-            -moz-transition: border-color ease-in 0.4s;
-            -o-transition: border-color ease-in 0.4s;
-            -webkit-transition: border-color ease-in 0.4s;
-            transition: border-color ease-in 0.4s;
+            -moz-transition: border-color ease-in-out 0.4s;
+            -o-transition: border-color ease-in-out 0.4s;
+            -webkit-transition: border-color ease-in-out 0.4s;
+            transition: border-color ease-in-out 0.4s;
             &:last-child {
                 margin-bottom: 0;
             }
 
             &:hover {
                 border-color: @standard-coffee;
-
-
 
                 .single-order-header {
                     color: white;
@@ -2274,10 +2354,10 @@ input.solid-input-box {
                 border-bottom: #d2d2d2 solid 1px;
                 background-color: #f3f3f3;
 
-                -moz-transition: all ease-in 0.4s;
-                -o-transition: all ease-in 0.4s;
-                -webkit-transition: all ease-in 0.4s;
-                transition: all ease-in 0.4s;
+                -moz-transition: all ease-in-out 0.4s;
+                -o-transition: all ease-in-out 0.4s;
+                -webkit-transition: all ease-in-out 0.4s;
+                transition: all ease-in-out 0.4s;
             }
 
             .single-order-content {
