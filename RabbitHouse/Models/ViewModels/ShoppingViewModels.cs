@@ -46,6 +46,19 @@ namespace RabbitHouse.ViewModels
         public int ItemCount { get; set; }
         public int DeleteId { get; set; }
     }
+    public class ProductListViewModel
+    {
+        public string CurrentKeyword { get; set; }
+        public string CurrentCategory { get; set; }
+        public string CurrentSort { get; set; }
+
+        public IEnumerable<Product> Products { get; set; }
+    }
+
+    public class OrderRecordViewModel
+    {
+        public IEnumerable<Order> Orders { get; set; }
+    }
 
     public class AddToCartPostViewModel
     {
@@ -55,14 +68,11 @@ namespace RabbitHouse.ViewModels
         public int ProductPropertyId { get; set; }
     }
 
-
-    public class ProductListViewModel
+    //?
+    public class SearchProductPostViewModel
     {
-        public IEnumerable<Product> Products { get; set; }
-    }
-
-    public class OrderRecordViewModel
-    {
-        public IEnumerable<Order> Orders { get; set; }
+        public string Keyword { get; set; }
+        public string SortOrder { get; set; }
+        public int Page { get; set; }
     }
 }

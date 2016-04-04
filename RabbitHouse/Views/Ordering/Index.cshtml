@@ -18,7 +18,7 @@
                     <div class="filter catagory-filter">
                         <div class="filter-head">类别：</div>
                         <div class="filter-content">
-                            <div class="filter-factor catagory-filter-property">咖啡</div>
+                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category="咖啡", sort=Model.CurrentSort })"><div class="filter-factor catagory-filter-property">咖啡</div></a>
                             <div class="filter-factor catagory-filter-property">饮品</div>
                             <div class="filter-factor catagory-filter-property">主食</div>
                         </div>
@@ -36,8 +36,8 @@
                                     <img src="~/Content/img/ordering/common/narrow-drop.png" />
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">价格从高到低</a></li>
-                                    <li><a href="#">价格从低到高</a></li>
+                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceDesc" })">价格从高到低</a></li>
+                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceAsc" })">价格从低到高</a></li>
                                 </ul>
                             </div>
                             <div class="btn-group btn-group-solid  filter-factor order-filter-property">
@@ -78,6 +78,22 @@
             </div>
         </div>
     </section>
+    <div class="search-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 position-middle-container">
+                    <div class="search-box position-middle-object">
+                        @using (Html.BeginForm("Index","Ordering"))
+                        {
+                            <input name="keyword" />
+                            <button type="submit" class="btn btn-coffee"><i class="fa fa-search"></i></button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="product-list-block">
         @foreach (var item in Model.Products)
         {
@@ -114,7 +130,7 @@
                             <div class="col-md-12 col-lg-2">
                                 <div class="product-button-block">
                                     <div class="button-group">
-                                        <div class="glass-button"><a href="@Url.Action("ProductDetail","Ordering",new { id =item.Id })">商品详情</a></div>
+                                        <div class="glass-button"><a href="@Url.Action("ProductDetail", "Ordering", new { id = item.Id })">商品详情</a></div>
                                         <div class="glass-button">加入购物车</div>
                                     </div>
                                 </div>

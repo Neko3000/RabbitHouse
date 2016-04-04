@@ -276,6 +276,12 @@
     <Content Include="Content\img\intros\094.jpg" />
     <Content Include="Content\img\intros\coffee-beans-grinde.jpg" />
     <Content Include="Content\img\intros\logo-injection.jpg" />
+    <Content Include="Content\img\intros\section-r\post-card1.png" />
+    <Content Include="Content\img\intros\section-r\post-card2.png" />
+    <Content Include="Content\img\intros\section-r\post-card3.png" />
+    <Content Include="Content\img\intros\section-r\wallhaven-133148.jpg" />
+    <Content Include="Content\img\intros\section-r\wallhaven-322539.jpg" />
+    <Content Include="Content\img\intros\section-r\wallhaven-74351.jpg" />
     <Content Include="Content\img\intros\town10.jpg" />
     <Content Include="Content\img\news\avator\Chiya.jpg" />
     <Content Include="Content\img\news\avator\Rize.jpg" />
@@ -412,7 +418,6 @@
     <Content Include="Views\Shared\_LayoutNormal.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -433,7 +438,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutForHead.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Content\hidden\Index-org.cshtml" />
@@ -449,7 +454,6 @@
     <Content Include="Views\ArticleManage\Edit.cshtml" />
     <Content Include="Views\ArticleManage\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\Ordering\ProductDetail - 复制.cshtml" />
     <Content Include="Views\UserCenter\Index.cshtml" />
     <Content Include="Views\Shared\_OrderInfoSubmitPartial.cshtml" />
   </ItemGroup>

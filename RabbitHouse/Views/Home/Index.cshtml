@@ -1,12 +1,31 @@
-﻿@{
-    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutForHead.cshtml";
+    ViewBag.Title = "Welcome";
 }
+<div class="welcome-container">
+    <img class="top-text beforeUpshow" src="~/Content/img/welcome/welcome-text.png" id="top-text"/>
+    <img class="center-image" src="~/Content/img/welcome/door-open.png" usemap="#door-area" alt="scene" id="door-open"/>
+    <img class="center-image" src="~/Content/img/welcome/door-closed.png" usemap="#door-area" alt="scene" id="door-closed" />
 
+    <map name="door-area" id="door-area">
+        <area shape="rect" coords="393,113,568,414" alt="door" href="@Url.Action("Intros","Home")" id="door-enter" />
+    </map>
+</div>
 
 
 @section scripts{
     <script>
-        //$('.variable-block').variableBlock();
+        $('#door-enter,.top-text').hover(function () {
+            $('#door-open').css('opacity', '1');
+            $('#door-closed').css('opacity', '0');
+            $('.top-text').toggleClass('beforeUpshow');
+        },
+        function () {
+            $('#door-open').css('opacity', '0');
+            $('#door-closed').css('opacity', '1');
+            $('.top-text').toggleClass('beforeUpshow');
+        });
     </script>
 }
+

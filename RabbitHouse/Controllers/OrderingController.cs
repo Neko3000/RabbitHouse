@@ -13,11 +13,39 @@ namespace RabbitHouse.Controllers
     {
         RabbitHouseDbContext db = new RabbitHouseDbContext();
         // GET: Ordering
-        public ActionResult Index()
+        public ActionResult Index(string keyword,string category,string sort)
         {
+            var products = db.Products.ToList();
+
+            if(!string.IsNullOrEmpty(keyword))
+            {
+                products = products.Where(p => p.Name.Contains(keyword)).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                var categoryId = db.ProductCategories.Where(c => c.Name == category).Single().Id;
+                products = products.Where(p => p.Category.Id == categoryId).ToList();
+            }
+
+            switch(sort)
+            {
+                case "priceDesc":
+                    products = products.OrderByDescending(p => p.Price).ToList();
+                    break;
+                case "priceAsc":
+                    products = products.OrderBy(p => p.Price).ToList();
+                    break;
+                default:
+                    break; 
+            }
+
             var vm = new ProductListViewModel
             {
-                Products = db.Products.ToList()
+                CurrentKeyword=keyword,
+                CurrentCategory=category,
+                CurrentSort=sort,
+                Products = products
             };
 
             return View(vm);
