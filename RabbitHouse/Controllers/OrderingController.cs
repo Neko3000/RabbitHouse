@@ -25,7 +25,12 @@ namespace RabbitHouse.Controllers
             if (!string.IsNullOrEmpty(category))
             {
                 var categoryId = db.ProductCategories.Where(c => c.Name == category).Single().Id;
-                products = products.Where(p => p.Category.Id == categoryId).ToList();
+                //products = products.Where(p => p.Category.Id == categoryId).ToList();
+                products = (from pro in db.Products
+                            join cate in db.ProductCategories
+                            on pro.Category.Id equals cate.Id
+                            where cate.Name == category
+                            select pro).ToList();
             }
 
             switch(sort)

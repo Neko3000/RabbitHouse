@@ -255,6 +255,7 @@
     <Content Include="Content\img\discount\tablet\tablet-bg-3.png" />
     <Content Include="Content\img\discount\tablet\tablet-bg-4.png" />
     <Content Include="Content\img\discount\tablet\tablet-bg-5.png" />
+    <Content Include="Content\img\error\404-page.png" />
     <Content Include="Content\img\index\coffee-inside.jpg" />
     <Content Include="Content\img\index\index-cover.jpg" />
     <Content Include="Content\img\index\clock.png" />
@@ -456,6 +457,7 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\UserCenter\Index.cshtml" />
     <Content Include="Views\Shared\_OrderInfoSubmitPartial.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />

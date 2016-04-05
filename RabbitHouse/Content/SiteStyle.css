@@ -1406,7 +1406,7 @@ input.solid-input-box:focus {
   color: white;
 }
 .search-block {
-  padding: 20px 0;
+  padding: 32px 0 0 0;
   background-color: #dbe8ec;
 }
 .search-block .search-box input {
@@ -2141,4 +2141,20 @@ input.solid-input-box:focus {
 }
 .order-list-block .order-list-bg .single-order .single-order-footer .order-note i {
   margin-right: 6px;
+}
+.error-block {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #E8F5FE;
+  overflow: hidden;
+}
+.error-block img {
+  width: 1016px;
+  height: 634px;
+  position: absolute;
+  margin-left: -508px;
+  margin-top: -317px;
+  left: 50%;
+  top: 50%;
 }
