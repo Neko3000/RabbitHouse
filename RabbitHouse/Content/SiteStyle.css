@@ -2158,3 +2158,11 @@ input.solid-input-box:focus {
   left: 50%;
   top: 50%;
 }
+@media (max-width: 767px) {
+  .error-block img {
+    width: 606px;
+    height: 380px;
+    margin-left: -303px;
+    margin-top: -190px;
+  }
+}
