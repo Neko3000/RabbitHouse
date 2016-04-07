@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RabbitHouse.Models;
+using RabbitHouse.ViewModels;
+using System.IO;
 
 namespace RabbitHouse.Controllers
 {
@@ -73,8 +75,32 @@ namespace RabbitHouse.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name", product.CategoryId);
-            return View(product);
+            //ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name", product.CategoryId);
+
+            var productCategories = db.ProductCategories.ToList();
+            var vm = new ProductManageEditViewModel {
+                Id = product.Id,
+                Name = product.Name,
+                ShortDescription=product.ShortDescription,
+                Description=product.Description,
+                Remark=product.Remark,
+                CoverImgUrl=product.CoverImgUrl,
+
+                Price=product.Price,
+                CurrentDiscount=product.CurrentDiscount,
+                DiscountStartTime=product.DiscountStartTime,
+                DiscountEndTime=product.DiscountEndTime,
+
+                PublishTime=product.PublishTime,
+                IsSeasonalProduct=product.IsSeasonalProduct,
+                SaleStartTime=product.SaleStartTime,
+                SaleEndTime=product.SaleEndTime,
+
+                ProductCategory=product.Category.Id,
+                ProductCategories=productCategories
+            };
+
+            return View(vm);
         }
 
         // POST: ProductManage/Edit/5
@@ -82,16 +108,43 @@ namespace RabbitHouse.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,ShortDescription,Description,Remark,CoverImgUrl,Price,CurrentDiscount,DiscountStartTime,DiscountEndTime,PublishTime,IsSeasonalProduct,SaleStartTime,SaleEndTime,CategoryId")] Product product)
+        public ActionResult Edit(ProductManageEditViewModel model)
         {
+            //var fileName = Guid.NewGuid().ToString() + Path.GetFileName(product.CoverImg.FileName);
+            //var path = Path.Combine(Server.MapPath("~/ImgRepository"), fileName);
+            //product.CoverImg.SaveAs(path);
             if (ModelState.IsValid)
             {
+                //save cover img
+                var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
+                var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), coverImgName);
+                model.CoverImg.SaveAs(pathAbs);
+                var pathRel =Url.Content("~/ImgRepository/ProductImgs/" + model.Id+"/"+coverImgName);
+
+                return View();
+                var product = new Product
+                {
+                    Id=model.Id,
+                    Name=model.Name,
+                    ShortDescription=model.ShortDescription,
+                    Remark=model.Remark,
+                    CoverImgUrl=pathRel,
+                    Price=model.Price,
+                    CurrentDiscount=model.CurrentDiscount,
+                    DiscountStartTime=model.DiscountStartTime,
+                    DiscountEndTime=model.DiscountEndTime,
+                    PublishTime=model.PublishTime,
+                    IsSeasonalProduct=model.IsSeasonalProduct,
+                    SaleStartTime=model.SaleStartTime,
+                    SaleEndTime=model.SaleEndTime,
+                    CategoryId=model.ProductCategory
+                };
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name", product.CategoryId);
-            return View(product);
+            //ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name", product.CategoryId);
+            return View(model);
         }
 
         // GET: ProductManage/Delete/5
