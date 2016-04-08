@@ -170,6 +170,7 @@
     <Compile Include="Controllers\OrderingController.cs" />
     <Compile Include="Controllers\ProductManageController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\SystemManageController.cs" />
     <Compile Include="Controllers\UserCenterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,6 +214,7 @@
     <Compile Include="Models\ArticleCategory.cs" />
     <Compile Include="Models\ArticleTag.cs" />
     <Compile Include="Models\CartElement.cs" />
+    <Compile Include="Models\ExternalClasses\HtmlHelpersExtension.cs" />
     <Compile Include="Models\ExternalClasses\UploadedImageInfo.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -818,6 +820,7 @@
     <Folder Include="Content\video\" />
     <Folder Include="ImgRepository\ProductImgs\1\" />
     <Folder Include="ImgRepository\ProductImgs\temp\" />
+    <Folder Include="Views\SystemManage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -61,7 +62,41 @@
 
                 <h5 class="sidebartitle">Navigation</h5>
                 <ul class="nav nav-pills nav-stacked nav-bracket">
-                    <li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                    <li class="@Html.IsActiveForController("SystemManage")">
+                        <a href="@Url.Action("Index","SystemManage")">
+                            <i class="fa fa-home"></i>
+                            <span>总览</span>
+                        </a>
+                    </li>
+                    @* should rewrite it to support controllers *@
+                    <li class="nav-parent @Html.IsActiveForController("ProductManage")">
+                        <a href=""><i class="fa fa-paper-plane"></i> <span>商品</span></a>
+                        <ul class="children">
+                            <li class="@Html.IsActive("ProductManage","Index")"><a href="@Url.Action("Index","ProductManage")"><i class="fa fa-caret-right"></i> 商品管理</a></li>
+                            <li class="@Html.IsActive("ProductCategoryManage","Index")"><a href="@Url.Action("Index", "ProductCategoryManage")"><span class="pull-right badge badge-danger"></span><i class="fa fa-caret-right"></i> 商品类别管理</a></li>
+                            <li class="@Html.IsActive("ProductPropertyManage","Index")"><a href="@Url.Action("Index", "ProductPropertyManage")"><span class="pull-right badge badge-danger"></span><i class="fa fa-caret-right"></i> 商品属性管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-parent @Html.IsActiveForController("OrderManage")">
+                        <a href=""><i class="fa fa-money"></i> <span>订单</span></a>
+                        <ul class="children">
+                            <li class="@Html.IsActive("OrderManage","Index")"><a href="@Url.Action("Index","OrderManage")"><i class="fa fa-caret-right"></i> 订单管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-parent @Html.IsActiveForController("ArticleManage")">
+                        <a href=""><i class="fa fa-paper-plane"></i> <span>文章</span></a>
+                        <ul class="children">
+                            <li class="@Html.IsActive("ArticleManage","Index")"><a href="@Url.Action("Index","ArticleManage")"><i class="fa fa-caret-right"></i> 文章管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-parent @Html.IsActiveForController("AccountManage")">
+                        <a href=""><i class="fa fa-user"></i> <span>账户</span></a>
+                        <ul class="children">
+                            <li class="@Html.IsActive("AccountManage","Index")"><a href="@Url.Action("Index","AccountManage")"><i class="fa fa-caret-right"></i> 账户管理</a></li>
+                            <li class="@Html.IsActive("AccountManage","Index")"><a href="@Url.Action("Index","AccountManage")"><i class="fa fa-caret-right"></i> 权限管理</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="email.html"><span class="pull-right badge badge-success">2</span><i class="fa fa-envelope-o"></i> <span>Email</span></a></li>
                     <li class="nav-parent nav-active active">
                         <a href=""><i class="fa fa-edit"></i> <span>Forms</span></a>

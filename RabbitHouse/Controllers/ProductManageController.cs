@@ -181,10 +181,7 @@ namespace RabbitHouse.Controllers
                 model.CoverImg.SaveAs(pathAbs);
                 var pathRel =Url.Content("~/ImgRepository/ProductImgs/" + model.Id+"/"+coverImgName);
 
-                //find properties in db
-                var productPropertis = db.ProductProperties.Where(p => model.ProductPropertyForProduct.Contains(p.Id)).ToList();
-
-                //update ProductId for each upload ProductImg
+                //update ProductId for each uploaded ProductImg
                 var uploadedImgsIdArray = model.UploadImgsIdString.Split(',');
                 foreach(var item in uploadedImgsIdArray)
                 {
@@ -203,6 +200,8 @@ namespace RabbitHouse.Controllers
                     }
                 }
 
+                //find properties in db
+                var productPropertis = db.ProductProperties.Where(p => model.ProductPropertyForProduct.Contains(p.Id)).ToList();
 
                 return View();
                 var product = new Product

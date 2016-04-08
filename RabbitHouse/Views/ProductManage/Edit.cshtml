@@ -172,11 +172,17 @@
                     </div>
                 </div>
 
-                <div class="dropzone" id="my-dropzone" name="mainFileUploader">
-                    <div class="fallback">
-                        <input name="file" type="file" multiple />
+                <div class="form-group">
+                    @Html.Label("内容图片", htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        <div class="dropzone" id="my-dropzone" name="mainFileUploader">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                            </div>
+                            @*store uploadedImages to product*@
+                            <input name="UploadImgsIdString" type="text" hidden="" />
+                        </div>
                     </div>
-                    <input name="UploadImgsIdString" type="text" hidden="" />
                 </div>
 
             </div>
@@ -192,11 +198,6 @@
     </div>
 
 </div><!-- contentpanel -->
-
-<div>
-    <button type="submit" id="submit-all"> upload </button>
-</div>
-}
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")
@@ -284,42 +285,19 @@
                 var submitButton = document.querySelector("#submit-all");
                 var wrapperThis = this;
 
-                submitButton.addEventListener("click", function () {
-                    wrapperThis.processQueue();
-                });
                 this.on("successmultiple", function (file, result) {
                     var idString = "";
                     $.each(result.Info, function (i, item) {
-                        alert(item.Id);
-                        alert(item.FileName);
+                        //alert(item.Id);
+                        //alert(item.FileName);
                         idString = idString + item.Id.toString() + ",";
                     });
-                    alert(idString.toString());
+                    //alert(idString.toString());
                     $("input[name='UploadImgsIdString']").val($("input[name='UploadImgsIdString']").val() + idString);
                 });
-                this.on("addedfile", function (file) {
-
-                    // Create the remove button
-                    var removeButton = Dropzone.createElement("<button class='btn btn-lg dark'>Remove File</button>");
-
-                    // Listen to the click event
-                    removeButton.addEventListener("click", function (e) {
-                        // Make sure the button click doesn't submit the form:
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        // Remove the file preview.
-                        wrapperThis.removeFile(file);
-                        // If you want to the delete the file on the server as well,
-                        // you can do the AJAX request here.
-                    });
-
-                    // Add the button to the file preview element.
-                    file.previewElement.appendChild(removeButton);
-                });
-
+           
                 this.on('sendingmultiple', function (data, xhr, formData) {
-                    formData.append("Username", $("#Username").val());
+                    
                 });
             }
         };
