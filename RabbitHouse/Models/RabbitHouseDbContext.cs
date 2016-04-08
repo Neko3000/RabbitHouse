@@ -26,6 +26,8 @@ namespace RabbitHouse.Models
         public DbSet<RabbitHouse.Models.Product> Products { get; set; }
         public DbSet<RabbitHouse.Models.ProductCategory> ProductCategories { get; set; }
         public DbSet<RabbitHouse.Models.ProductProperty> ProductProperties { get; set; }
+        public DbSet<RabbitHouse.Models.ProductImage> ProductImages { get; set; }
+
         public DbSet<RabbitHouse.Models.CartElement> CartElements { get; set; }
         public DbSet<RabbitHouse.Models.Order> Orders { get; set; }
         public DbSet<RabbitHouse.Models.OrderDetail> OrderDetails { get; set; }

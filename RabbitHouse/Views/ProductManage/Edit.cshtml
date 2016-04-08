@@ -20,7 +20,7 @@
 
 <div class="contentpanel">
     <div class="panel panel-default">
-        @using (Html.BeginForm("Edit", "ProductManage", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-bordered" , enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Edit", "ProductManage", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-bordered", enctype = "multipart/form-data" }))
         {
             <div class="panel-heading">
                 <div class="panel-btns">
@@ -46,10 +46,10 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ProductCategory, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    @Html.LabelFor(model => model.ProductCategoryForProduct, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6">
-                        @Html.DropDownListFor(model=>model.ProductCategory,new SelectList(Model.ProductCategories,"Id","Name",Model.ProductCategory), htmlAttributes: new { @class = "form-control", @data_placeholder = "选择账户权限..." })
-                        @Html.ValidationMessageFor(model => model.ProductCategory, "", new { @class = "text-danger" })
+                        @Html.DropDownListFor(model => model.ProductCategoryForProduct, new SelectList(Model.ProductCategories, "Id", "Name", Model.ProductCategoryForProduct), htmlAttributes: new { @class = "form-control", @data_placeholder = "选择账户权限..." })
+                        @Html.ValidationMessageFor(model => model.ProductCategoryForProduct, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -62,10 +62,10 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6">
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -78,10 +78,9 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.CoverImgUrl, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    @Html.LabelFor(model => model.CoverImg, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6">
                         <input name="CoverImg" id="CoverImg" class="form-control" placeholder="" type="file" />
-                        @*@Html.EditorFor(model => model.CoverImgUrl, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })*@
                         @Html.ValidationMessageFor(model => model.CoverImgUrl, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -150,6 +149,36 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductPropertyForProduct, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.ListBoxFor(model => model.ProductPropertyForProduct, new MultiSelectList(Model.ProductProperties, "Id", "Name", Model.ProductPropertyForProduct), htmlAttributes: new { @class = "select2", @data_placeholder = "" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PublishTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.PublishTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.PublishTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="dropzone" id="my-dropzone" name="mainFileUploader">
+                    <div class="fallback">
+                        <input name="file" type="file" multiple />
+                    </div>
+                    <input name="UploadImgsIdString" type="text" hidden="" />
+                </div>
+
             </div>
 
             <div class="panel-footer">
@@ -163,6 +192,10 @@
     </div>
 
 </div><!-- contentpanel -->
+
+<div>
+    <button type="submit" id="submit-all"> upload </button>
+</div>
 }
 
 @section scripts{
@@ -170,72 +203,125 @@
     @Scripts.Render("~/bundles/bracket/GeneralFormScript")
 
     <script>
-jQuery(document).ready(function(){
+        jQuery(document).ready(function () {
 
-    "use strict";
+            "use strict";
 
-  // Tags Input
-  jQuery('#tags').tagsInput({width:'auto'});
+            // Tags Input
+            jQuery('#tags').tagsInput({ width: 'auto' });
 
-  // Select2
-  jQuery(".select2").select2({
-    width: '100%'
-  });
+            // Select2
+            jQuery(".select2").select2({
+                width: '100%'
+            });
 
-  // Textarea Autogrow
-  jQuery('#autoResizeTA').autogrow();
+            // Textarea Autogrow
+            jQuery('#autoResizeTA').autogrow();
 
-  // Color Picker
-  if(jQuery('#colorpicker').length > 0) {
-	 jQuery('#colorSelector').ColorPicker({
-			onShow: function (colpkr) {
-				jQuery(colpkr).fadeIn(500);
-				return false;
-			},
-			onHide: function (colpkr) {
-				jQuery(colpkr).fadeOut(500);
-				return false;
-			},
-			onChange: function (hsb, hex, rgb) {
-				jQuery('#colorSelector span').css('backgroundColor', '#' + hex);
-				jQuery('#colorpicker').val('#'+hex);
-			}
-	 });
-  }
+            // Color Picker
+            if (jQuery('#colorpicker').length > 0) {
+                jQuery('#colorSelector').ColorPicker({
+                    onShow: function (colpkr) {
+                        jQuery(colpkr).fadeIn(500);
+                        return false;
+                    },
+                    onHide: function (colpkr) {
+                        jQuery(colpkr).fadeOut(500);
+                        return false;
+                    },
+                    onChange: function (hsb, hex, rgb) {
+                        jQuery('#colorSelector span').css('backgroundColor', '#' + hex);
+                        jQuery('#colorpicker').val('#' + hex);
+                    }
+                });
+            }
 
-  // Color Picker Flat Mode
-	jQuery('#colorpickerholder').ColorPicker({
-		flat: true,
-		onChange: function (hsb, hex, rgb) {
-			jQuery('#colorpicker3').val('#'+hex);
-		}
-	});
+            // Color Picker Flat Mode
+            jQuery('#colorpickerholder').ColorPicker({
+                flat: true,
+                onChange: function (hsb, hex, rgb) {
+                    jQuery('#colorpicker3').val('#' + hex);
+                }
+            });
 
-  // Date Picker
-  jQuery('#datepicker').datepicker();
+            // Date Picker
+            jQuery('#datepicker').datepicker();
 
-  jQuery('#datepicker-inline').datepicker();
+            jQuery('#datepicker-inline').datepicker();
 
-  jQuery('#datepicker-multiple').datepicker({
-    numberOfMonths: 3,
-    showButtonPanel: true
-  });
+            jQuery('#datepicker-multiple').datepicker({
+                numberOfMonths: 3,
+                showButtonPanel: true
+            });
 
-  // Spinner
-  var spinner = jQuery('#spinner').spinner();
-  spinner.spinner('value', 0);
+            // Spinner
+            var spinner = jQuery('#spinner').spinner();
+            spinner.spinner('value', 0);
 
-  // Input Masks
-  jQuery("#date").mask("99/99/9999");
-  jQuery("#phone").mask("(999) 999-9999");
-  jQuery("#ssn").mask("999-99-9999");
+            // Input Masks
+            jQuery("#date").mask("99/99/9999");
+            jQuery("#phone").mask("(999) 999-9999");
+            jQuery("#ssn").mask("999-99-9999");
 
-  // Time Picker
-  jQuery('#timepicker').timepicker({defaultTIme: false});
-  jQuery('#timepicker2').timepicker({showMeridian: false});
-  jQuery('#timepicker3').timepicker({minuteStep: 15});
+            // Time Picker
+            jQuery('#timepicker').timepicker({ defaultTIme: false });
+            jQuery('#timepicker2').timepicker({ showMeridian: false });
+            jQuery('#timepicker3').timepicker({ minuteStep: 15 });
 
 
-});
+        });
+
+        Dropzone.options.myDropzone = {
+            url: "/ProductManage/UploadImgs",
+            autoProcessQueue: true,
+            uploadMultiple: true,
+            parallelUploads: 100,
+            maxFiles: 100,
+            acceptedFiles: "image/*",
+
+            init: function () {
+
+                var submitButton = document.querySelector("#submit-all");
+                var wrapperThis = this;
+
+                submitButton.addEventListener("click", function () {
+                    wrapperThis.processQueue();
+                });
+                this.on("successmultiple", function (file, result) {
+                    var idString = "";
+                    $.each(result.Info, function (i, item) {
+                        alert(item.Id);
+                        alert(item.FileName);
+                        idString = idString + item.Id.toString() + ",";
+                    });
+                    alert(idString.toString());
+                    $("input[name='UploadImgsIdString']").val($("input[name='UploadImgsIdString']").val() + idString);
+                });
+                this.on("addedfile", function (file) {
+
+                    // Create the remove button
+                    var removeButton = Dropzone.createElement("<button class='btn btn-lg dark'>Remove File</button>");
+
+                    // Listen to the click event
+                    removeButton.addEventListener("click", function (e) {
+                        // Make sure the button click doesn't submit the form:
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        // Remove the file preview.
+                        wrapperThis.removeFile(file);
+                        // If you want to the delete the file on the server as well,
+                        // you can do the AJAX request here.
+                    });
+
+                    // Add the button to the file preview element.
+                    file.previewElement.appendChild(removeButton);
+                });
+
+                this.on('sendingmultiple', function (data, xhr, formData) {
+                    formData.append("Username", $("#Username").val());
+                });
+            }
+        };
     </script>
 }

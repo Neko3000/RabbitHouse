@@ -23,6 +23,7 @@ namespace RabbitHouse.ViewModels
         public string CoverImgUrl { get; set; }
         [Display(Name = "封面图片")]
         public HttpPostedFileBase CoverImg { get; set; }
+        public string UploadImgsIdString { get; set; }
 
         [Display(Name = "价格")]
         public decimal Price { get; set; }
@@ -42,8 +43,11 @@ namespace RabbitHouse.ViewModels
         [Display(Name = "时季商品销售结束时间")]
         public DateTime? SaleEndTime { get; set; }
         [Display(Name = "类别")]
-        public int ProductCategory { get; set; }
+        public int ProductCategoryForProduct { get; set; }
+        [Display(Name="属性")]
+        public IList<int> ProductPropertyForProduct { get; set; }
 
         public IList<ProductCategory> ProductCategories { get; set; }
+        public IList<ProductProperty> ProductProperties { get; set; }
     }
 }

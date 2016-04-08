@@ -203,12 +203,17 @@
     <Compile Include="Migrations\RabbitHouseDbContext\201603280301403_AddCoverImgUrlForProduct.Designer.cs">
       <DependentUpon>201603280301403_AddCoverImgUrlForProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201604071223442_NullableProductIdForProductImage.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201604071223442_NullableProductIdForProductImage.Designer.cs">
+      <DependentUpon>201604071223442_NullableProductIdForProductImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RabbitHouseDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleCategory.cs" />
     <Compile Include="Models\ArticleTag.cs" />
     <Compile Include="Models\CartElement.cs" />
+    <Compile Include="Models\ExternalClasses\UploadedImageInfo.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
@@ -811,6 +816,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />
+    <Folder Include="ImgRepository\ProductImgs\1\" />
+    <Folder Include="ImgRepository\ProductImgs\temp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -837,6 +844,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201603280301403_AddCoverImgUrlForProduct.resx">
       <DependentUpon>201603280301403_AddCoverImgUrlForProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604071223442_NullableProductIdForProductImage.resx">
+      <DependentUpon>201604071223442_NullableProductIdForProductImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
