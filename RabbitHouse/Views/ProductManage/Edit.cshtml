@@ -11,9 +11,9 @@
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
             <li><a href="@Url.Action("Index","CMS")">首页</a></li>
-            <li>书籍</li>
-            <li><a href="@Url.Action("Index","BookManage")">书籍列表</a></li>
-            <li class="active">编辑书籍</li>
+            <li>商品</li>
+            <li><a href="@Url.Action("Index","BookManage")">商品列表</a></li>
+            <li class="active">编辑商品</li>
         </ol>
     </div>
 </div>
@@ -70,18 +70,12 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.CoverImgUrl, htmlAttributes: new { @class = "col-sm-3 control-label" })
-                    <div class="col-sm-6">
-                        @Html.EditorFor(model => model.CoverImgUrl, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
-                        @Html.ValidationMessageFor(model => model.CoverImgUrl, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
                     @Html.LabelFor(model => model.CoverImg, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6">
+                        <img id="post-img" class="mb10" src="@Model.CoverImgUrl" alt="..." />
+                        @Html.EditorFor(model => model.CoverImgUrl, new { htmlAttributes = new {@id="post-img-path", @class = "form-control mb10", @placeholder = "",@readonly= "readonly" } })
                         <input name="CoverImg" id="CoverImg" class="form-control" placeholder="" type="file" />
-                        @Html.ValidationMessageFor(model => model.CoverImgUrl, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.CoverImg, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -205,6 +199,24 @@
 
     <script>
         jQuery(document).ready(function () {
+            //read and show img
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#post-img').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+
+                }
+            }
+
+            $("#CoverImg").change(function (e) {
+                readURL(this);
+                $('#post-img-path').val(e.target.files[0].name);
+            });
 
             "use strict";
 

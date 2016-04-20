@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -228,6 +230,42 @@
     <Compile Include="Models\RabbitHouseDbContext.cs" />
     <Compile Include="Models\ViewModels\ProductManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ShoppingViewModels.cs" />
+    <Compile Include="Presentation\CartElements.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\OrderDetails.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Orders.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ProductCategories.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ProductImages.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ProductProperties.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Products.cs">
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ShoppingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ShoppingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ShoppingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -254,6 +292,12 @@
     <Content Include="Content\bracket\css\codemirror\codemirror.css" />
     <Content Include="Content\bracket\css\codemirror\theme\ambiance.css" />
     <Content Include="Content\bracket\css\colorpicker.css" />
+    <Content Include="Content\bracket\css\customizedBracketStyle.css">
+      <DependentUpon>customizedBracketStyle.less</DependentUpon>
+    </Content>
+    <Content Include="Content\bracket\css\customizedBracketStyle.min.css">
+      <DependentUpon>customizedBracketStyle.css</DependentUpon>
+    </Content>
     <Content Include="Content\bracket\css\dropzone.css" />
     <Content Include="Content\bracket\css\font-awesome.min.css" />
     <Content Include="Content\bracket\css\fullcalendar.css" />
@@ -735,8 +779,26 @@
     <Content Include="Content\bracket\js\ckeditor\,CKEDITOR.tools.htmlEncode%28e.id__" />
     <Content Include="Content\bracket\js\ckeditor\,CKEDITOR.tools.htmlEncode%28e._[" />
     <Content Include="Content\bracket\js\ckeditor\images\_div style=" />
+    <EntityDeploy Include="Presentation\ShoppingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Presentation\ShoppingModel.edmx.diagram">
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\bracket\css\customizedBracketStyle.less" />
     <None Include="Properties\PublishProfiles\RabbitHouse.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Presentation\ShoppingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Presentation\ShoppingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
@@ -815,6 +877,7 @@
     <Content Include="Views\ProductManage\Index.cshtml" />
     <Content Include="Views\Home\Form.cshtml" />
     <Content Include="Views\ProductManage\Edit - 复制.cshtml" />
+    <Content Include="Views\ProductManage\Create - 复制.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />
@@ -851,6 +914,9 @@
     <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604071223442_NullableProductIdForProductImage.resx">
       <DependentUpon>201604071223442_NullableProductIdForProductImage.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

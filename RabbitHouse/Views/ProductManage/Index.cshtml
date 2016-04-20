@@ -7,13 +7,13 @@
 
 
 <div class="pageheader">
-    <h2><i class="fa fa-edit"></i> General Forms <span>Subtitle goes here...</span></h2>
+    <h2><i class="fa fa-edit"></i> ProductManage<span>进行商品管理</span></h2>
     <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
-            <li><a href="@Url.Action("Index","CMS")">首页</a></li>
-            <li>书籍</li>
-            <li class="active">书籍列表</li>
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
+            <li>商品</li>
+            <li class="active">商品列表</li>
         </ol>
     </div>
 </div>
@@ -21,8 +21,9 @@
 <div class="contentpanel">
     <div class="row">
         <div class="col-md-12">
-            <h5 class="subtitle mb5">书籍列表</h5>
-            <p class="mb20">您可以在此查看并编辑书籍信息.</p>
+            <h5 class="subtitle mb5">商品列表</h5>
+            <p class="mb5">您可以在此查看并编辑商品信息.</p>
+            <a class="btn btn-primary btn-xs mb10" href="@Url.Action("Create","ProductManage")">创建一个新的商品</a>
             <div class="table-responsive">
                 <table class="table table-hidaction table-hover mb30">
                     <thead>
@@ -41,7 +42,7 @@
                             <tr>
                                 <td>@item.Id</td>
                                 <td>@item.Name</td>
-                                <td>@item.Price</td>
+                                <td>￥@item.Price</td>
                                 <td>@item.Category.Name</td>
                                 <td>@item.PublishTime</td>
                                 <td class="table-action-hide">
@@ -69,42 +70,42 @@
     @Scripts.Render("~/bundles/bracket/TableScript")
 
     <script>
-  jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
 
-    "use strict";
+            "use strict";
 
-    jQuery('#table1').dataTable();
+            jQuery('#table1').dataTable();
 
-    jQuery('#table2').dataTable({
-      "sPaginationType": "full_numbers"
-    });
+            jQuery('#table2').dataTable({
+                "sPaginationType": "full_numbers"
+            });
 
-    // Select2
-    jQuery('select').select2({
-        minimumResultsForSearch: -1
-    });
+            // Select2
+            jQuery('select').select2({
+                minimumResultsForSearch: -1
+            });
 
-    jQuery('select').removeClass('form-control');
+            jQuery('select').removeClass('form-control');
 
-    // Delete row in a table
-    jQuery('.delete-row').click(function(){
-      var c = confirm("Continue delete?");
-      if(c)
-        jQuery(this).closest('tr').fadeOut(function(){
-          jQuery(this).remove();
+            // Delete row in a table
+            jQuery('.delete-row').click(function () {
+                var c = confirm("Continue delete?");
+                if (c)
+                    jQuery(this).closest('tr').fadeOut(function () {
+                        jQuery(this).remove();
+                    });
+
+                return false;
+            });
+
+            // Show aciton upon row hover
+            jQuery('.table-hidaction tbody tr').hover(function () {
+                jQuery(this).find('.table-action-hide a').animate({ opacity: 1 });
+            }, function () {
+                jQuery(this).find('.table-action-hide a').animate({ opacity: 0 });
+            });
+
+
         });
-
-        return false;
-    });
-
-    // Show aciton upon row hover
-    jQuery('.table-hidaction tbody tr').hover(function(){
-      jQuery(this).find('.table-action-hide a').animate({opacity: 1});
-    },function(){
-      jQuery(this).find('.table-action-hide a').animate({opacity: 0});
-    });
-
-
-  });
     </script>
 }

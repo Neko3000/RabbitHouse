@@ -42,8 +42,13 @@ namespace RabbitHouse.Controllers
         // GET: ProductManage/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name");
-            return View();
+            var vm = new ProductManageCreateViewModel
+            {
+                PublishTime=DateTime.Now,
+                ProductCategories = db.ProductCategories.ToList(),
+                ProductProperties = db.ProductProperties.ToList()
+            };
+            return View(vm);
         }
 
         // POST: ProductManage/Create
@@ -51,17 +56,81 @@ namespace RabbitHouse.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,ShortDescription,Description,Remark,CoverImgUrl,Price,CurrentDiscount,DiscountStartTime,DiscountEndTime,PublishTime,IsSeasonalProduct,SaleStartTime,SaleEndTime,CategoryId")] Product product)
+        public ActionResult Create(ProductManageCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
+                //find properties in db
+                var productPropertis = db.ProductProperties.Where(p => model.ProductPropertyForProduct.Contains(p.Id)).ToList();
+
+                var product = new Product
+                {
+                    Name = model.Name,
+                    ShortDescription = model.ShortDescription,
+                    Remark = model.Remark,
+
+                    Price = model.Price,
+                    CurrentDiscount = model.CurrentDiscount,
+                    DiscountStartTime = model.DiscountStartTime,
+                    DiscountEndTime = model.DiscountEndTime,
+
+                    PublishTime = model.PublishTime,
+
+                    IsSeasonalProduct = model.IsSeasonalProduct,
+                    SaleStartTime = model.SaleStartTime,
+                    SaleEndTime = model.SaleEndTime,
+
+                    CategoryId = model.ProductCategoryForProduct,
+                    Properties = productPropertis
+                };
+
+                //store in db and get the id
                 db.Products.Add(product);
                 db.SaveChanges();
+
+                string newCoverImgUrl;
+                if (model.CoverImg != null)
+                {
+                    var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
+                    var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id), coverImgName);
+                    model.CoverImg.SaveAs(pathAbs);
+                    var pathRel = Url.Content("~/ImgRepository/ProductImgs/" + product.Id + "/" + coverImgName);
+
+                    newCoverImgUrl = pathRel;
+
+                    product.CoverImgUrl = newCoverImgUrl;
+
+                    db.Entry(product).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                //update ProductId for each uploaded ProductImg
+                if (!string.IsNullOrEmpty(model.UploadImgsIdString))
+                {
+                    var uploadedImgsIdArray = model.UploadImgsIdString.Split(',');
+                    foreach (var item in uploadedImgsIdArray)
+                    {
+                        if (!string.IsNullOrEmpty(item))
+                        {
+                            var productImg = db.ProductImages.Where(pImage => pImage.Id.ToString() == item).Single();
+                            productImg.ProductId = product.Id;
+                            //move to product's folder
+                            var img = new FileInfo(productImg.Url);
+
+                            var newPath = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id), img.Name);
+                            img.MoveTo(newPath);
+                            productImg.Url = Url.Content("~/ImgRepository/ProductImgs/" + product.Id + "/" + img.Name);
+
+                            db.SaveChanges();
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name", product.CategoryId);
-            return View(product);
+            model.ProductCategories = db.ProductCategories.ToList();
+            model.ProductProperties = db.ProductProperties.ToList();
+            return View(model);
         }
 
         // GET: ProductManage/Edit/5
@@ -142,6 +211,7 @@ namespace RabbitHouse.Controllers
                         };
                         db.ProductImages.Add(productImg);
                         db.SaveChanges();
+
                         uploadedIDList.Add(new UploadedImageInfo
                         {
                             Id=productImg.Id.ToString(),
@@ -176,41 +246,54 @@ namespace RabbitHouse.Controllers
             if (ModelState.IsValid)
             {
                 //save cover img
-                var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
-                var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), coverImgName);
-                model.CoverImg.SaveAs(pathAbs);
-                var pathRel =Url.Content("~/ImgRepository/ProductImgs/" + model.Id+"/"+coverImgName);
+                string newCoverImgUrl;
+                if(model.CoverImg!=null)
+                {
+                    var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
+                    var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), coverImgName);
+                    model.CoverImg.SaveAs(pathAbs);
+                    var pathRel = Url.Content("~/ImgRepository/ProductImgs/" + model.Id+"/"+coverImgName);
+
+                    newCoverImgUrl = pathRel;
+                }
+                else
+                {
+                    newCoverImgUrl = db.Products.Find(model.Id).CoverImgUrl;
+                }
+
 
                 //update ProductId for each uploaded ProductImg
-                var uploadedImgsIdArray = model.UploadImgsIdString.Split(',');
-                foreach(var item in uploadedImgsIdArray)
+                if(!string.IsNullOrEmpty(model.UploadImgsIdString))
                 {
-                    if(!string.IsNullOrEmpty(item))
+                    var uploadedImgsIdArray = model.UploadImgsIdString.Split(',');
+                    foreach (var item in uploadedImgsIdArray)
                     {
-                        var productImg=db.ProductImages.Where(pImage => pImage.Id.ToString() == item).Single();                     
-                        productImg.ProductId = model.Id;
-                        //move to product's folder
-                        var img = new FileInfo(productImg.Url);
+                        if (!string.IsNullOrEmpty(item))
+                        {
+                            var productImg = db.ProductImages.Where(pImage => pImage.Id.ToString() == item).Single();
+                            productImg.ProductId = model.Id;
+                            //move to product's folder
+                            var img = new FileInfo(productImg.Url);
 
-                        var newPath = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), img.Name);
-                        img.MoveTo(newPath);
-                        productImg.Url= Url.Content("~/ImgRepository/ProductImgs/" + model.Id + "/" + img.Name);
+                            var newPath = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), img.Name);
+                            img.MoveTo(newPath);
+                            productImg.Url = Url.Content("~/ImgRepository/ProductImgs/" + model.Id + "/" + img.Name);
 
-                        db.SaveChanges();
+                            db.SaveChanges();
+                        }
                     }
                 }
 
                 //find properties in db
                 var productPropertis = db.ProductProperties.Where(p => model.ProductPropertyForProduct.Contains(p.Id)).ToList();
 
-                return View();
                 var product = new Product
                 {
                     Id=model.Id,
                     Name=model.Name,
                     ShortDescription=model.ShortDescription,
                     Remark=model.Remark,
-                    CoverImgUrl=pathRel,
+                    CoverImgUrl= newCoverImgUrl,
 
                     Price=model.Price,
                     CurrentDiscount=model.CurrentDiscount,

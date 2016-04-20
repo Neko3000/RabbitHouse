@@ -40,17 +40,21 @@ namespace RabbitHouse
                       "~/Content/SiteStyle.min.css", new CssRewriteUrlTransform()));
 
             //bracket
+            //sub-fontawesome
             bundles.Add(new StyleBundle("~/Content/bracket/MainStyle").Include(                
                 "~/Content/bracket/css/bootstrap.min.css",
                 "~/Content/bracket/css/bootstrap-override.css",
                 "~/Content/bracket/css/weather-icons.min.css",
-                "~/Content/bracket/css/jquery-ui-1.10.3.css",
-                "~/Content/bracket/css/font-awesome.min.css",
+                "~/Content/bracket/css/jquery-ui-1.10.3.css",  
                 "~/Content/bracket/css/toggles.css",
                 "~/Content/bracket/css/select2.css",
                 "~/Content/bracket/css/lato.css",
                 "~/Content/bracket/css/roboto.css",
                 "~/Content/bracket/css/style.default.css"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/bracket/customizedBracketStyle").Include(
+                "~/Content/bracket/css/customizedBracketStyle.min.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/bracket/GeneralFormStyle").Include(

@@ -9,5 +9,9 @@
   {
     "outputFile": "Content/SiteStyle.css",
     "inputFile": "Content/SiteStyle.less"
+  },
+  {
+    "outputFile": "Content/bracket/css/customizedBracketStyle.css",
+    "inputFile": "Content/bracket/css/customizedBracketStyle.less"
   }
 ]
