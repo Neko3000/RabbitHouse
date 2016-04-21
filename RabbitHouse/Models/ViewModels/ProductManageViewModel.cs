@@ -9,7 +9,7 @@ namespace RabbitHouse.ViewModels
 {
     public class ProductManageEditViewModel
     {
-        [Display(Name="Id")]
+        [Display(Name="ID")]
         public int Id { get; set; }
         [Display(Name = "名称")]
         public string Name { get; set; }
@@ -99,7 +99,7 @@ namespace RabbitHouse.ViewModels
     }
     public class ProductManageDetailsViewModel
     {
-        [Display(Name = "Id")]
+        [Display(Name = "ID")]
         public int Id { get; set; }
         [Display(Name = "名称")]
         public string Name { get; set; }
@@ -139,7 +139,7 @@ namespace RabbitHouse.ViewModels
 
     public class ProductManageDeleteViewModel
     {
-        [Display(Name = "Id")]
+        [Display(Name = "ID")]
         public int Id { get; set; }
         [Display(Name = "名称")]
         public string Name { get; set; }

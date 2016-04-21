@@ -20,8 +20,7 @@ namespace RabbitHouse.Controllers
         // GET: ProductManage
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            return View(db.Products.ToList());
         }
 
         // GET: ProductManage/Details/5

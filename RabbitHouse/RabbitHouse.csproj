@@ -170,7 +170,9 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrderingController.cs" />
+    <Compile Include="Controllers\ProductCategoryManageController.cs" />
     <Compile Include="Controllers\ProductManageController.cs" />
+    <Compile Include="Controllers\ProductPropertyManageController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SystemManageController.cs" />
     <Compile Include="Controllers\UserCenterController.cs" />
@@ -229,7 +231,9 @@
     <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Models\ProductProperty.cs" />
     <Compile Include="Models\RabbitHouseDbContext.cs" />
+    <Compile Include="Models\ViewModels\ProductCategoryManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductManageViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProductPropertyManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ShoppingViewModels.cs" />
     <Compile Include="Presentation\CartElements.cs">
       <DependentUpon>ShoppingModel.tt</DependentUpon>
@@ -879,9 +883,16 @@
     <Content Include="Views\ProductManage\Edit.cshtml" />
     <Content Include="Views\ProductManage\Index.cshtml" />
     <Content Include="Views\Home\Form.cshtml" />
-    <Content Include="Views\ProductManage\Edit - 复制.cshtml" />
-    <Content Include="Views\ProductManage\Create - 复制.cshtml" />
-    <Content Include="Views\ProductManage\Details - 复制.cshtml" />
+    <Content Include="Views\ProductCategoryManage\Create.cshtml" />
+    <Content Include="Views\ProductCategoryManage\Delete.cshtml" />
+    <Content Include="Views\ProductCategoryManage\Details.cshtml" />
+    <Content Include="Views\ProductCategoryManage\Edit.cshtml" />
+    <Content Include="Views\ProductCategoryManage\Index.cshtml" />
+    <Content Include="Views\ProductPropertyManage\Create.cshtml" />
+    <Content Include="Views\ProductPropertyManage\Delete.cshtml" />
+    <Content Include="Views\ProductPropertyManage\Details.cshtml" />
+    <Content Include="Views\ProductPropertyManage\Edit.cshtml" />
+    <Content Include="Views\ProductPropertyManage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />
