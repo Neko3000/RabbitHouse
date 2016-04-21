@@ -73,7 +73,7 @@
                     @Html.LabelFor(model => model.CoverImg, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6">
                         <img id="post-img" class="mb10" src="@Model.CoverImgUrl" alt="..." />
-                        @Html.EditorFor(model => model.CoverImgUrl, new { htmlAttributes = new {@id="post-img-path", @class = "form-control mb10", @placeholder = "",@readonly= "readonly" } })
+                        @Html.EditorFor(model => model.CoverImgUrl, new { htmlAttributes = new { @id = "post-img-path", @class = "form-control mb10", @placeholder = "", @readonly = "readonly" } })
                         <input name="CoverImg" id="CoverImg" class="form-control" placeholder="" type="file" />
                         @Html.ValidationMessageFor(model => model.CoverImg, "", new { @class = "text-danger" })
                     </div>
@@ -119,7 +119,7 @@
                     <div class="col-md-6">
                         <div class="checkbox block">
                             <label>
-                                @Html.CheckBoxFor(model => model.IsSeasonalProduct, new { htmlAttributes = new { @class = "", @placeholder = "" } })
+                                @Html.CheckBoxFor(model => model.IsSeasonalProduct, htmlAttributes: new { @class = "", @placeholder = "" })
                                 时季商品
                             </label>
                             @Html.ValidationMessageFor(model => model.IsSeasonalProduct, "", new { @class = "text-danger" })
@@ -175,6 +175,7 @@
                             </div>
                             @*store uploadedImages to product*@
                             <input name="UploadImgsIdString" type="text" hidden="" />
+                            <input name="DeletedImgsFileNameString" type="text" hidden="" />
                         </div>
                     </div>
                 </div>
@@ -291,25 +292,50 @@
             parallelUploads: 100,
             maxFiles: 100,
             acceptedFiles: "image/*",
+            addRemoveLinks:true,
 
             init: function () {
 
                 var submitButton = document.querySelector("#submit-all");
                 var wrapperThis = this;
 
+                $.ajax({
+                    url: '/ProductManage/GetProductImgs/@Model.Id',
+                    dataType:'json',
+                    success: function (result) {
+   
+                        if (result.Data != '') {
+                            $.each(result.Data, function (index, item) {
+
+                                //trick
+                                var mockFile = {
+                                    name: item.FileName,
+                                    size: 12345,
+                                };
+                                wrapperThis.emit("addedfile", mockFile);
+                                wrapperThis.emit("thumbnail", mockFile, item.Url);
+                            });
+                        }
+                    },
+                    error: function (result) {
+                        alert('failed');
+                    }
+                });
                 this.on("successmultiple", function (file, result) {
                     var idString = "";
                     $.each(result.Info, function (i, item) {
-                        //alert(item.Id);
-                        //alert(item.FileName);
                         idString = idString + item.Id.toString() + ",";
                     });
-                    //alert(idString.toString());
+
                     $("input[name='UploadImgsIdString']").val($("input[name='UploadImgsIdString']").val() + idString);
                 });
-           
+
+                this.on("removedfile", function (file) {
+                    $("input[name='DeletedImgsFileNameString']").val($("input[name='DeletedImgsFileNameString']").val() + file.name+',');
+                });
+
                 this.on('sendingmultiple', function (data, xhr, formData) {
-                    
+
                 });
             }
         };

@@ -217,6 +217,7 @@
     <Compile Include="Models\ArticleTag.cs" />
     <Compile Include="Models\CartElement.cs" />
     <Compile Include="Models\ExternalClasses\HtmlHelpersExtension.cs" />
+    <Compile Include="Models\ExternalClasses\StoredImageInfo.cs" />
     <Compile Include="Models\ExternalClasses\UploadedImageInfo.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -678,6 +679,8 @@
     <Content Include="ImgRepository\ProductImgs\12\tea-01.jpg" />
     <Content Include="ImgRepository\ProductImgs\11\wallhaven-284723.jpg" />
     <Content Include="ImgRepository\ProductImgs\10\mocha.jpg" />
+    <Content Include="ImgRepository\ProductImgs\13\6b660e01-23bf-4c82-8ce3-1fb9a2807edf_-152678_532460fcdae50.jpg" />
+    <Content Include="ImgRepository\ProductImgs\13\e33839fd-60fe-42aa-82f3-95a036332401_04243333.jpg" />
     <Content Include="ImgRepository\ProductPropertyImgs\hot.png" />
     <Content Include="ImgRepository\ProductPropertyImgs\ice.png" />
     <Content Include="ImgRepository\ProductPropertyImgs\orange.png" />
@@ -878,6 +881,7 @@
     <Content Include="Views\Home\Form.cshtml" />
     <Content Include="Views\ProductManage\Edit - 复制.cshtml" />
     <Content Include="Views\ProductManage\Create - 复制.cshtml" />
+    <Content Include="Views\ProductManage\Details - 复制.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\video\" />

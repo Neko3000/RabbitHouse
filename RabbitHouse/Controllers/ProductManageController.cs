@@ -36,7 +36,30 @@ namespace RabbitHouse.Controllers
             {
                 return HttpNotFound();
             }
-            return View(product);
+            var vm = new ProductManageDetailsViewModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                ShortDescription = product.ShortDescription,
+                Remark = product.Remark,
+                CoverImgUrl = product.CoverImgUrl,
+                Imgs = product.Imgs,
+
+                Price = product.Price,
+                CurrentDiscount = product.CurrentDiscount,
+                DiscountStartTime = product.DiscountStartTime,
+                DiscountEndTime = product.DiscountEndTime,
+
+                PublishTime = product.PublishTime,
+
+                IsSeasonalProduct = product.IsSeasonalProduct,
+                SaleStartTime = product.SaleStartTime,
+                SaleEndTime = product.SaleEndTime,
+
+                Category = product.Category,
+                Properties = product.Properties
+            };
+            return View(vm);
         }
 
         // GET: ProductManage/Create
@@ -93,7 +116,10 @@ namespace RabbitHouse.Controllers
                 {
                     var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
                     var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id), coverImgName);
+
+                    Directory.CreateDirectory(Path.GetDirectoryName(pathAbs));
                     model.CoverImg.SaveAs(pathAbs);
+
                     var pathRel = Url.Content("~/ImgRepository/ProductImgs/" + product.Id + "/" + coverImgName);
 
                     newCoverImgUrl = pathRel;
@@ -118,7 +144,10 @@ namespace RabbitHouse.Controllers
                             var img = new FileInfo(productImg.Url);
 
                             var newPath = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id), img.Name);
+
+                            Directory.CreateDirectory(Path.GetDirectoryName(newPath));
                             img.MoveTo(newPath);
+
                             productImg.Url = Url.Content("~/ImgRepository/ProductImgs/" + product.Id + "/" + img.Name);
 
                             db.SaveChanges();
@@ -200,6 +229,8 @@ namespace RabbitHouse.Controllers
                     {
                         var contentImgName = Guid.NewGuid().ToString() + "_" + file.FileName;
                         var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/temp"), contentImgName);
+
+                        Directory.CreateDirectory(Path.GetDirectoryName(pathAbs));
                         file.SaveAs(pathAbs);
                         //var pathRel = Url.Content("~/ImgRepository/ProductImgs/temp/" + contentImgName);
 
@@ -236,6 +267,26 @@ namespace RabbitHouse.Controllers
                 return Json(new { Message = "Error in saving file" });
             }
         }
+
+        public ActionResult GetProductImgs(int id)
+        {
+            var imgs = db.ProductImages.Where(p => p.ProductId == id).ToList();
+
+            var storedImgList = new List<StoredImageInfo>();
+            foreach(var item in imgs)
+            {
+                var storedImg = new StoredImageInfo
+                {
+                    Id = item.Id.ToString(),
+                    FileName = item.Name,
+                    Url = item.Url
+                };
+                storedImgList.Add(storedImg);
+            }
+
+            return Json(new { Data = storedImgList },JsonRequestBehavior.AllowGet);
+        }
+
         // POST: ProductManage/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
@@ -251,7 +302,10 @@ namespace RabbitHouse.Controllers
                 {
                     var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
                     var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), coverImgName);
+
+                    Directory.CreateDirectory(Path.GetDirectoryName(pathAbs));
                     model.CoverImg.SaveAs(pathAbs);
+
                     var pathRel = Url.Content("~/ImgRepository/ProductImgs/" + model.Id+"/"+coverImgName);
 
                     newCoverImgUrl = pathRel;
@@ -276,7 +330,10 @@ namespace RabbitHouse.Controllers
                             var img = new FileInfo(productImg.Url);
 
                             var newPath = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), img.Name);
+
+                            Directory.CreateDirectory(Path.GetDirectoryName(newPath));
                             img.MoveTo(newPath);
+
                             productImg.Url = Url.Content("~/ImgRepository/ProductImgs/" + model.Id + "/" + img.Name);
 
                             db.SaveChanges();
@@ -284,36 +341,52 @@ namespace RabbitHouse.Controllers
                     }
                 }
 
+                if(!string.IsNullOrEmpty(model.DeletedImgsFileNameString))
+                {
+                    var deletedImgsFileNameArray = model.DeletedImgsFileNameString.Split(',');
+                    foreach(var item in deletedImgsFileNameArray)
+                    {
+                        if(!string.IsNullOrEmpty(item))
+                        {
+                            var deletedImgList=db.ProductImages.Where(pImage => pImage.Name == item && pImage.ProductId == model.Id).ToList();
+                            foreach(var deletedImg in deletedImgList)
+                            {
+                                db.ProductImages.Remove(deletedImg);
+                                db.SaveChanges();
+                            }
+                        }
+                    }
+                }
+
                 //find properties in db
                 var productPropertis = db.ProductProperties.Where(p => model.ProductPropertyForProduct.Contains(p.Id)).ToList();
 
-                var product = new Product
-                {
-                    Id=model.Id,
-                    Name=model.Name,
-                    ShortDescription=model.ShortDescription,
-                    Remark=model.Remark,
-                    CoverImgUrl= newCoverImgUrl,
+                var product = db.Products.Find(model.Id);
+                product.Name = model.Name;
+                product.ShortDescription = model.ShortDescription;
+                product.Remark = model.Remark;
+                product.CoverImgUrl = newCoverImgUrl;
+                product.Price = model.Price;
+                product.CurrentDiscount = model.CurrentDiscount;
+                product.DiscountStartTime = model.DiscountStartTime;
+                product.DiscountEndTime = model.DiscountEndTime;
+                product.PublishTime = product.PublishTime;
+                product.IsSeasonalProduct = model.IsSeasonalProduct;
+                product.SaleStartTime = model.SaleStartTime;
+                product.SaleEndTime = product.SaleEndTime;
+                product.CategoryId = model.ProductCategoryForProduct;
 
-                    Price=model.Price,
-                    CurrentDiscount=model.CurrentDiscount,
-                    DiscountStartTime=model.DiscountStartTime,
-                    DiscountEndTime=model.DiscountEndTime,
+                //many to many relationship solution
+                product.Properties.Clear();
+                product.Properties = productPropertis;
 
-                    PublishTime=model.PublishTime,
-
-                    IsSeasonalProduct=model.IsSeasonalProduct,
-                    SaleStartTime=model.SaleStartTime,
-                    SaleEndTime=model.SaleEndTime,
-
-                    CategoryId=model.ProductCategoryForProduct,
-                    Properties=productPropertis             
-                };
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.CategoryId = new SelectList(db.ProductCategories, "Id", "Name", product.CategoryId);
+
+            model.ProductCategories = db.ProductCategories.ToList();
+            model.ProductProperties = db.ProductProperties.ToList();
             return View(model);
         }
 
@@ -329,7 +402,30 @@ namespace RabbitHouse.Controllers
             {
                 return HttpNotFound();
             }
-            return View(product);
+            var vm = new ProductManageDeleteViewModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                ShortDescription = product.ShortDescription,
+                Remark = product.Remark,
+                CoverImgUrl = product.CoverImgUrl,
+                Imgs = product.Imgs,
+
+                Price = product.Price,
+                CurrentDiscount = product.CurrentDiscount,
+                DiscountStartTime = product.DiscountStartTime,
+                DiscountEndTime = product.DiscountEndTime,
+
+                PublishTime = product.PublishTime,
+
+                IsSeasonalProduct = product.IsSeasonalProduct,
+                SaleStartTime = product.SaleStartTime,
+                SaleEndTime = product.SaleEndTime,
+
+                Category = product.Category,
+                Properties = product.Properties
+            };
+            return View(vm);
         }
 
         // POST: ProductManage/Delete/5
@@ -338,6 +434,13 @@ namespace RabbitHouse.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
+
+            for(int i=0;i<product.Imgs.Count;i++)
+            {
+                var img = product.Imgs[i];
+                db.ProductImages.Remove(img);
+            }
+
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
