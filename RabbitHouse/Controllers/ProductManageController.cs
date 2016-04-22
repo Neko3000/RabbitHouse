@@ -110,20 +110,13 @@ namespace RabbitHouse.Controllers
                 db.Products.Add(product);
                 db.SaveChanges();
 
-                string newCoverImgUrl;
                 if (model.CoverImg != null)
                 {
-                    var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
-                    var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id), coverImgName);
-
-                    Directory.CreateDirectory(Path.GetDirectoryName(pathAbs));
-                    model.CoverImg.SaveAs(pathAbs);
+                    var uploadedFile = new UploadedFile(model.CoverImg);
+                    var coverImgName=uploadedFile.SaveAsWithGuid(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id));
 
                     var pathRel = Url.Content("~/ImgRepository/ProductImgs/" + product.Id + "/" + coverImgName);
-
-                    newCoverImgUrl = pathRel;
-
-                    product.CoverImgUrl = newCoverImgUrl;
+                    product.CoverImgUrl = pathRel;
 
                     db.Entry(product).State = EntityState.Modified;
                     db.SaveChanges();
@@ -138,16 +131,12 @@ namespace RabbitHouse.Controllers
                         if (!string.IsNullOrEmpty(item))
                         {
                             var productImg = db.ProductImages.Where(pImage => pImage.Id.ToString() == item).Single();
-                            productImg.ProductId = product.Id;
                             //move to product's folder
-                            var img = new FileInfo(productImg.Url);
+                            var imgName = UploadedFile.UploadedFileMoveTo(productImg.Url, Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id), (new FileInfo(productImg.Url)).Name));
 
-                            var newPath = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + product.Id), img.Name);
-
-                            Directory.CreateDirectory(Path.GetDirectoryName(newPath));
-                            img.MoveTo(newPath);
-
-                            productImg.Url = Url.Content("~/ImgRepository/ProductImgs/" + product.Id + "/" + img.Name);
+                            var newPathRel= Url.Content("~/ImgRepository/ProductImgs/" + product.Id + "/" + imgName);
+                            productImg.Url = newPathRel;
+                            productImg.ProductId = product.Id;
 
                             db.SaveChanges();
                         }
@@ -299,14 +288,10 @@ namespace RabbitHouse.Controllers
                 string newCoverImgUrl;
                 if(model.CoverImg!=null)
                 {
-                    var coverImgName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.CoverImg.FileName);
-                    var pathAbs = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), coverImgName);
-
-                    Directory.CreateDirectory(Path.GetDirectoryName(pathAbs));
-                    model.CoverImg.SaveAs(pathAbs);
+                    var uploadedFile = new UploadedFile(model.CoverImg);
+                    var coverImgName = uploadedFile.SaveAsWithGuid(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id));
 
                     var pathRel = Url.Content("~/ImgRepository/ProductImgs/" + model.Id+"/"+coverImgName);
-
                     newCoverImgUrl = pathRel;
                 }
                 else
@@ -324,16 +309,13 @@ namespace RabbitHouse.Controllers
                         if (!string.IsNullOrEmpty(item))
                         {
                             var productImg = db.ProductImages.Where(pImage => pImage.Id.ToString() == item).Single();
-                            productImg.ProductId = model.Id;
+
                             //move to product's folder
-                            var img = new FileInfo(productImg.Url);
+                            var imgName = UploadedFile.UploadedFileMoveTo(productImg.Url, Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), (new FileInfo(productImg.Url)).Name));
 
-                            var newPath = Path.Combine(Server.MapPath("~/ImgRepository/ProductImgs/" + model.Id), img.Name);
-
-                            Directory.CreateDirectory(Path.GetDirectoryName(newPath));
-                            img.MoveTo(newPath);
-
-                            productImg.Url = Url.Content("~/ImgRepository/ProductImgs/" + model.Id + "/" + img.Name);
+                            var newPathRel = Url.Content("~/ImgRepository/ProductImgs/" + model.Id + "/" + imgName);
+                            productImg.Url = newPathRel;
+                            productImg.ProductId = model.Id;
 
                             db.SaveChanges();
                         }

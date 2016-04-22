@@ -53,10 +53,12 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ImgUrl, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    @Html.LabelFor(model => model.PropertyImg, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6">
-                        @Html.EditorFor(model => model.ImgUrl, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
-                        @Html.ValidationMessageFor(model => model.ImgUrl, "", new { @class = "text-danger" })
+                        <img id="post-img" class="mb10" src="@Model.ImgUrl" alt="..." />
+                        @Html.EditorFor(model => model.ImgUrl, new { htmlAttributes = new { @id = "post-img-path", @class = "form-control mb10", @placeholder = "", @readonly = "readonly" } })
+                        <input name="PropertyImg" id="PropertyImg" class="form-control" placeholder="" type="file" />
+                        @Html.ValidationMessageFor(model => model.PropertyImg, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -94,7 +96,7 @@
                 }
             }
 
-            $("#CoverImg").change(function (e) {
+            $("#PropertyImg").change(function (e) {
                 readURL(this);
                 $('#post-img-path').val(e.target.files[0].name);
             });

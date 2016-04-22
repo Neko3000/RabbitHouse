@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using RabbitHouse.Models;
 using RabbitHouse.ViewModels;
+using RabbitHouse.ExternalClasses;
 
 namespace RabbitHouse.Controllers
 {
@@ -46,7 +47,10 @@ namespace RabbitHouse.Controllers
         // GET: ProductPropertyManage/Create
         public ActionResult Create()
         {
-            return View();
+            var vm = new ProductPropertyManageCreateViewModel
+            {
+            };
+            return View(vm);
         }
 
         // POST: ProductPropertyManage/Create
@@ -60,12 +64,25 @@ namespace RabbitHouse.Controllers
             {
                 var productProperty = new ProductProperty
                 {
-                    Name=model.Name,
-                    Description=model.Description,
-                    ImgUrl=model.ImgUrl
+                    Name = model.Name,
+                    Description = model.Description,
                 };
+
                 db.ProductProperties.Add(productProperty);
                 db.SaveChanges();
+
+                if (model.PropertyImg != null)
+                {
+                    var uploadedFile = new UploadedFile(model.PropertyImg);
+                    var propertyImgName = uploadedFile.SaveAs(Server.MapPath("~/ImgRepository/ProductPropertyImgs/"));
+
+                    var pathRel = Url.Content("~/ImgRepository/ProductPropertyImgs/" + propertyImgName);
+                    productProperty.ImgUrl = pathRel;
+
+                    db.Entry(productProperty).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
                 return RedirectToAction("Index");
             }
 
@@ -104,12 +121,26 @@ namespace RabbitHouse.Controllers
         {
             if (ModelState.IsValid)
             {
+                string newPropertymgUrl;
+                if (model.PropertyImg != null)
+                {
+                    var uploadedFile = new UploadedFile(model.PropertyImg);
+                    var propertyImgName = uploadedFile.SaveAs(Server.MapPath("~/ImgRepository/ProductPropertyImgs/"));
+
+                    var pathRel = Url.Content("~/ImgRepository/ProductPropertyImgs/" + propertyImgName);
+                    newPropertymgUrl = pathRel;
+                }
+                else
+                {
+                    newPropertymgUrl = db.Products.Find(model.Id).CoverImgUrl;
+                }
+
                 var productProperty = new ProductProperty
                 {
                     Id=model.Id,
                     Name=model.Name,
                     Description=model.Description,
-                    ImgUrl=model.ImgUrl
+                    ImgUrl= newPropertymgUrl
                 };
                 db.Entry(productProperty).State = EntityState.Modified;
                 db.SaveChanges();

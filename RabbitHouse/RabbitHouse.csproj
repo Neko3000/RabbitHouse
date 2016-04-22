@@ -220,6 +220,7 @@
     <Compile Include="Models\CartElement.cs" />
     <Compile Include="Models\ExternalClasses\HtmlHelpersExtension.cs" />
     <Compile Include="Models\ExternalClasses\StoredImageInfo.cs" />
+    <Compile Include="Models\ExternalClasses\UploadedFile.cs" />
     <Compile Include="Models\ExternalClasses\UploadedImageInfo.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />

@@ -16,6 +16,8 @@ namespace RabbitHouse.ViewModels
         public string Description { get; set; }
         [Display(Name = "属性图片")]
         public string ImgUrl { get; set; }
+        [Display(Name = "属性图片")]
+        public HttpPostedFileBase PropertyImg { get; set; }
     }
     public class ProductPropertyManageDetailsViewModel
     {
@@ -34,8 +36,10 @@ namespace RabbitHouse.ViewModels
         public string Name { get; set; }
         [Display(Name = "描述")]
         public string Description { get; set; }
-        [Display(Name = "属性图片")]
+        [Display(Name = "属性图片Url")]
         public string ImgUrl { get; set; }
+        [Display(Name = "属性图片")]
+        public HttpPostedFileBase PropertyImg { get; set; }
     }
     public class ProductPropertyManageDeleteViewModel
     {
