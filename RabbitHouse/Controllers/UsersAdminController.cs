@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using SchoolLibrary.Models;
+using RabbitHouse.Models;
+using AccountAdmin.ViewModels;
 
 using System.Threading;
 using System.Threading.Tasks;
@@ -116,7 +117,7 @@ namespace SchoolLibrary.Controllers
                             {
                                 //failed to set role for user
                                 ModelState.AddModelError("", result.Errors.First().ToString());
-                                return View();                             
+                                return View(model);                             
                             }
                         }                    
                     }
@@ -125,7 +126,7 @@ namespace SchoolLibrary.Controllers
                 {
                     //failed to create user
                     ModelState.AddModelError("", adminResult.Errors.First().ToString());     
-                    return View();
+                    return View(model);
                 }
                 //succeed to add a new user
                 return RedirectToAction("Index");
@@ -142,7 +143,7 @@ namespace SchoolLibrary.Controllers
                 //ViewBag.RoleId = new SelectList(RoleManager.Roles, "Id", "Name");
 
                 //failed to add
-                return View();
+                return View(model);
             }
 
         }
@@ -224,7 +225,7 @@ namespace SchoolLibrary.Controllers
                         if (!result.Succeeded)
                         {
                             ModelState.AddModelError("", result.Errors.First().ToString());
-                            return View();
+                            return View(model);
                         }
                     }
                 }
@@ -232,7 +233,7 @@ namespace SchoolLibrary.Controllers
             }
             else
             {
-                return View();
+                return View(model);
             }
             
         }      

@@ -5,9 +5,9 @@ using System.Web;
 
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity.EntityFramework;
+using RabbitHouse.Models;
 
-
-namespace SchoolLibrary.Models
+namespace AccountAdmin.ViewModels
 {
     //User Admin
     //for show each user's multiole Roles in Index

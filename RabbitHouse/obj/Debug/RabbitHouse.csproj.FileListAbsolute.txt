@@ -81,3 +81,14 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Mi
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddCoverImgUrlForProduct.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.NullableProductIdForProductImage.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.csprojResolveAssemblyReference.cache
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.Threading.Tasks.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.Threading.Tasks.Extensions.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\X.PagedList.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\X.PagedList.Mvc.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.Threading.Tasks.xml
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.Threading.Tasks.Extensions.xml
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\EntityFramework.resources.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddCategoryIDToArticle.resources

@@ -91,11 +91,11 @@
                             <li class="@Html.IsActive("ArticleManage","Index")"><a href="@Url.Action("Index","ArticleManage")"><i class="fa fa-caret-right"></i> 文章管理</a></li>
                         </ul>
                     </li>
-                    <li class="nav-parent @Html.IsActiveForController("AccountManage")">
+                    <li class="nav-parent @Html.IsActiveForController("UsersAdmin","RolesAdmin")">
                         <a href=""><i class="fa fa-user"></i> <span>账户</span></a>
                         <ul class="children">
-                            <li class="@Html.IsActive("AccountManage","Index")"><a href="@Url.Action("Index","AccountManage")"><i class="fa fa-caret-right"></i> 账户管理</a></li>
-                            <li class="@Html.IsActive("AccountManage","Index")"><a href="@Url.Action("Index","AccountManage")"><i class="fa fa-caret-right"></i> 权限管理</a></li>
+                            <li class="@Html.IsActive("UsersAdmin","Index")"><a href="@Url.Action("Index","UsersAdmin")"><i class="fa fa-caret-right"></i> 账户管理</a></li>
+                            <li class="@Html.IsActive("RolesAdmin","Index")"><a href="@Url.Action("Index","RolesAdmin")"><i class="fa fa-caret-right"></i> 权限管理</a></li>
                         </ul>
                     </li>
                 </ul>

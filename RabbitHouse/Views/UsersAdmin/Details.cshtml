@@ -1,18 +1,18 @@
-﻿@model SchoolLibrary.Models.UsersAdminDetailsViewModel
+﻿@model AccountAdmin.ViewModels.UsersAdminDetailsViewModel
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutForCMS.cshtml";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
 }
 
 <div class="pageheader">
-    <h2><i class="fa fa-edit"></i> General Forms <span>Subtitle goes here...</span></h2>
+    <h2><i class="fa fa-edit"></i> UsersAdmin<span>进行账户的管理</span></h2>
     <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
-            <li><a href="@Url.Action("Index","CMS")">首页</a></li>
-            <li>用户</li>
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
+            <li>账户</li>
             <li><a href="@Url.Action("Index","UsersAdmin")">用户列表</a></li>
-            <li class="active">用户信息</li>
+            <li class="active">账户信息</li>
         </ol>
     </div>
 </div>

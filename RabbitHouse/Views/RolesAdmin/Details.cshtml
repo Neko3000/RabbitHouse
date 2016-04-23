@@ -1,17 +1,17 @@
-﻿@model SchoolLibrary.Models.RolesAdminDetailsViewModel
+﻿@model AccountAdmin.ViewModels.RolesAdminDetailsViewModel
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutForCMS.cshtml";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
 }
 
 <div class="pageheader">
-    <h2><i class="fa fa-edit"></i> General Forms <span>Subtitle goes here...</span></h2>
+    <h2><i class="fa fa-edit"></i> RolesAdmin<span>进行权限的管理</span></h2>
     <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
-            <li><a href="@Url.Action("Index","CMS")">首页</a></li>
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
             <li>权限</li>
-            <li><a href="@Url.Action("Index","RolesAdmin")">用户列表</a></li>
+            <li><a href="@Url.Action("Index","RolesAdmin")">权限列表</a></li>
             <li class="active">权限信息</li>
         </ol>
     </div>

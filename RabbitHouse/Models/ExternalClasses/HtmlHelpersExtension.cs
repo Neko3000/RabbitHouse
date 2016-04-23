@@ -27,5 +27,24 @@ namespace RabbitHouse
 
             return controller == routeController ? "active" : "";
         }
+        public static string IsActiveForController(this HtmlHelper htmlHelper,params string[] controllers)
+        {
+            var routeData = htmlHelper.ViewContext.RouteData;
+
+            var routeAction = routeData.Values["action"].ToString();
+            var routeController = routeData.Values["controller"].ToString();
+
+            var isExistedInControllers = false;
+            foreach(var controller in controllers)
+            {
+                if(controller==routeController)
+                {
+                    isExistedInControllers = true;
+                    break;
+                }
+            }
+
+            return isExistedInControllers ? "active" : "";
+        }
     }
 }

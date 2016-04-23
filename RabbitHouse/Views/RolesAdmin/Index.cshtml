@@ -1,19 +1,19 @@
-﻿@model SchoolLibrary.Models.RolesAdminIndexViewModel
+﻿@model AccountAdmin.ViewModels.RolesAdminIndexViewModel
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutForCMS.cshtml";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
 }
 
 @using PagedList;
 @using PagedList.Mvc;
 
 <div class="pageheader">
-    <h2><i class="fa fa-edit"></i> General Forms <span>Subtitle goes here...</span></h2>
+    <h2><i class="fa fa-edit"></i> RolesAdmin<span>进行权限的管理</span></h2>
     <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
-            <li><a href="@Url.Action("Index","CMS")">首页</a></li>
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
             <li>权限</li>
             <li class="active">权限列表</li>
         </ol>
@@ -24,7 +24,8 @@
     <div class="row">
         <div class="col-md-12">
             <h5 class="subtitle mb5">权限列表</h5>
-            <p class="mb20">您可以在此查看并编辑权限信息.</p>
+            <p class="mb5">您可以在此查看并编辑权限信息.</p>
+            <a class="btn btn-primary btn-xs mb10" href="@Url.Action("Create","RolesAdmin")">创建一个新的权限</a>
             <div class="table-responsive">
                 <table class="table table-hidaction table-hover mb30">
                     <thead>
@@ -58,7 +59,7 @@
             </div>
         </div>
     </div>
-    @Html.PagedListPager((IPagedList)Model.Roles, page => Url.Action("Index", "UsersAdmin", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+    @Html.PagedListPager((IPagedList)Model.Roles, pa => Url.Action("Index", "UsersAdmin", new { @page=pa }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
 </div><!-- contentpanel -->
 
 
