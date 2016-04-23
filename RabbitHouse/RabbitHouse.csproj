@@ -170,12 +170,15 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\OrderingController.cs" />
+    <Compile Include="Controllers\OrderManageController.cs" />
     <Compile Include="Controllers\ProductCategoryManageController.cs" />
     <Compile Include="Controllers\ProductManageController.cs" />
     <Compile Include="Controllers\ProductPropertyManageController.cs" />
+    <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SystemManageController.cs" />
     <Compile Include="Controllers\UserCenterController.cs" />
+    <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +235,8 @@
     <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Models\ProductProperty.cs" />
     <Compile Include="Models\RabbitHouseDbContext.cs" />
+    <Compile Include="Models\ViewModels\AccountAdminViewModel.cs" />
+    <Compile Include="Models\ViewModels\OrderManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductCategoryManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductPropertyManageViewModel.cs" />
@@ -894,8 +899,23 @@
     <Content Include="Views\ProductPropertyManage\Details.cshtml" />
     <Content Include="Views\ProductPropertyManage\Edit.cshtml" />
     <Content Include="Views\ProductPropertyManage\Index.cshtml" />
+    <Content Include="Views\OrderManage\Create.cshtml" />
+    <Content Include="Views\OrderManage\Delete.cshtml" />
+    <Content Include="Views\OrderManage\Details.cshtml" />
+    <Content Include="Views\OrderManage\Edit.cshtml" />
+    <Content Include="Views\OrderManage\Index.cshtml" />
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Views\UsersAdmin\Details.cshtml" />
+    <Content Include="Views\UsersAdmin\Edit.cshtml" />
+    <Content Include="Views\UsersAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\" />
     <Folder Include="Content\video\" />
     <Folder Include="ImgRepository\ProductImgs\1\" />
     <Folder Include="ImgRepository\ProductImgs\temp\" />

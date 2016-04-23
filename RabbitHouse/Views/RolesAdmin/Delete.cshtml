@@ -1,0 +1,70 @@
+﻿@model SchoolLibrary.Models.RolesAdminDeleteViewModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutForCMS.cshtml";
+}
+
+<div class="pageheader">
+    <h2><i class="fa fa-edit"></i> General Forms <span>Subtitle goes here...</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","CMS")">首页</a></li>
+            <li>权限</li>
+            <li><a href="@Url.Action("Index","RolesAdmin")">权限列表</a></li>
+            <li class="active">删除权限</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+        @using (Html.BeginForm("Delete", "RolesAdmin", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-bordered" }))
+        {
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close"></a>
+                    <a class="minimize"></a>
+                </div>
+                <h4 class="panel-title">您需要对此进行确认</h4>
+            </div>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.HiddenFor(model => model.RoleId)
+            <div class="panel-body panel-body-nopadding">
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 text-danger">
+                        您确定要删除以下权限，并解绑与此关联的账户吗?
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6 control-content">
+                        @Html.DisplayFor(model => model.RoleId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleName, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6 control-content">
+                        @Html.DisplayFor(model => model.RoleName)
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <button class="btn btn-danger" type="submit">删除</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div><!-- contentpanel -->
+
+
+
