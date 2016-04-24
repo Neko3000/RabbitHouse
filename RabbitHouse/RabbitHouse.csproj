@@ -240,12 +240,21 @@
     <Compile Include="Migrations\RabbitHouseDbContext\201604230722479_AddCategoryIDToArticle.Designer.cs">
       <DependentUpon>201604230722479_AddCategoryIDToArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201604231134103_ChangeToIsPublished.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201604231134103_ChangeToIsPublished.Designer.cs">
+      <DependentUpon>201604231134103_ChangeToIsPublished.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201604240716160_AddCoverImgToArticle.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201604240716160_AddCoverImgToArticle.Designer.cs">
+      <DependentUpon>201604240716160_AddCoverImgToArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RabbitHouseDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleCategory.cs" />
     <Compile Include="Models\ArticleTag.cs" />
     <Compile Include="Models\CartElement.cs" />
+    <Compile Include="Models\ExternalClasses\ArticleHandler.cs" />
     <Compile Include="Models\ExternalClasses\HtmlHelpersExtension.cs" />
     <Compile Include="Models\ExternalClasses\StoredImageInfo.cs" />
     <Compile Include="Models\ExternalClasses\UploadedFile.cs" />
@@ -261,6 +270,7 @@
     <Compile Include="Models\ProductProperty.cs" />
     <Compile Include="Models\RabbitHouseDbContext.cs" />
     <Compile Include="Models\ViewModels\AccountAdminViewModel.cs" />
+    <Compile Include="Models\ViewModels\ArticleManageViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductCategoryManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductManageViewModel.cs" />
@@ -554,6 +564,7 @@
     <Content Include="Content\bracket\js\jquery.mousewheel.js" />
     <Content Include="Content\bracket\js\jquery.prettyPhoto.js" />
     <Content Include="Content\bracket\js\jquery.sparkline.min.js" />
+    <Content Include="Content\bracket\js\jquery.tagsinput.js" />
     <Content Include="Content\bracket\js\jquery.tagsinput.min.js" />
     <Content Include="Content\bracket\js\jquery.ui.touch-punch.min.js" />
     <Content Include="Content\bracket\js\jquery.validate.min.js" />
@@ -711,6 +722,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\hidden\_LayoutNormal-org.cshtml" />
+    <Content Include="ImgRepository\ArticleImgs\1\wallhaven-278958.jpg" />
     <Content Include="ImgRepository\ProductImgs\10\dark-chocolate-mocha-avocado-mousse-4.jpg" />
     <Content Include="ImgRepository\ProductImgs\12\tea-01.jpg" />
     <Content Include="ImgRepository\ProductImgs\11\wallhaven-284723.jpg" />
@@ -978,6 +990,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604230722479_AddCategoryIDToArticle.resx">
       <DependentUpon>201604230722479_AddCategoryIDToArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604231134103_ChangeToIsPublished.resx">
+      <DependentUpon>201604231134103_ChangeToIsPublished.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604240716160_AddCoverImgToArticle.resx">
+      <DependentUpon>201604240716160_AddCoverImgToArticle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

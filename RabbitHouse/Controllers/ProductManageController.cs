@@ -299,7 +299,6 @@ namespace RabbitHouse.Controllers
                     newCoverImgUrl = db.Products.Find(model.Id).CoverImgUrl;
                 }
 
-
                 //update ProductId for each uploaded ProductImg
                 if(!string.IsNullOrEmpty(model.UploadImgsIdString))
                 {

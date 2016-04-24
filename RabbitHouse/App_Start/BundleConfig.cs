@@ -64,6 +64,10 @@ namespace RabbitHouse
                 "~/Content/bracket/css/dropzone.css"
                 ));
 
+            bundles.Add(new StyleBundle("~/Content/bracket/WysiwygEditorStyle").Include(
+                "~/Content/bracket/css/bootstrap-wysihtml5.css"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/bracket/MainScript").Include(
                       "~/Content/bracket/js/jquery-1.11.1.min.js",
                       "~/Content/bracket/js/jquery-migrate-1.2.1.min.js",
@@ -80,11 +84,16 @@ namespace RabbitHouse
                       "~/Content/bracket/js/jquery.autogrow-textarea.js",
                       "~/Content/bracket/js/bootstrap-timepicker.min.js",
                       "~/Content/bracket/js/jquery.maskedinput.min.js",
-                      "~/Content/bracket/js/jquery.tagsinput.min.js",
+                      "~/Content/bracket/js/jquery.tagsinput.js",
                       "~/Content/bracket/js/jquery.mousewheel.js",
                       "~/Content/bracket/js/select2.min.js",
                       "~/Content/bracket/js/dropzone.min.js",
                       "~/Content/bracket/js/colorpicker.js"
+                      ));
+
+            bundles.Add(new ScriptBundle("~/bundles/bracket/WysiwygEditorScript").Include(
+                      "~/Content/bracket/js/wysihtml5-0.3.0.min.js",
+                      "~/Content/bracket/js/bootstrap-wysihtml5.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/bracket/TableScript").Include(

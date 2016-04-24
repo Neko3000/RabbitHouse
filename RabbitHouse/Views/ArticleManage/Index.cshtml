@@ -2,74 +2,112 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Meta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UrlSlug)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Published)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifyTime)
-        </th>
-        <th></th>
-    </tr>
+<div class="pageheader">
+    <h2><i class="fa fa-edit"></i> ArticleManage<span>进行文章管理</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
+            <li>文章</li>
+            <li class="active">文章列表</li>
+        </ol>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Meta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UrlSlug)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Published)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifyTime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<div class="contentpanel">
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="subtitle mb5">文章列表</h5>
+            <p class="mb5">您可以在此查看并编辑文章信息.</p>
+            <a class="btn btn-primary btn-xs mb10" href="@Url.Action("Create","ArticleManage")">创建一篇新的文章</a>
+            <div class="table-responsive">
+                <table class="table table-hidaction table-hover mb30">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>标题</th>
+                            <th>分类</th>
+                            <th>发布时间</th>
+                            <th>修改时间</th>
+                            <th>是否发布</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Title</td>
+                                <td>@item.Category.Name</td>
+                                <td>@item.PostTime</td>
+                                <td>@item.ModifyTime</td>
+                                <td>@item.IsPublished</td>
+                                <td class="table-action-hide">
+                                    <a href="@Url.Action("Details","ArticleManage",new { id=item.Id })">
+                                        <i class="fa fa-file-text-o"></i>
+                                    </a>
+                                    <a href="@Url.Action("Edit","ArticleManage",new { id=item.Id })">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a href="@Url.Action("Delete","ArticleManage",new { id=item.Id })">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div><!-- contentpanel -->
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/bracket/TableScript")
+
+    <script>
+        jQuery(document).ready(function () {
+
+            "use strict";
+
+            jQuery('#table1').dataTable();
+
+            jQuery('#table2').dataTable({
+                "sPaginationType": "full_numbers"
+            });
+
+            // Select2
+            jQuery('select').select2({
+                minimumResultsForSearch: -1
+            });
+
+            jQuery('select').removeClass('form-control');
+
+            // Delete row in a table
+            jQuery('.delete-row').click(function () {
+                var c = confirm("Continue delete?");
+                if (c)
+                    jQuery(this).closest('tr').fadeOut(function () {
+                        jQuery(this).remove();
+                    });
+
+                return false;
+            });
+
+            // Show aciton upon row hover
+            jQuery('.table-hidaction tbody tr').hover(function () {
+                jQuery(this).find('.table-action-hide a').animate({ opacity: 1 });
+            }, function () {
+                jQuery(this).find('.table-action-hide a').animate({ opacity: 0 });
+            });
+
+
+        });
+    </script>
 }
-
-</table>

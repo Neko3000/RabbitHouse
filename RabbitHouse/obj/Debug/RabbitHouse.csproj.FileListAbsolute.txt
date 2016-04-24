@@ -92,3 +92,5 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\Microsoft.Threading.
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\EntityFramework.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddCategoryIDToArticle.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ChangeToIsPublished.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddCoverImgToArticle.resources
