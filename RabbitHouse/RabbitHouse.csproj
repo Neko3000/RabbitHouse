@@ -248,6 +248,10 @@
     <Compile Include="Migrations\RabbitHouseDbContext\201604240716160_AddCoverImgToArticle.Designer.cs">
       <DependentUpon>201604240716160_AddCoverImgToArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201604241003195_AddContentToArticle.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201604241003195_AddContentToArticle.Designer.cs">
+      <DependentUpon>201604241003195_AddContentToArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RabbitHouseDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -320,10 +324,6 @@
     <Content Include="App_Data\ApplicationDbContext_log.ldf">
       <DependentUpon>ApplicationDbContext.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\RabbitHouseDbContext.mdf" />
-    <Content Include="App_Data\RabbitHouseDbContext_log.ldf">
-      <DependentUpon>RabbitHouseDbContext.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -362,6 +362,7 @@
     <Content Include="Content\bracket\css\style.default.css" />
     <Content Include="Content\bracket\css\toggles.css" />
     <Content Include="Content\bracket\css\weather-icons.min.css" />
+    <Content Include="Content\bracket\css\wysiwyg-color.css" />
     <Content Include="Content\bracket\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\bracket\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bracket\fonts\lato\Lato-Bla-webfont.svg" />
@@ -996,6 +997,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604240716160_AddCoverImgToArticle.resx">
       <DependentUpon>201604240716160_AddCoverImgToArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604241003195_AddContentToArticle.resx">
+      <DependentUpon>201604241003195_AddContentToArticle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

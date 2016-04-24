@@ -11,9 +11,10 @@ namespace RabbitHouse.Models
         [Key]
         public virtual int Id { get; set; }
         public virtual string Title { get; set; }
+        public virtual string CoverImgUrl { get; set; }
         public virtual string ShortDescription { get; set; }
         public virtual string Description { get; set; }
-        public virtual string CoverImgUrl { get; set; }
+        public virtual string Content { get; set; }
         public virtual string Meta { get; set; }
         public virtual string UrlSlug { get; set; }
         public virtual bool IsPublished { get; set; }

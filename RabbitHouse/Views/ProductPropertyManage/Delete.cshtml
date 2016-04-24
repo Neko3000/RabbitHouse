@@ -6,29 +6,29 @@
 }
 
 <div class="pageheader">
-    <h2><i class="fa fa-edit"></i> ProductPropertyManage<span>进行商品属性管理</span></h2>
+    <h2><i class="fa fa-edit"></i> ProductPropertyManage<span>进行文章管理</span></h2>
     <div class="breadcrumb-wrapper">
         <span class="label">You are here:</span>
         <ol class="breadcrumb">
             <li><a href="@Url.Action("Index", "SystemManage")">首页</a></li>
-            <li>商品属性</li>
-            <li><a href="@Url.Action("Index", "ProductPropertyManage")">商品属性列表</a></li>
-            <li class="active">商品属性删除</li>
+            <li>文章</li>
+            <li><a href="@Url.Action("Index", "ProductPropertyManage")">文章列表</a></li>
+            <li class="active">文章删除</li>
         </ol>
     </div>
 </div>
 
 <div class="contentpanel">
     <div class="panel panel-default">
-        @using (Html.BeginForm("Delete", "ProductPropertyManage", FormMethod.Post, htmlAttributes: new { @class = "" }))
+        @using (Html.BeginForm("Delete", "ArticleManage", FormMethod.Post, htmlAttributes: new { @class = "" }))
         {
             <div class="panel-heading">
                 <div class="panel-btns">
                     <a class="panel-close"></a>
                     <a class="minimize"></a>
                 </div>
-                <h4 class="panel-title">商品属性删除</h4>
-                <p>您确定要删除以下商品属性吗？.</p>
+                <h4 class="panel-title">文章删除</h4>
+                <p>您确定要删除以下文章吗？.</p>
                 @Html.ValidationSummary()
             </div>
             @Html.AntiForgeryToken()

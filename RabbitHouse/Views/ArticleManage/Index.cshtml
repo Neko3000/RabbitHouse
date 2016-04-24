@@ -46,7 +46,7 @@
                                 <td>@item.Category.Name</td>
                                 <td>@item.PostTime</td>
                                 <td>@item.ModifyTime</td>
-                                <td>@item.IsPublished</td>
+                                <td><i class="fa fa-@(item.IsPublished? "check":"remove")"></i></td>
                                 <td class="table-action-hide">
                                     <a href="@Url.Action("Details","ArticleManage",new { id=item.Id })">
                                         <i class="fa fa-file-text-o"></i>

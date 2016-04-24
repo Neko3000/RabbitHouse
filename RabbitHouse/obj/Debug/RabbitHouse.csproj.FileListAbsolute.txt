@@ -94,3 +94,4 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\bin\zh-Hans\EntityFramew
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddCategoryIDToArticle.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ChangeToIsPublished.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddCoverImgToArticle.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddContentToArticle.resources

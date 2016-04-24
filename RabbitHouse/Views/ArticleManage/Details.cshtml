@@ -60,6 +60,13 @@
                 </div>
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6 control-content">
+                        @Html.DisplayFor(model => model.Description, new { htmlAttributes = new { @class = "", @placeholder = "" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
                     @Html.LabelFor(model => model.CoverImgUrl, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6 control-content">
                         <div>
@@ -116,15 +123,15 @@
                     <div class="col-sm-6 control-content">
                         @foreach (var tag in Model.Tags)
                         {
-                            @(tag.Name+",")
+                            @(tag.Name + ",")
                         }
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6 col control-content">
-                        @Html.Raw(Model.Description)
+                        @Html.Raw(Model.Content)
                     </div>
                 </div>
             </div>
