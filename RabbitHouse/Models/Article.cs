@@ -25,5 +25,7 @@ namespace RabbitHouse.Models
         public virtual ArticleCategory Category { get; set; }
 
         public virtual IList<ArticleTag> Tags { get; set; }
+
+        public virtual IList<ArticleDialog> Dialogs { get; set; }
     }
 }

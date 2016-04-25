@@ -16,5 +16,9 @@ namespace RabbitHouse.Models
         [ForeignKey("Character")]
         public int CharacterId { get; set; }
         public virtual Character Character { get; set; }
+
+        [ForeignKey("Article")]
+        public int ArticleId { get; set; }
+        public virtual Article Article { get; set; }
     }
 }

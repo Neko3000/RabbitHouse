@@ -23,6 +23,9 @@ namespace RabbitHouse.Models
         public DbSet<RabbitHouse.Models.ArticleCategory> ArticleCategories { get; set; }
         public DbSet<RabbitHouse.Models.ArticleTag> ArticleTags { get; set; }
 
+        public DbSet<RabbitHouse.Models.ArticleDialog> ArticleDialogs { get; set; }
+        public DbSet<RabbitHouse.Models.Character> Characters { get; set; }
+
         public DbSet<RabbitHouse.Models.Product> Products { get; set; }
         public DbSet<RabbitHouse.Models.ProductCategory> ProductCategories { get; set; }
         public DbSet<RabbitHouse.Models.ProductProperty> ProductProperties { get; set; }
