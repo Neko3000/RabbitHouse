@@ -102,6 +102,7 @@ namespace RabbitHouse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ProductCategoryManageEditViewModel model)
         {
+            return View(model);
             if (ModelState.IsValid)
             {
                 var productCategory = new ProductCategory

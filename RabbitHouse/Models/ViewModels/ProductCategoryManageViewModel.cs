@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using RabbitHouse.ExternalClasses;
 
 namespace RabbitHouse.ViewModels
 {
@@ -16,6 +17,8 @@ namespace RabbitHouse.ViewModels
         public string Description { get; set; }
         [Display(Name = "查询符号")]
         public string UrlSlug { get; set; }
+
+        public IList<ArticleDialog> ArticleDialogs { get; set; }
     }
     public class ProductCategoryManageDetailsViewModel
     {

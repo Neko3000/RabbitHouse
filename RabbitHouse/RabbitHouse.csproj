@@ -256,8 +256,11 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleCategory.cs" />
+    <Compile Include="Models\ArticleDialog.cs" />
     <Compile Include="Models\ArticleTag.cs" />
     <Compile Include="Models\CartElement.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\ExternalClasses\ArticleDialog.cs" />
     <Compile Include="Models\ExternalClasses\ArticleHandler.cs" />
     <Compile Include="Models\ExternalClasses\HtmlHelpersExtension.cs" />
     <Compile Include="Models\ExternalClasses\StoredImageInfo.cs" />
