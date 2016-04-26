@@ -252,6 +252,14 @@
     <Compile Include="Migrations\RabbitHouseDbContext\201604241003195_AddContentToArticle.Designer.cs">
       <DependentUpon>201604241003195_AddContentToArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201604250744020_ArticleDialog&amp;Character.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201604250744020_ArticleDialog&amp;Character.Designer.cs">
+      <DependentUpon>201604250744020_ArticleDialog&amp;Character.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\RabbitHouseDbContext\201604250751176_AddSNToArticleDialog.cs" />
+    <Compile Include="Migrations\RabbitHouseDbContext\201604250751176_AddSNToArticleDialog.Designer.cs">
+      <DependentUpon>201604250751176_AddSNToArticleDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RabbitHouseDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -260,7 +268,6 @@
     <Compile Include="Models\ArticleTag.cs" />
     <Compile Include="Models\CartElement.cs" />
     <Compile Include="Models\Character.cs" />
-    <Compile Include="Models\ExternalClasses\ArticleDialog.cs" />
     <Compile Include="Models\ExternalClasses\ArticleHandler.cs" />
     <Compile Include="Models\ExternalClasses\HtmlHelpersExtension.cs" />
     <Compile Include="Models\ExternalClasses\StoredImageInfo.cs" />
@@ -278,6 +285,7 @@
     <Compile Include="Models\RabbitHouseDbContext.cs" />
     <Compile Include="Models\ViewModels\AccountAdminViewModel.cs" />
     <Compile Include="Models\ViewModels\ArticleManageViewModel.cs" />
+    <Compile Include="Models\ViewModels\NewsViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductCategoryManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductManageViewModel.cs" />
@@ -727,6 +735,8 @@
     </None>
     <Content Include="Content\hidden\_LayoutNormal-org.cshtml" />
     <Content Include="ImgRepository\ArticleImgs\1\wallhaven-278958.jpg" />
+    <Content Include="ImgRepository\CharacterImgs\001.jpg" />
+    <Content Include="ImgRepository\CharacterImgs\002.jpg" />
     <Content Include="ImgRepository\ProductImgs\10\dark-chocolate-mocha-avocado-mousse-4.jpg" />
     <Content Include="ImgRepository\ProductImgs\12\tea-01.jpg" />
     <Content Include="ImgRepository\ProductImgs\11\wallhaven-284723.jpg" />
@@ -956,6 +966,7 @@
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="Views\SystemManage\Index.cshtml" />
+    <Content Include="Views\News\NewsDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />
@@ -1003,6 +1014,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604241003195_AddContentToArticle.resx">
       <DependentUpon>201604241003195_AddContentToArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604250744020_ArticleDialog&amp;Character.resx">
+      <DependentUpon>201604250744020_ArticleDialog&amp;Character.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\RabbitHouseDbContext\201604250751176_AddSNToArticleDialog.resx">
+      <DependentUpon>201604250751176_AddSNToArticleDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

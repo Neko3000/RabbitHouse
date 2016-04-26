@@ -164,7 +164,10 @@ namespace RabbitHouse.Controllers
                 ArticleCategoryForArticle = article.CategoryId,
                 ArticleCategories = db.ArticleCategories.ToList(),
 
-                Tags = article.Tags
+                Tags = article.Tags,
+
+                ArticleDialogs=article.Dialogs.Count>0?article.Dialogs:new List<ArticleDialog> { new ArticleDialog() },
+                Characters=db.Characters.ToList()
             };
             return View(vm);
         }

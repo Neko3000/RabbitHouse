@@ -95,3 +95,5 @@ N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Mi
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ChangeToIsPublished.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddCoverImgToArticle.resources
 N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddContentToArticle.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.ArticleDialogCharacter.resources
+N:\VisualStudioProjects\ASP.NET\RabbitHouse\RabbitHouse\obj\Debug\RabbitHouse.Migrations.RabbitHouseDbContext.AddSNToArticleDialog.resources

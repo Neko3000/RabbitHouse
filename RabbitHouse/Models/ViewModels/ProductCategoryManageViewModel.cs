@@ -17,8 +17,6 @@ namespace RabbitHouse.ViewModels
         public string Description { get; set; }
         [Display(Name = "查询符号")]
         public string UrlSlug { get; set; }
-
-        public IList<ArticleDialog> ArticleDialogs { get; set; }
     }
     public class ProductCategoryManageDetailsViewModel
     {

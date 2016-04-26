@@ -1017,8 +1017,8 @@ input.solid-input-box:focus {
 }
 .article-bg .article .article-middle-area .single-dialog {
   display: inline-block;
-  float: left;
   margin-bottom: 20px;
+  width: 100%;
 }
 .article-bg .article .article-middle-area .single-dialog .avator {
   float: left;

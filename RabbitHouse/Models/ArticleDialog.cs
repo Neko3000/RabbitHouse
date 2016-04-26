@@ -12,6 +12,7 @@ namespace RabbitHouse.Models
         [Key]
         public int Id { get; set; }
         public string Message { get; set; }
+        public int SequenceNumber { get; set; }
 
         [ForeignKey("Character")]
         public int CharacterId { get; set; }

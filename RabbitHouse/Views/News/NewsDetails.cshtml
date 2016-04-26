@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RabbitHouse.Models.Article
+@{
     Layout = "~/Views/Shared/_LayoutNormal.cshtml";
     ViewBag.Title = "Article";
 }
@@ -11,10 +12,10 @@
                     <div class="article-position">新闻公告<span>></span>店内主题音乐已更新-5月</div>
                 </div>
 
-                <div class="container">                  
+                <div class="container">
                     <div class="article-info-box">
-                        <h2 class="article-title">店内主题音乐已更新-5月</h2>
-                        <h3 class="article-discription">本月是古典音乐主题月</h3>
+                        <h2 class="article-title">@Model.Title</h2>
+                        <h3 class="article-discription">@Model.ShortDescription</h3>
                         <p class="article-category">文章分类-<span class="single-category">更新</span></p>
                         <time class="article-time">更新时间-2016/5/1</time>
                     </div>
@@ -40,6 +41,19 @@
                             <p>而对欧洲古典音乐而言，不能不提到中世纪的伊丽莎白时期，格力高利时期的音乐呢，其中占主导地位的当然是宗教音乐。当时的人们源于对基督教的信仰与崇拜直接影响到了当时社会的政治与音乐。此时的音乐还只是仅限于宗教用途，只在教堂中演唱，没有乐器的伴奏，但是却对于今后的音乐发展起了非常重要的作用。</p>
                         </div>
                     </div>
+                    @foreach (var dialog in Model.Dialogs)
+                    {
+                        <div class="single-dialog @(dialog.SequenceNumber%2==0? "single-dialog-left":"single-dialog-right")">
+                            <div class="avator">
+                                <img src="@dialog.Character.ImgUrl" />
+                            </div>
+
+                            <div class="dialog" style="background-color:@dialog.Character.Color;">
+                                <p>@dialog.Message</p>
+                            </div>
+                        </div>
+                    }
+
                 </div>
             </div>
             <div class="article-bottom-area">
@@ -76,6 +90,8 @@
 
 @section scripts{
     <script>
-        $('.single-dialog').singleDialog();
+        $(function () {
+            $('.single-dialog').singleDialog();
+        });
     </script>
 }
