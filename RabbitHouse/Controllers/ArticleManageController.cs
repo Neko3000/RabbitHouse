@@ -52,7 +52,8 @@ namespace RabbitHouse.Controllers
                 CategoryId=article.CategoryId,
                 Category=article.Category,
 
-                Tags=article.Tags
+                Tags=article.Tags,
+                ArticleDialogs=article.Dialogs
             };
 
             return View(vm);
@@ -64,7 +65,9 @@ namespace RabbitHouse.Controllers
             var vm = new ArticleManageCreateViewModel
             {
                 PostTime=DateTime.Now,
-                ArticleCategories=db.ArticleCategories.ToList()
+                ArticleCategories=db.ArticleCategories.ToList(),
+                ArticleDialogs =new List<ArticleDialog> { new ArticleDialog() },
+                Characters=db.Characters.ToList()
             };
             return View(vm);
         }
@@ -78,6 +81,10 @@ namespace RabbitHouse.Controllers
         {
             if (ModelState.IsValid)
             {
+                for (int i = 0; i < model.ArticleDialogs.Count; i++)
+                {
+                    model.ArticleDialogs[i].SequenceNumber = i + 1;
+                }
                 var article = new Article
                 {
                     Title = model.Title,
@@ -93,6 +100,8 @@ namespace RabbitHouse.Controllers
 
                     CategoryId=db.ArticleCategories.Find(model.ArticleCategoryForArticle).Id,
                     Category= db.ArticleCategories.Find(model.ArticleCategoryForArticle),
+
+                    Dialogs= model.ArticleDialogs
                 };
                 db.Articles.Add(article);
                 db.SaveChanges();
@@ -210,6 +219,7 @@ namespace RabbitHouse.Controllers
                     newCoverImgUrl = db.Articles.Find(model.Id).CoverImgUrl;
                 }
 
+                
                 var article = db.Articles.Find(model.Id);
                 article.Id = model.Id;
                 article.Title = model.Title;
@@ -227,6 +237,14 @@ namespace RabbitHouse.Controllers
 
                 article.Tags.Clear();
                 article.Tags = db.ArticleTags.Where(t => tagsList.Contains(t.Name)).ToList();
+
+                article.Dialogs.Clear();
+                db.ArticleDialogs.Where(a => a.ArticleId == article.Id).ToList().ForEach(ad => db.ArticleDialogs.Remove(ad));
+                for (int i = 0; i < model.ArticleDialogs.Count; i++)
+                {
+                    model.ArticleDialogs[i].SequenceNumber = i + 1;
+                }
+                article.Dialogs = model.ArticleDialogs;
 
                 db.Entry(article).State = EntityState.Modified;
                 db.SaveChanges();
@@ -265,7 +283,9 @@ namespace RabbitHouse.Controllers
                 CategoryId = article.CategoryId,
                 Category =article.Category,
 
-                Tags = article.Tags
+                Tags = article.Tags,
+
+                ArticleDialogs=article.Dialogs
             };
             return View(vm);
         }

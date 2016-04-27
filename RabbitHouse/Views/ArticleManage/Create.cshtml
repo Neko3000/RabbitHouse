@@ -132,6 +132,30 @@
                 </div>
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.ArticleDialogs, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="model-submit-block col-sm-6">
+                        <div class="model-area mb5">
+                            @for (int i = 0; i < Model.ArticleDialogs.Count; i++)
+                            {
+                                <div class="single-model row mb10">
+                                    <div class="col-sm-3 mb5">
+                                        @Html.DropDownListFor(model => model.ArticleDialogs[i].CharacterId, new SelectList(Model.Characters, "Id", "Name", Model.ArticleDialogs[i].CharacterId), htmlAttributes: new { @class = "form-control", @data_placeholder = "..." })
+                                    </div>
+                                    <div class="col-sm-12">
+                                        @Html.EditorFor(model => model.ArticleDialogs[i].Message, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="">
+                            <button class="btn btn-primary btn-xs" id="add-factor-button" type="button">ADD</button>
+                            <button class="btn btn-default btn-xs" id="remove-factor-button" type="button">DELETE</button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ArticleDialogs, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
                     <div class="col-sm-12">
                         @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @class = "form-control", @placeholder = "Enter text here...", @id = "wysiwyg", @rows = "10" })
                         @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
@@ -156,8 +180,14 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bracket/GeneralFormScript")
     @Scripts.Render("~/bundles/bracket/WysiwygEditorScript")
+
+
+    @Scripts.Render("~/bundles/sitebehavior")
     <script>
         jQuery(document).ready(function () {
+
+            //dialogs
+            $('.model-submit-block').modelSubmitBlock(@Model.ArticleDialogs.Count);
 
             // HTML5 WYSIWYG Editor
             jQuery('#wysiwyg').wysihtml5({ color: true, html: true });

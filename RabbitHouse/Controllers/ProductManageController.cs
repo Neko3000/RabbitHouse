@@ -204,7 +204,7 @@ namespace RabbitHouse.Controllers
         public ActionResult UploadImgs()
         {
             bool isSavedSuccessfully = true;
-
+            string errorMessage="";
             var uploadedIDList = new List<UploadedImageInfo>();
             try
             {
@@ -244,6 +244,7 @@ namespace RabbitHouse.Controllers
             catch (Exception ex)
             {
                 isSavedSuccessfully = false;
+                errorMessage = ex.Message;
             }
 
             if (isSavedSuccessfully)
@@ -252,7 +253,7 @@ namespace RabbitHouse.Controllers
             }
             else
             {
-                return Json(new { Message = "Error in saving file" });
+                return Json(new { Message = "Error in saving file:"+ errorMessage });
             }
         }
 

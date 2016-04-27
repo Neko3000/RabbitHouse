@@ -23,27 +23,9 @@
             </div>
             <div class="article-middle-area">
                 <div class="container">
-                    <div class="single-dialog single-dialog-left">
-                        <div class="avator">
-                            <img src="~/Content/img/news/avator/Rize.jpg" />
-                        </div>
-
-                        <div class="dialog" style="background-color:#c7b6ff">
-                            <p>说到古典音乐的话，就和流行音乐截然相反，会显得更加的优雅稳重一些，也就会让人直接联想起小提琴和钢琴呢！</p>
-                        </div>
-                    </div>
-                    <div class="single-dialog single-dialog-right">
-                        <div class="avator">
-                            <img src="~/Content/img/news/avator/Chiya.jpg" />
-                        </div>
-
-                        <div class="dialog" style="background-color:#b9ecba">
-                            <p>而对欧洲古典音乐而言，不能不提到中世纪的伊丽莎白时期，格力高利时期的音乐呢，其中占主导地位的当然是宗教音乐。当时的人们源于对基督教的信仰与崇拜直接影响到了当时社会的政治与音乐。此时的音乐还只是仅限于宗教用途，只在教堂中演唱，没有乐器的伴奏，但是却对于今后的音乐发展起了非常重要的作用。</p>
-                        </div>
-                    </div>
                     @foreach (var dialog in Model.Dialogs)
                     {
-                        <div class="single-dialog @(dialog.SequenceNumber%2==0? "single-dialog-left":"single-dialog-right")">
+                        <div class="single-dialog @(dialog.SequenceNumber %2 == 0 ? "single-dialog-right" : "single-dialog-left") ">
                             <div class="avator">
                                 <img src="@dialog.Character.ImgUrl" />
                             </div>
