@@ -58,16 +58,7 @@ namespace RabbitHouse.Models
 
             if(cartItem!=null)
             {
-                //
-                if(cartItem.Count>0)
-                {
-                    cartItem.Count--;
-                    currentCount = cartItem.Count;
-                }
-                else
-                {
-                    db.CartElements.Remove(cartItem);
-                }
+                db.CartElements.Remove(cartItem);
                 db.SaveChanges();
             }
             return currentCount;
