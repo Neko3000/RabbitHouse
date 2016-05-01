@@ -12,6 +12,7 @@ namespace RabbitHouse.ViewModels
         //get
         public IEnumerable<CartElement> CartElements { get; set; }
         public decimal CartTotal { get; set; }
+        public string UserName { get; set; }
     }
 
     public class OrderInfoSubmitViewModel
@@ -66,6 +67,8 @@ namespace RabbitHouse.ViewModels
         public int ProductId { get; set; }
         [Required]
         public int ProductPropertyId { get; set; }
+        [Required]
+        public int Count { get; set; }
     }
 
     //?

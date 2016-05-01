@@ -60,7 +60,6 @@
         $(window).bind('resize', update);
 
         $(function () {
-            alert(dialogOrgWidth);
             update();
         });
 

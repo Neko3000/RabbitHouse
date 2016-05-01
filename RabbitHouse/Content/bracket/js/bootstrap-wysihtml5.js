@@ -419,7 +419,12 @@
                 "wysiwyg-color-blue" : 1,
                 "wysiwyg-color-teal" : 1,
                 "wysiwyg-color-aqua" : 1,
-                "wysiwyg-color-orange" : 1
+                "wysiwyg-color-orange": 1,
+                //custom
+                "wysiwyg-text-align-center": 1,
+                "wysiwyg-text-align-justify": 1,
+                "wysiwyg-text-align-left": 1,
+                "wysiwyg-text-align-right": 1
             },
             tags: {
                 "b":  {},
