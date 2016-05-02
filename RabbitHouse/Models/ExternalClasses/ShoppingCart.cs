@@ -93,10 +93,15 @@ namespace RabbitHouse.Models
         }
         public decimal GetTotal()
         {
-            decimal? total = (from cartItems in db.CartElements
-                              where cartItems.CartId.ToString() == ShoppingCartId
-                              select (int?)cartItems.Count * cartItems.Product.Price * cartItems.Product.CurrentDiscount).Sum();
-            return total ?? decimal.Zero;
+            decimal total = decimal.Zero;
+            var cartElements = db.CartElements.Where(c => c.CartId.ToString() == ShoppingCartId).ToList();
+            foreach(var cartElement in cartElements)
+            {
+                var unitPrice = cartElement.Product.Price * (cartElement.Product.CurrentDiscount ?? 1) + (cartElement.ProductProperty.PlusPrice ?? 0);
+                var singleTotal = unitPrice * cartElement.Count;
+                total += singleTotal;
+            }
+            return total;
         }
         public int CreateOrder(Order order)
         {
@@ -113,7 +118,7 @@ namespace RabbitHouse.Models
                     OrderId = order.Id,
                     Product = item.Product,
                     ProductProperty=item.ProductProperty,
-                    UnitPrice = item.Product.Price * item.Product.CurrentDiscount ?? 1,
+                    UnitPrice = item.Product.Price * (item.Product.CurrentDiscount ?? 1) +(item.ProductProperty.PlusPrice ?? 0),
                     Count = item.Count
                 };
                 //set the order total of the shopping cart

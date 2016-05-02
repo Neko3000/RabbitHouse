@@ -9,7 +9,7 @@
     <div class="cart">
         <section class="cart-header">
             <div class="container">
-                <div class="cart-position">在线下单<span>></span>的购物车</div>
+                <div class="cart-position">在线下单<span>></span>@Model.UserName 的购物车</div>
                 <div class="cart-reminder">请确认以下商品的信息</div>
             </div>
         </section>
@@ -19,7 +19,7 @@
                 using (Html.BeginForm("RemoveFromCart", "ShoppingCart", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.Hidden("id",@item.Id)
+                    @Html.Hidden("id", @item.Id)
                     <div class="single-cart-block-container">
                         <div class="single-cart-block">
                             <time></time>
@@ -40,14 +40,22 @@
                                                     <img src="@item.ProductProperty.ImgUrl" />
                                                 </div>
                                             </div>
-                                            <p>￥@item.Product.Price*@(((decimal)item.Product.CurrentDiscount).ToString("#0.00"))+ 1.0=￥10.00</p>
+                                            @{
+                                                var priceString = item.Product.Price;
+                                                var currentDisCountString = item.Product.CurrentDiscount.HasValue ? ((decimal)item.Product.CurrentDiscount).ToString("#0.00") : (1.00).ToString("#0.00");
+                                                var plusPriceString = item.ProductProperty.PlusPrice.HasValue?((decimal)item.ProductProperty.PlusPrice).ToString("#0.00"):((0.00).ToString("#0.00"));
+                                                var unitPriceString = ((decimal)(item.Product.Price * (item.Product.CurrentDiscount.HasValue ? item.Product.CurrentDiscount : 1) + (item.ProductProperty.PlusPrice.HasValue ? item.ProductProperty.PlusPrice : 0))).ToString("#0.00");
+
+                                                var unitPrice = (decimal)(item.Product.Price * (item.Product.CurrentDiscount.HasValue ? item.Product.CurrentDiscount : 1) + (item.ProductProperty.PlusPrice.HasValue ? item.ProductProperty.PlusPrice : 0));
+                                            }
+                                            <p>￥@priceString*@currentDisCountString+@plusPriceString=￥@unitPriceString</p>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-lg-3">
                                         <div class="single-cart-count-sum-container">
                                             <div class="single-cart-count-sum">
                                                 <span class="count">x @item.Count</span>
-                                                <span class="sum">= ￥50.00</span>
+                                                <span class="sum">= ￥@((unitPrice*item.Count).ToString("#0.00"))</span>
                                             </div>
                                         </div>
                                     </div>

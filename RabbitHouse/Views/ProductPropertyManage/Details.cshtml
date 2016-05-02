@@ -46,6 +46,13 @@
                 </div>
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.PlusPrice, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6 control-content">
+                        @Html.DisplayFor(model => model.PlusPrice, new { htmlAttributes = new { @class = "", @placeholder = "" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
                     @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-3 control-label" })
                     <div class="col-sm-6 control-content">
                         @Html.DisplayFor(model => model.Description, new { htmlAttributes = new { @class = "", @placeholder = "" } })

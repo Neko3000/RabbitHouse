@@ -39,7 +39,8 @@ namespace RabbitHouse.Controllers
                 Id=productProperty.Id,
                 Name=productProperty.Name,
                 Description=productProperty.Description,
-                ImgUrl=productProperty.ImgUrl
+                ImgUrl=productProperty.ImgUrl,
+                PlusPrice=productProperty.PlusPrice
             };
             return View(vm);
         }
@@ -66,6 +67,7 @@ namespace RabbitHouse.Controllers
                 {
                     Name = model.Name,
                     Description = model.Description,
+                    PlusPrice=model.PlusPrice
                 };
 
                 db.ProductProperties.Add(productProperty);
@@ -107,7 +109,8 @@ namespace RabbitHouse.Controllers
                 Id=productProperty.Id,
                 Name=productProperty.Name,
                 Description=productProperty.Description,
-                ImgUrl=productProperty.ImgUrl
+                ImgUrl=productProperty.ImgUrl,
+                PlusPrice=productProperty.PlusPrice
             };
             return View(vm);
         }
@@ -140,7 +143,8 @@ namespace RabbitHouse.Controllers
                     Id=model.Id,
                     Name=model.Name,
                     Description=model.Description,
-                    ImgUrl= newPropertymgUrl
+                    ImgUrl= newPropertymgUrl,
+                    PlusPrice=model.PlusPrice
                 };
                 db.Entry(productProperty).State = EntityState.Modified;
                 db.SaveChanges();
@@ -167,7 +171,8 @@ namespace RabbitHouse.Controllers
                 Id = productProperty.Id,
                 Name = productProperty.Name,
                 Description = productProperty.Description,
-                ImgUrl = productProperty.ImgUrl
+                ImgUrl = productProperty.ImgUrl,
+                PlusPrice=productProperty.PlusPrice
             };
             return View(vm);
         }

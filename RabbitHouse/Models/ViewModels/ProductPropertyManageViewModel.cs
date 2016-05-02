@@ -18,6 +18,8 @@ namespace RabbitHouse.ViewModels
         public string ImgUrl { get; set; }
         [Display(Name = "属性图片")]
         public HttpPostedFileBase PropertyImg { get; set; }
+        [Display(Name = "附加价格")]
+        public decimal? PlusPrice { get; set; }
     }
     public class ProductPropertyManageDetailsViewModel
     {
@@ -29,6 +31,8 @@ namespace RabbitHouse.ViewModels
         public string Description { get; set; }
         [Display(Name = "属性图片")]
         public string ImgUrl { get; set; }
+        [Display(Name = "附加价格")]
+        public decimal? PlusPrice { get; set; }
     }
     public class ProductPropertyManageCreateViewModel
     {
@@ -40,6 +44,8 @@ namespace RabbitHouse.ViewModels
         public string ImgUrl { get; set; }
         [Display(Name = "属性图片")]
         public HttpPostedFileBase PropertyImg { get; set; }
+        [Display(Name = "附加价格")]
+        public decimal? PlusPrice { get; set; }
     }
     public class ProductPropertyManageDeleteViewModel
     {
@@ -51,5 +57,7 @@ namespace RabbitHouse.ViewModels
         public string Description { get; set; }
         [Display(Name = "属性图片")]
         public string ImgUrl { get; set; }
+        [Display(Name = "附加价格")]
+        public decimal? PlusPrice { get; set; }
     }
 }
