@@ -7,11 +7,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">您可以登陆账号进行获取更多的服务内容</h4>
+                <h4 class="modal-title">登陆账号以获取更多的服务内容</h4>
             </div>       
             <div class="row modal-tab-selector">
                 <div class="col-lg-6 position-middle-container">
-                    <a href="#login" class="position-middle-object" data-toggle="tab">
+                    <a href="#login" class="position-middle-object active" data-toggle="tab">
                         <i class="fa fa-sign-in"></i>登陆
                     </a>
                 </div>
@@ -21,7 +21,7 @@
                     </a>
                 </div>
             </div>
-            <div id="myTabContent" class="tab-content">
+            <div id="" class="tab-content">
                 <div class="tab-pane fade in active" id="login">
                     @Html.Partial("_LoginModalPartial", new RabbitHouse.Models.LoginViewModel())
                 </div>
@@ -38,6 +38,19 @@
         $('.modal-tab-selector a').click(function (item, e) {
             $('.modal-tab-selector a').removeClass('active');
             $(this).addClass('active');
+        });
+        $("#loginSubmitModal").on('show.bs.modal', function (event) {
+            //the <a> tag in the _LoginPartial
+            var aTag = $(event.relatedTarget);
+
+            var modal = $(this);
+            //add active&in class to content in the modal
+            modal.find('.tab-pane').removeClass('in').removeClass('active');
+            modal.find(aTag.data('aim')).addClass('in').addClass('active');
+
+            //add active class to link in the modal
+            $('.modal-tab-selector a').removeClass('active');
+            $('.modal-tab-selector a[href="' + aTag.data('aim') + '"]').addClass('active');
         });
     });
 </script>
