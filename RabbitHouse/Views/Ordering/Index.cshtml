@@ -7,7 +7,9 @@
     <section class="user-block">
         <div class="container">
             <div class="login-container  visible-xs visible-sm">
-                @Html.Partial("_LoginPartial")
+                @{
+                    Html.RenderAction("_LoginPartial", "Home");
+                }
             </div>
         </div>
     </section>

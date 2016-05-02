@@ -17,7 +17,9 @@
         <div class="top-area">
             <div class="brand-text">RabbitHouse.</div>
             <div class="login-container">
-                @Html.Partial("_LoginPartial")
+                @{
+                    Html.RenderAction("_LoginPartial", "Home");
+                }
             </div>
         </div>
         <div class="middle-area">
@@ -37,16 +39,16 @@
             <div class="link-list">
                 <ul>
                     <li>
-                        <a href="@Url.Action("Intros","Home")"></a>
+                        <a href="@Url.Action("Intros", "Home")"></a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index","News")"></a>
+                        <a href="@Url.Action("Index", "News")"></a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index","Discount")"></a>
+                        <a href="@Url.Action("Index", "Discount")"></a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index","Ordering")"></a>
+                        <a href="@Url.Action("Index", "Ordering")"></a>
                     </li>
                 </ul>
                 <div class="bottom-white-line"></div>
@@ -63,7 +65,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                 <img src="~/Content/svg/rabbit-brand.svg" />
             </a>
         </div>
@@ -71,19 +73,19 @@
         <div class="navbar-collapse collapse navbar-ul-container">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="@Url.Action("Intros","Home")">
+                    <a href="@Url.Action("Intros", "Home")">
                     </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index","News")">
+                    <a href="@Url.Action("Index", "News")">
                     </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index","Discount")">
+                    <a href="@Url.Action("Index", "Discount")">
                     </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("Index","Ordering")">
+                    <a href="@Url.Action("Index", "Ordering")">
                     </a>
                 </li>
             </ul>
@@ -184,7 +186,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryUI")
     @Scripts.Render("~/bundles/sitebehavior")
-
+    @Scripts.Render("~/bundles/jqueryval")
 
     @RenderSection("scripts", required: false)
 
@@ -192,3 +194,4 @@
 </body>
 </html>
 
+@Html.Partial("_LoginAndRegisterModalPartial")

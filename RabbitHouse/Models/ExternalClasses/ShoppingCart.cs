@@ -26,7 +26,7 @@ namespace RabbitHouse.Models
             return GetCart(controller.HttpContext);
         }
 
-        public void AddToCart(int productId,int productPropertyId,int count)
+        public int AddToCart(int productId,int productPropertyId,int count)
         {
             //if the database has existed the CartElement contains same Product && same ProductProperty for the user
             var cartItem = db.CartElements.SingleOrDefault(c => c.CartId.ToString() == ShoppingCartId && c.Product.Id == productId && c.ProductProperty.Id == productPropertyId);
@@ -48,6 +48,10 @@ namespace RabbitHouse.Models
                 cartItem.Count+= count;
             }
             db.SaveChanges();
+
+            int currentCartElementsCountForUser = db.CartElements.Where(c => c.CartId.ToString() == ShoppingCartId).ToList().Count;
+
+            return currentCartElementsCountForUser;
         }
 
         public int RemoveFromCart(int id)

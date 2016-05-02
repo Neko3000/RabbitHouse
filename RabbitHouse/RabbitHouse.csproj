@@ -285,6 +285,7 @@
     <Compile Include="Models\RabbitHouseDbContext.cs" />
     <Compile Include="Models\ViewModels\AccountAdminViewModel.cs" />
     <Compile Include="Models\ViewModels\ArticleManageViewModel.cs" />
+    <Compile Include="Models\ViewModels\HomeViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderManageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductCategoryManageViewModel.cs" />
@@ -971,6 +972,9 @@
     <Content Include="Views\UsersAdmin\Index.cshtml" />
     <Content Include="Views\SystemManage\Index.cshtml" />
     <Content Include="Views\News\NewsDetails.cshtml" />
+    <Content Include="Views\Shared\_LoginAndRegisterModalPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginModalPartial.cshtml" />
+    <Content Include="Views\Shared\_RegisterModalPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />

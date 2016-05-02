@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using RabbitHouse.Models;
 using RabbitHouse.Migrations.RabbitHouseDbContext;
+using RabbitHouse.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace RabbitHouse.Controllers
 {
@@ -44,9 +46,15 @@ namespace RabbitHouse.Controllers
         {
             return View();
         }
-        public ActionResult Form()
-       {
-            return View();
+        public PartialViewResult _LoginPartial()
+        {
+            var userId = User.Identity.GetUserId();
+            var cartElements = context.CartElements.Where(c => c.CartId.ToString() == userId).ToList();
+            var vm = new _LoginPartialViewModel
+            {
+                CartCount = cartElements.Count
+            };
+            return PartialView(vm);
         }
     }
 }

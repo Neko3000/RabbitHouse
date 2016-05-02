@@ -101,6 +101,10 @@ input.solid-input-box:focus {
 .modal .modal-content .modal-header .modal-title {
   font-size: 16px;
 }
+.cart-link {
+  position: relative;
+  display: inline-block;
+}
 .cart-btn {
   position: relative;
   top: -3px;
@@ -125,6 +129,9 @@ input.solid-input-box:focus {
 .cart-btn:hover > i {
   opacity: 1.0;
 }
+.cart-btn:hover span {
+  background-color: #9b9b9b;
+}
 .cart-btn > i {
   position: relative;
   top: 4px;
@@ -135,6 +142,17 @@ input.solid-input-box:focus {
   -o-transition: opacity ease-in 0.2s;
   -webkit-transition: opacity ease-in 0.2s;
   transition: opacity ease-in 0.2s;
+}
+.cart-btn span {
+  z-index: 3;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  font-size: 8px;
+  -moz-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
 }
 .login-container {
   position: absolute;
@@ -1378,6 +1396,9 @@ input.solid-input-box:focus {
   -webkit-border-radius: 0 0;
   border-radius: 0 0;
 }
+.btn-group-solid ul.dropdown-menu > li a > i {
+  margin-right: 12px;
+}
 .btn-group-solid ul.dropdown-menu > li:hover a {
   color: white;
   background-color: #774b27;
@@ -2237,4 +2258,30 @@ input.solid-input-box:focus {
     margin-left: -303px;
     margin-top: -190px;
   }
+}
+.modal-tab-selector {
+  padding: 16px 0 0 0;
+}
+.modal-tab-selector a {
+  padding: 20px 80px;
+  display: inline-block;
+  color: #8c8c8c;
+  background-color: white;
+  border: #bfbfbf solid 1px;
+  -moz-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  font-size: 14px;
+  font-weight: 200;
+  font-family: 'Microsoft YaHei';
+  text-decoration: none;
+}
+.modal-tab-selector a > i {
+  margin-right: 8px;
+}
+.modal-tab-selector a:hover,
+.modal-tab-selector a.active {
+  color: white;
+  background-color: #5a3e27;
 }

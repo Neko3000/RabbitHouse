@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "登录";
+}
+
+<div class="modal fade" id="loginSubmitModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">您可以登陆账号进行获取更多的服务内容</h4>
+            </div>       
+            <div class="row modal-tab-selector">
+                <div class="col-lg-6 position-middle-container">
+                    <a href="#login" class="position-middle-object" data-toggle="tab">
+                        <i class="fa fa-sign-in"></i>登陆
+                    </a>
+                </div>
+                <div class="col-lg-6 position-middle-container">
+                    <a href="#register" class="position-middle-object" data-toggle="tab">
+                        <i class="fa fa-user-plus"></i>注册
+                    </a>
+                </div>
+            </div>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="login">
+                    @Html.Partial("_LoginModalPartial", new RabbitHouse.Models.LoginViewModel())
+                </div>
+                <div class="tab-pane fade" id="register">
+                    @Html.Partial("_RegisterModalPartial", new RabbitHouse.Models.RegisterViewModel())
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+    $(function () {
+        $('.modal-tab-selector a').click(function (item, e) {
+            $('.modal-tab-selector a').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
