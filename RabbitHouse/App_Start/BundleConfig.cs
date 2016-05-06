@@ -39,6 +39,10 @@ namespace RabbitHouse
             bundles.Add(new StyleBundle("~/Content/style").Include(
                       "~/Content/SiteStyle.min.css", new CssRewriteUrlTransform()));
 
+            bundles.Add(new StyleBundle("~/Content/jqueryUIBase").Include(
+                    "~/Content/themes/base/all.css"
+                    ));
+
             //bracket
             //sub-fontawesome
             bundles.Add(new StyleBundle("~/Content/bracket/MainStyle").Include(                

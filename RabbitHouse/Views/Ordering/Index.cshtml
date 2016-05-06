@@ -87,7 +87,7 @@
                     <div class="search-box position-middle-object">
                         @using (Html.BeginForm("Index","Ordering"))
                         {
-                            <input name="keyword" />
+                            <input name="keyword" id="keyword"/>
                             <button type="submit" class="btn btn-coffee"><i class="fa fa-search"></i></button>
                         }
                     </div>
@@ -95,7 +95,6 @@
             </div>
         </div>
     </div>
-
     <section class="product-list-block">
         @foreach (var item in Model.Products)
         {
@@ -155,4 +154,34 @@
         </div>
     </section>
 </div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#keyword').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url:"Ordering/QuickAutoComplete",
+                        type: "POST",
+                        dataType:"json",
+                        data: {Prefix:request.term},
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item.Name;
+                                //return { label: item.Name, value: item.Name };
+                            }));
+                        },
+                        error: function () {
+                            alert("failed");
+                        }
+                    });
+                },
+                minLength:1,
+                message: {
+                    noResults:"",results:""
+                }
+            });
+        });
+    </script>
+    }
 

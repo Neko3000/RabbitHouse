@@ -55,6 +55,13 @@ namespace RabbitHouse.Controllers
 
             return View(vm);
         }
+
+        [HttpPost]
+        public ActionResult QuickAutoComplete(string prefix)
+        {
+            var productNames = db.Products.Where(p => p.Name.StartsWith(prefix)).ToList().Select( p=>new { p.Name });
+            return Json(productNames, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult ProductDetail(int? id)
         {
             if(id==null)
