@@ -20,7 +20,7 @@
                     <div class="filter catagory-filter">
                         <div class="filter-head">类别：</div>
                         <div class="filter-content">
-                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category="咖啡", sort=Model.CurrentSort })"><div class="filter-factor catagory-filter-property">咖啡</div></a>
+                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category="咖啡", sort=Model.CurrentSort,isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=Model.CurrentIsOffProduct })"><div class="filter-factor catagory-filter-property @(Model.CurrentCategory=="咖啡"?"active":"")"><i class="fa fa-coffee"></i>咖啡</div></a>
                             <div class="filter-factor catagory-filter-property">饮品</div>
                             <div class="filter-factor catagory-filter-property">主食</div>
                         </div>
@@ -38,8 +38,8 @@
                                     <img src="~/Content/img/ordering/common/narrow-drop.png" />
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceDesc" })">价格从高到低</a></li>
-                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceAsc" })">价格从低到高</a></li>
+                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceDesc", isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=Model.CurrentIsOffProduct }) })">价格从高到低</a></li>
+                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceAsc", isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=Model.CurrentIsOffProduct }) })">价格从低到高</a></li>
                                 </ul>
                             </div>
                             <div class="btn-group btn-group-solid  filter-factor order-filter-property">
@@ -61,16 +61,24 @@
                     <div class="filter specific-filter">
                         <div class="filter-head">筛选：</div>
                         <div class="filter-content">
-                            <div class="filter-factor specific-filter-property">
+                            <div class="filter-factor specific-filter-property @(Model.CurrentIsOffProduct?"active":"")">
                                 <div class="solid-input-radio">
-                                    <div class="rect-outline"><div class="rect"></div></div>
+                                    <div class="rect-outline">
+                                        <div class="rect">
+                                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort=Model.CurrentSort , isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=!Model.CurrentIsOffProduct })"></a>
+                                        </div>
+                                    </div>
                                     <div class="show-text">特价商品</div>
                                 </div>
                             </div>
 
-                            <div class="filter-factor specific-filter-property">
+                            <div class="filter-factor specific-filter-property @(Model.CurrentIsSeasonalProduct?"active":"")">
                                 <div class="solid-input-radio">
-                                    <div class="rect-outline"><div class="rect"></div></div>
+                                    <div class="rect-outline">
+                                        <div class="rect">
+                                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort=Model.CurrentSort , isSeasonalProduct=!Model.CurrentIsSeasonalProduct ,isOffProduct=Model.CurrentIsOffProduct})"></a>
+                                        </div>
+                                    </div>
                                     <div class="show-text">时季商品</div>
                                 </div>
                             </div>
@@ -157,18 +165,16 @@
 
 @section scripts{
     <script>
-        $(function () {
             $('#keyword').autocomplete({
                 source: function (request, response) {
                     $.ajax({
-                        url:"Ordering/QuickAutoComplete",
+                        url:"@Url.Action("QuickAutoComplete","Ordering")",
                         type: "POST",
                         dataType:"json",
-                        data: {Prefix:request.term},
+                        data: {prefix:request.term},
                         success: function (data) {
                             response($.map(data, function (item) {
                                 return item.Name;
-                                //return { label: item.Name, value: item.Name };
                             }));
                         },
                         error: function () {

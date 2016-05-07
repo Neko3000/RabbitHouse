@@ -13,7 +13,7 @@ namespace RabbitHouse.Controllers
     {
         RabbitHouseDbContext db = new RabbitHouseDbContext();
         // GET: Ordering
-        public ActionResult Index(string keyword,string category,string sort)
+        public ActionResult Index(string keyword,string category,string sort,bool? isSeasonalProduct,bool? isOffProduct)
         {
             var products = db.Products.ToList();
 
@@ -45,11 +45,40 @@ namespace RabbitHouse.Controllers
                     break; 
             }
 
+            if(isSeasonalProduct.HasValue)
+            {
+                if(isSeasonalProduct==true)
+                {
+                    products = products.Where(p => p.IsSeasonalProduct == true).ToList();
+                }
+            }
+
+            if (isOffProduct.HasValue)
+            {
+                if (isOffProduct == true)
+                {
+                    products = products.Where(
+                        p => {
+                            if(p.CurrentDiscount.HasValue)
+                            {
+                                return p.CurrentDiscount !=1? true : false;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    ).ToList();
+                }
+            }
+
             var vm = new ProductListViewModel
             {
                 CurrentKeyword=keyword,
                 CurrentCategory=category,
                 CurrentSort=sort,
+                CurrentIsSeasonalProduct=isSeasonalProduct??false,
+                CurrentIsOffProduct=isOffProduct??false,
                 Products = products
             };
 

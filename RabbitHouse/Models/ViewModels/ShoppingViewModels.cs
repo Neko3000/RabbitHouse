@@ -52,7 +52,8 @@ namespace RabbitHouse.ViewModels
         public string CurrentKeyword { get; set; }
         public string CurrentCategory { get; set; }
         public string CurrentSort { get; set; }
-
+        public bool CurrentIsSeasonalProduct { get; set; }
+        public bool CurrentIsOffProduct { get; set; }
         public IEnumerable<Product> Products { get; set; }
     }
 

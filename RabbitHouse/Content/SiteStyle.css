@@ -1376,11 +1376,15 @@ input.solid-input-box:focus {
   color: white;
   background-color: #774b27;
   border: solid 1px #37200d;
+  -moz-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
 }
 .btn-group-solid > button.btn:hover {
   background-color: #774b27;
   color: white;
-  border: solid #55bbff 1px;
+  border: solid #1c89ff 1px;
 }
 .btn-group-solid > button.btnfocus {
   background-color: #774b27;
@@ -1473,20 +1477,56 @@ input.solid-input-box:focus {
   color: white;
 }
 .filter-block .catagory-filter .catagory-filter-property {
-  padding: 7px 9px;
+  padding: 7px 12px;
   margin: 0 21px 5px 0;
   width: 76px;
   height: 100%;
-  text-align: right;
   font-size: 12px;
   background-color: #412c1c;
-  border: solid white 1px;
+  border: solid #311f0f 1px;
+  -moz-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.filter-block .catagory-filter .catagory-filter-property.active {
+  background-color: #311f0f;
+  border: solid #d8d8d8 1px;
+}
+.filter-block .catagory-filter .catagory-filter-property:hover {
+  background-color: #311f0f;
+  border: solid #1c89ff 1px;
+}
+.filter-block .catagory-filter .catagory-filter-property > i {
+  margin-right: 10px;
 }
 .filter-block .order-filter .order-filter-property {
   margin: 4px 21px 4px 0;
 }
 .filter-block .specific-filter .specific-filter-property {
+  position: relative;
   margin: 6px 21px 6px 0;
+}
+.filter-block .specific-filter .specific-filter-property .rect-outline .rect {
+  position: relative;
+  opacity: 0;
+  -moz-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.filter-block .specific-filter .specific-filter-property .rect-outline .rect:hover {
+  background-color: #1c89ff;
+  opacity: 1;
+}
+.filter-block .specific-filter .specific-filter-property .rect-outline .rect a {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.filter-block .specific-filter .specific-filter-property.active .rect {
+  opacity: 1;
 }
 .price-off-label {
   display: inline-block;
