@@ -10,7 +10,7 @@ using RabbitHouse.Models;
 using RabbitHouse.ViewModels;
 using RabbitHouse.ExternalClasses;
 
-namespace RabbitHouse.Controllers
+namespace RabbitHouse.Areas.Management.Controllers
 {
     public class ArticleManageController : Controller
     {

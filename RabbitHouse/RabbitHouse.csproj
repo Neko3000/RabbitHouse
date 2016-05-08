@@ -184,8 +184,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ArticleManageController.cs" />
+    <Compile Include="Areas\Management\Controllers\ArticleManageController.cs" />
     <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -197,7 +198,7 @@
     <Compile Include="Controllers\ProductPropertyManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
-    <Compile Include="Controllers\SystemManageController.cs" />
+    <Compile Include="Areas\Management\Controllers\SystemManageController.cs" />
     <Compile Include="Controllers\UserCenterController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -727,6 +728,7 @@
     <Content Include="Content\fonts\GothamRnd-Bold.otf" />
     <Content Include="Content\fonts\GothamRnd-Book.otf" />
     <Content Include="Content\fonts\GothamRnd-Light.otf" />
+    <Content Include="Areas\Management\Views\web.config" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\hidden\custom.less" />
     <Content Include="Content\fonts\FontAwesome.otf" />
@@ -934,11 +936,11 @@
     <Content Include="Views\Discount\Index.cshtml" />
     <Content Include="Views\Ordering\Index.cshtml" />
     <Content Include="Views\Ordering\ProductDetail.cshtml" />
-    <Content Include="Views\ArticleManage\Create.cshtml" />
-    <Content Include="Views\ArticleManage\Delete.cshtml" />
-    <Content Include="Views\ArticleManage\Details.cshtml" />
-    <Content Include="Views\ArticleManage\Edit.cshtml" />
-    <Content Include="Views\ArticleManage\Index.cshtml" />
+    <Content Include="Areas\Management\Views\ArticleManage\Create.cshtml" />
+    <Content Include="Areas\Management\Views\ArticleManage\Delete.cshtml" />
+    <Content Include="Areas\Management\Views\ArticleManage\Details.cshtml" />
+    <Content Include="Areas\Management\Views\ArticleManage\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\ArticleManage\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\UserCenter\Index.cshtml" />
     <Content Include="Views\Shared\_OrderInfoSubmitPartial.cshtml" />
@@ -981,7 +983,8 @@
     <Content Include="Views\Shared\_RegisterModalPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\" />
+    <Folder Include="Areas\Management\Models\" />
+    <Folder Include="Areas\Management\Views\Shared\" />
     <Folder Include="Content\video\" />
     <Folder Include="ImgRepository\ProductImgs\1\" />
     <Folder Include="ImgRepository\ProductImgs\temp\" />

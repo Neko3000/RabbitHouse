@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace RabbitHouse.Controllers
+namespace RabbitHouse.Areas.Management.Controllers
 {
     public class SystemManageController : Controller
     {
