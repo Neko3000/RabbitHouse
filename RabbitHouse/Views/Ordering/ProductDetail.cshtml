@@ -98,10 +98,14 @@
                                         </div>
                                     </div>
                                     <div class="position-middle-container product-detail-buy-button-group">
-                                        <div class="add-cart-animation-block">
-                                            <img src="@Model.CoverImgUrl" />
-                                        </div>
-                                        <button class="btn btn-coffee solid-button position-middle-object" id="add-to-cart"><i class="fa fa-caret-right"></i>加入购物车</button>
+                                        <button class="btn btn-coffee solid-button position-middle-object add-to-cart-button" id="add-to-cart">
+                                            <div class="add-to-cart-button-content">
+                                                <i class="fa fa-caret-right"></i>加入购物车
+                                            </div>
+                                            <div class="add-to-cart-button-hint">
+                                                <i class="fa fa-check"></i>已加入
+                                            </div>
+                                        </button>
                                     </div>
                                 }
                             </div>
@@ -124,16 +128,32 @@
         $(function () {
             //animation
             $('#add-to-cart').click(function () {
-                $({ value: 0 }).animate({ value: 100 }, {
-                    duration: 1000,
-                    step: function (now) {
-                        $('.add-cart-animation-block').css({
-                            opacity: 20 - now/5,
-                            transform: 'rotate(' + now * 3 + 'deg)' + ' ' + 'scale(' + (1 - now / 100).toString() + ')',
-                            top:(30-now/1.5).toString()+'px'
-                        });
-                    },
+                var content = $(this).find('.add-to-cart-button-content');
+                var hint = $(this).find('.add-to-cart-button-hint');
+
+                content.css('left', -120);
+                hint.css({
+                    left: 28,
+                    opacity:0
                 });
+
+                hint.animate({ opacity: 1 }, {
+                    duration: 400,
+                    easing: "swing",
+                    complete: function () {
+                        content.animate({ left: 0 }, {
+                            duration: 800,
+                            easing: "swing",
+                            complete: function () { }
+                        });
+                        hint.animate({ left: 130 }, {
+                            duration: 800,
+                            easing: "swing",
+                            complete: function () { }
+                        });
+                    }
+                });
+
             });
             
 

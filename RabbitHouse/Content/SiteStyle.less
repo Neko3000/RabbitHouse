@@ -99,7 +99,7 @@ ul {
     &:focus{
 
     }
-    >i{
+    i{
         margin-right:8px;
     }
 }
@@ -2115,10 +2115,24 @@ input.solid-input-box {
     }
 }
 //product-detail
+.add-to-cart-button{
+    position:relative;
+    overflow:hidden;
+    .add-to-cart-button-content{
+        position:relative;
+    }
+    .add-to-cart-button-hint{
+        position:absolute;
+        top:10px;
+        left:115px;
+    }
+}
+
 .product-detail-bg {
     background-color: @light-blue;
     padding: 50px 0;
     text-align: center;
+    
 
     .product-detail {
         background-color: white;
