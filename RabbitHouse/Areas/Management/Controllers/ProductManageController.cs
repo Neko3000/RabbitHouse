@@ -11,7 +11,7 @@ using RabbitHouse.ViewModels;
 using System.IO;
 using RabbitHouse.ExternalClasses;
 
-namespace RabbitHouse.Controllers
+namespace RabbitHouse.Areas.Management.Controllers
 {
     public class ProductManageController : Controller
     {

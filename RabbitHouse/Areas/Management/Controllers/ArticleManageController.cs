@@ -12,6 +12,7 @@ using RabbitHouse.ExternalClasses;
 
 namespace RabbitHouse.Areas.Management.Controllers
 {
+    [Authorize]
     public class ArticleManageController : Controller
     {
         private RabbitHouseDbContext db = new RabbitHouseDbContext();

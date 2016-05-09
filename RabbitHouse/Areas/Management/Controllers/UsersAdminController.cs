@@ -17,7 +17,7 @@ using System.Net;
 
 using PagedList;
 
-namespace SchoolLibrary.Controllers
+namespace RabbitHouse.Areas.Management.Controllers
 {
     public class UsersAdminController : Controller
     {

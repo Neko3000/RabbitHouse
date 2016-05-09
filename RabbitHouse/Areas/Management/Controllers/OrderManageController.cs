@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using RabbitHouse.Models;
 using RabbitHouse.ViewModels;
 
-namespace RabbitHouse.Controllers
+namespace RabbitHouse.Areas.Management.Controllers
 {
     public class OrderManageController : Controller
     {

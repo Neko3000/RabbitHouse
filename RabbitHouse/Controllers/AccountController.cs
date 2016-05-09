@@ -58,7 +58,8 @@ namespace RabbitHouse.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            //Login view for manage
+            return View("~/Areas/Management/Views/Shared/_ManageLogin.cshtml");
         }
 
         //
