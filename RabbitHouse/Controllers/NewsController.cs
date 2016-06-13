@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Net;
 using RabbitHouse.Models;
 using RabbitHouse.ViewModels;
+using PagedList;
 
 
 namespace RabbitHouse.Controllers
@@ -14,11 +15,18 @@ namespace RabbitHouse.Controllers
     {
         // GET: News
         RabbitHouseDbContext db = new RabbitHouseDbContext();
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            var articles = db.Articles.ToList();
+
+            var pageSize = 10;
+            var pageNumber = page ?? 1;
+            var onePageModels = articles.ToPagedList(pageNumber, pageSize);
+            ViewBag.OnePageModels = onePageModels;
+
             var vm = new NewsListViewModel
             {
-                Articles = db.Articles.ToList()
+                Articles = onePageModels
             };
             return View(vm);
         }

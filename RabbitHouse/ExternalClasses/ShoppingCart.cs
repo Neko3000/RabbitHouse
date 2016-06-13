@@ -100,7 +100,7 @@ namespace RabbitHouse.Models
                 var unitPrice = cartElement.Product.Price * (cartElement.Product.CurrentDiscount ?? 1) + (cartElement.ProductProperty.PlusPrice ?? 0);
                 var singleTotal = unitPrice * cartElement.Count;
                 total += singleTotal;
-            }
+            }                                                                                                                                       
             return total;
         }
         public int CreateOrder(Order order)
@@ -140,7 +140,7 @@ namespace RabbitHouse.Models
         //using HttpContextBase to allow access to cookies
         public string GetCartId(HttpContextBase context)
         {
-            if(string.IsNullOrWhiteSpace(context.User.Identity.GetUserId()))
+            if (string.IsNullOrWhiteSpace(context.User.Identity.GetUserId()))
             {
                 if (context.Session[CartSessionKey] == null)
                 {
@@ -156,7 +156,7 @@ namespace RabbitHouse.Models
                     return context.Session[CartSessionKey].ToString();
                 }
             }
-
+  
             return context.User.Identity.GetUserId();
         }
         
@@ -170,22 +170,24 @@ namespace RabbitHouse.Models
             foreach(var item in shoppingCart)
             {
                 //find the login user's cart elements
-                var loginUserCartElements = db.CartElements.Where(c => c.CartId.ToString() == userId);
-                //try to find if there is the same Product&&ProductProperty's cart element in login user's cart
-                var theSameCartElement = loginUserCartElements.Single(c => c.Product.Id == item.Product.Id && c.ProductProperty.Id == item.ProductProperty.Id);
-
-                //the same cart element exists, just need to add count to it
-                if (theSameCartElement!=null)
+                var loginUserCartElements = db.CartElements.Where(c => c.CartId.ToString() == userId).ToList();
+                //try to find if there is the same Product&&ProductProperty's cart element in login user's cart    
+                if(loginUserCartElements.Count!=0)
                 {
-                    theSameCartElement.Count += item.Count;
-                }
-                else
-                {
-                    item.CartId = new Guid(userId);
-                }
+                    var theSameCartElement = loginUserCartElements.Single(c => c.Product.Id == item.Product.Id && c.ProductProperty.Id == item.ProductProperty.Id);
 
+                    //the same cart element exists, just need to add count to it
+                    if (theSameCartElement != null&&theSameCartElement.Count!=0)
+                    {
+                        theSameCartElement.Count += item.Count;
+                    }
+                    else
+                    {
+                        item.CartId = new Guid(userId);
+                    }
+                }
+                db.SaveChanges();
             }
-            db.SaveChanges();
         }
     }
 }

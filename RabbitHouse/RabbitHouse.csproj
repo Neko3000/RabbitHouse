@@ -290,6 +290,7 @@
     <Compile Include="Models\RabbitHouseDbContext.cs" />
     <Compile Include="Areas\Management\ViewModels\AccountAdminViewModel.cs" />
     <Compile Include="Areas\Management\ViewModels\ArticleManageViewModel.cs" />
+    <Compile Include="Models\ViewModels\DiscountViewModel.cs" />
     <Compile Include="Models\ViewModels\HomeViewModel.cs" />
     <Compile Include="Models\ViewModels\NewsViewModel.cs" />
     <Compile Include="Areas\Management\ViewModels\OrderManageViewModel.cs" />

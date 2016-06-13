@@ -40,7 +40,6 @@ namespace RabbitHouse.ExternalClasses
 
             return fileNewName;
         }
-
         public static string UploadedFileMoveTo(string sourcePath,string targetPath)
         {
             var file = new FileInfo(sourcePath);

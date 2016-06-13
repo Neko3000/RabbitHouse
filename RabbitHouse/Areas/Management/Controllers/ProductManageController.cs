@@ -345,6 +345,7 @@ namespace RabbitHouse.Areas.Management.Controllers
                 var product = db.Products.Find(model.Id);
                 product.Name = model.Name;
                 product.ShortDescription = model.ShortDescription;
+                product.Description = model.Description;
                 product.Remark = model.Remark;
                 product.CoverImgUrl = newCoverImgUrl;
                 product.Price = model.Price;

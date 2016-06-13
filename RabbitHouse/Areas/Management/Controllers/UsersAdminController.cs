@@ -22,16 +22,16 @@ namespace RabbitHouse.Areas.Management.Controllers
     public class UsersAdminController : Controller
     {
         //
-        public UserManager<ApplicationUser> UserManager { get; private set; }
-        public RoleManager<IdentityRole> RoleManager { get;private set; }
-        public ApplicationDbContext context { get; private set; }
+public UserManager<ApplicationUser> UserManager { get; private set; }
+public RoleManager<IdentityRole> RoleManager { get;private set; }
+public ApplicationDbContext context { get; private set; }
         //
-        public UsersAdminController()
-        {
-            context = new ApplicationDbContext();
-            UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-        }
+public UsersAdminController()
+{
+    context = new ApplicationDbContext();
+    UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+    RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+}
 
         //Get: /Users/
         public async Task<ActionResult> Index(int? page)

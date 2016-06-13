@@ -26,7 +26,7 @@
                             }
                         </div>
                         <time class="article-time">发布时间-@((Model.PostTime).ToShortDateString())</time>
-                        <time class="article-time">更新时间-@(((DateTime)Model.ModifyTime).ToShortDateString())</time>
+                        <time class="article-time">更新时间-@(((DateTime)(Model.ModifyTime??Model.PostTime)).ToShortDateString())</time>
                     </div>
                 </div>
             </div>

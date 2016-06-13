@@ -1,98 +1,31 @@
-﻿@{
-    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutForHead.cshtml";
+    ViewBag.Title = "Welcome";
 }
+<div class="welcome-container">
+    <img class="top-text beforeUpshow" src="~/Content/img/welcome/welcome-text.png" id="top-text"/>
+    <img class="center-image" src="~/Content/img/welcome/door-open.png" usemap="#door-area" alt="scene" id="door-open"/>
+    <img class="center-image" src="~/Content/img/welcome/door-closed.png" usemap="#door-area" alt="scene" id="door-closed" />
 
-
-<div class="interface-image">
-    <img class="img-responsive" src="~/Content/img/index/index-cover.jpg" />
-    <img class="logo-board" src="~/Content/img/index/logo.png" />
-    <div class="logo-text"></div>
-
-    <div class="cube-button">
-        <a href="#"><i class="fa fa-video-camera"></i></a>   
-    </div>
-
-    <div class="flow-tip">
-
-        <div class="flow-tip-header">
-            <div class="narrow"></div>
-            <span>今週特価~off weekly~</span>
-        </div>
-
-        <div class="flow-tip-body">
-            <div class="detail-area">
-                <span>Latte</span>
-                <p>price:<del>2$ </del>1.2$</p>
-            </div>
-        </div>
-
-    </div>
+    <map name="door-area" id="door-area">
+        <area shape="rect" coords="393,113,568,414" alt="door" href="@Url.Action("Intros","Home")" id="door-enter" />
+    </map>
 </div>
 
 
-<section class="question-blanket"></section>
-
-<section class="variable-time">
-    <img class="section-left-part" src="~/Content/img/index/textwall-left.png"/>
-    <img class="section-right-part" src="~/Content/img/index/textwall-right.png" />
-    <img class="section-center-part" src="~/Content/img/index/clock.png" />
-    <span class="center-bottom-text">24-Hours Roasting Purely </span>
-</section>
-
-<section class="operator">
-    <span>+</span>
-    <span>(Add.)</span>
-</section>
-
-<section class="variable-block">
-    <div class="single-block" id="coffee-block">
-        <i class="fa fa-coffee"></i>
-        <span class="block-name">coffee</span>
-        <span class="block-percentage">40%</span>
-    </div>
-    <div class="single-block" id="dessert-block">
-        <i class="fa fa-cutlery"></i>
-        <span class="block-name">dessert</span>
-        <span class="block-percentage">30%</span>
-    </div>
-    <div class="single-block" id="music-block">
-        <i class="fa fa-music"></i>
-        <span class="block-name">classic music</span>
-        <span class="block-percentage">10%</span>
-    </div>
-    <div class="single-block" id="drink-block">
-        <i class="fa fa-beer"></i>
-        <span class="block-name">drink</span>
-        <span class="block-percentage">20%</span>
-    </div>
-</section>
-
-<section class="operator">
-    <span>+</span>
-    <span>(Add.)</span>
-</section>
-
-<section class="variable-service">
-    <div class="text-contain">
-        <span class="title">excellent services</span>
-        <span class="detail">be professional to concentrate on the quailty</span>
-    </div>
-    <img src="~/Content/img/index/white-rize.png" />
-</section>
-
-<section class="operator">
-    <span>=</span>
-    <span>(Equal.)</span>
-</section>
-
-<section class="result">
-    <img class="img-responsive" src="~/Content/img/index/coffee-inside.jpg" />
-    <img class="sign" src="~/Content/img/index/title-logo-rRect.png" />
-</section>
-
 @section scripts{
     <script>
-        $('.variable-block').variableBlock();
+        $('#door-enter,.top-text').hover(function () {
+            $('#door-open').css('opacity', '1');
+            $('#door-closed').css('opacity', '0');
+            $('.top-text').toggleClass('beforeUpshow');
+        },
+        function () {
+            $('#door-open').css('opacity', '0');
+            $('#door-closed').css('opacity', '1');
+            $('.top-text').toggleClass('beforeUpshow');
+        });
     </script>
 }
+

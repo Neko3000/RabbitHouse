@@ -1,4 +1,4 @@
-﻿
+﻿@model RabbitHouse.ViewModels.DiscountViewModel
 @{
     Layout = "~/Views/Shared/_LayoutNormal.cshtml";
     ViewBag.Title = "Index";
@@ -11,7 +11,8 @@
                 <div class="tablet-block">
                     <div class="container">
                         <div class="row">
-                            <div class="col-xs-4 app-container">
+                            <!--item hidden-->
+                            <div class="col-xs-4 app-container" style="opacity:0;">
                                 <div class="app">
                                     <img src="~/Content/img/discount/app-icon/app-chino.jpg" />
                                 </div>
@@ -36,23 +37,23 @@
                             </div>
                             <div class="col-md-12 col-lg-9">
                                 <div class="show-item-content">
-                                    <h3>所谓COFFEEMOCHA，就是那段在办公桌上的午休时光</h3>
-                                    <h2>经典摩卡咖啡</h2>
-                                    <p>￥12.00</p>
+                                    <h3>@Model.CoffeeProduct.ShortDescription</h3>
+                                    <h2>@Model.CoffeeProduct.Name</h2>
+                                    <p>@Model.CoffeeProduct.Price</p>
 
                                     <div class="property-group">
-                                        <div class="property">
-                                            <img src="~/Content/img/discount/property/hot.png" />
-                                        </div>
-                                        <div class="property">
-                                            <img src="~/Content/img/discount/property/ice.png" />
-                                        </div>
+                                        @foreach (var prop in Model.CoffeeProduct.Properties)
+                                        {
+                                            <div class="property">
+                                                <img src="@prop.ImgUrl" />
+                                            </div>
+                                        }
                                     </div>
                                     <time>持续时间：2016.3.1-2016.3.7</time>
                                 </div>
                             </div>
                         </div>
-                        <div class="glass-button snap-to-right-bottom-excepet-xs"> 就是她了！</div>
+                        <a href="@Url.Action("ProductDetail","Ordering",new { id=Model.CoffeeProduct.Id })" class="glass-button snap-to-right-bottom-excepet-xs"> 就是她了！</a>
                     </div>
                 </div>
             </div>            
@@ -74,6 +75,16 @@
                 <div class="tablet-block">
                     <div class="container">
                         <div class="row">
+                            <div class="col-xs-4 app-container" style="opacity:0;">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-chino.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-xs-4 app-container" style="opacity:0;">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-chino.jpg" />
+                                </div>
+                            </div>
                             <div class="col-xs-4 app-container">
                                 <div class="app">
                                     <img src="~/Content/img/discount/app-icon/app-rize.jpg" />
@@ -93,7 +104,6 @@
                                     <img src="~/Content/img/discount/app-icon/app-megu.jpg" />
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -102,6 +112,11 @@
                 <div class="tablet-block">
                     <div class="container">
                         <div class="row">
+                            <div class="col-xs-4 app-container" style="opacity:0;">
+                                <div class="app">
+                                    <img src="~/Content/img/discount/app-icon/app-chino.jpg" />
+                                </div>
+                            </div>
                             <div class="col-xs-4 app-container">
                                 <div class="app">
                                     <img src="~/Content/img/discount/app-icon/app-anko.jpg" />

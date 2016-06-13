@@ -118,7 +118,6 @@ namespace RabbitHouse.Areas.Management.Controllers
             {
                 return HttpNotFound();
             }
-
             var editVM = new RolesAdminEditViewModel
             {
                 RoleId = role.Id,
