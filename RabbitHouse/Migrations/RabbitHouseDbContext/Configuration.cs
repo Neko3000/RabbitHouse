@@ -1,4 +1,4 @@
-namespace RabbitHouse.Migrations.RabbitHouseDbContext
+ï»¿namespace RabbitHouse.Migrations.RabbitHouseDbContext
 {
     using System;
     using System.Data.Entity;
@@ -24,27 +24,27 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
             {
                 new ProductProperty
                 {
-                    Name="ÀäÒû",
-                    Description="¼ÓÁËÍÖÔ²ĞÎ±ùÁ£µÄ²úÆ·",
+                    Name="å†·é¥®",
+                    Description="åŠ äº†æ¤­åœ†å½¢å†°ç²’çš„äº§å“",
                     ImgUrl="/ImgRepository/ProductPropertyImgs/ice.png"
                 },
                 new ProductProperty
                 {
-                    Name="ÈÈÒû",
-                    Description="¾­¹ıÑÏÃÜ±£ÎÂµÄ²úÆ·",
+                    Name="çƒ­é¥®",
+                    Description="ç»è¿‡ä¸¥å¯†ä¿æ¸©çš„äº§å“",
                     ImgUrl="/ImgRepository/ProductPropertyImgs/hot.png"
                 },
                 new ProductProperty
                 {
-                    Name="éÙ×Ó½´",
-                    Description="Ìí¼ÓÁËéÙ×Ó¹û½´µÄ²úÆ·",
+                    Name="æ©˜å­é…±",
+                    Description="æ·»åŠ äº†æ©˜å­æœé…±çš„äº§å“",
                     PlusPrice=1,
                     ImgUrl="/ImgRepository/ProductPropertyImgs/orange.png"
                 },
                 new ProductProperty
                 {
-                    Name="À¶İ®½´",
-                    Description="Ìí¼ÓÁËÀ¶İ®¹û½´µÄ²úÆ·",
+                    Name="è“è“é…±",
+                    Description="æ·»åŠ äº†è“è“æœé…±çš„äº§å“",
                     PlusPrice=(decimal)1.5,
                     ImgUrl="/ImgRepository/ProductPropertyImgs/orange.png"
                 },
@@ -56,23 +56,23 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
             {
                 new ProductCategory
                 {
-                    Name="¿§·È",
-                    Description="±ê×¼¿§·ÈÅäÖÃ"
+                    Name="å’–å•¡",
+                    Description="æ ‡å‡†å’–å•¡é…ç½®"
                 },
                 new ProductCategory
                 {
-                    Name="Ìğµã",
-                    Description="¾ÍÈçÍ¬Ãû×ÖÒ»Ñù¼ÓÁËÒ»Ğ©ÌÇ"
+                    Name="ç”œç‚¹",
+                    Description="å°±å¦‚åŒåå­—ä¸€æ ·åŠ äº†ä¸€äº›ç³–"
                 },
                 new ProductCategory
                 {
-                    Name="ÒûÆ·",
-                    Description="²»ÊÇ¿§·ÈµÄÒûÁÏ¶¼ÔÚÕâÁË"
+                    Name="é¥®å“",
+                    Description="ä¸æ˜¯å’–å•¡çš„é¥®æ–™éƒ½åœ¨è¿™äº†"
                 },
                 new ProductCategory
                 {
-                    Name="Ö÷Ê³",
-                    Description="ÄÜ³Ô±¥µÄ¶«Î÷ÃÇ"
+                    Name="ä¸»é£Ÿ",
+                    Description="èƒ½åƒé¥±çš„ä¸œè¥¿ä»¬"
                 },
             };
             productCategories.ForEach(singleCategory => context.ProductCategories.AddOrUpdate(p => p.Name, singleCategory));
@@ -83,60 +83,60 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
                 p=>p.Name,
                 new Product
                 {
-                    Name = "¾­µäÄ¦¿¨¿§·È",
-                    ShortDescription = "ËùÎ½COFFEEMOCHA£¬¾ÍÊÇÄÇ¶ÎÔÚ°ì¹«×ÀÉÏµÄÎçĞİÊ±¹â",
-                    Description = "¡¸¿§·ÈÄ¦¿¨£¬ÔÙÀ´Ò»±­~¡¹°¡¡ª¡ªÎÒÃÇ¾ÍÖªµÀÓÖÊÇµ½ÏÂÎç²èµÄÊ±¼äÁË¡£Ä¦¿¨¿§·È£¨CafeMocha£©ÊÇÒ»ÖÖ×î¹ÅÀÏµÄ¿§·È£¬ÆäÀúÊ·Òª×·Ëİµ½¿§·ÈµÄÆğÔ´¡£ËüÊÇÓÉÒâ´óÀûÅ¨Ëõ¿§·È¡¢ÇÉ¿ËÁ¦½´¡¢ÏÊÄÌÓÍºÍÅ£ÄÌ»ìºÏ¶ø³É£¬Ä¦¿¨µÃÃûÓÚÓĞÃûµÄÄ¦¿¨¸Û¡£Ê®ÎåÊÀ¼Í£¬Õû¸öÖĞ¶«·Ç¿§·È¹ú¼ÒÏòÍâÔËÊäÒµ²»ĞËÊ¢£¬Ò²ÃÅÄ¦¿¨ÊÇµ±Ê±ºìº£¸½½üÖ÷ÒªÊä³öÒ»¸öÉÌ¸Û£¬µ±Ê±¿§·ÈÖ÷ÒªÊÇ¼¯ÖĞµ½Ä¦¿¨¸ÛÔÙÏòÍâÊä³öµÄ·ÇÖŞ¿§·È£¬¶¼±»Í³³ÆÄ¦¿¨¿§·È¡£¶øĞÂĞËµÄ¸Û¿ÚËäÈ»´úÌæÁËÄ¦¿¨¸ÛµÄµØÎ»£¬µ«ÊÇÄ¦¿¨¸ÛÊ±ÆÚÄ¦¿¨¿§·ÈµÄ²úµØÒÀÈ»±£ÁôÁËÏÂÀ´£¬ÕâĞ©²úµØËù²úµÄ¿§·È¶¹£¬ÈÔ±»³ÆÎªÄ¦¿¨¿§·È¶¹¡£",
-                    Remark = "¾­µäÄ¦¿¨¿§·ÈÏÖÔÚÕıÔÚ8ÕÛÓÅ»İÖĞ£¬ÍâËÍÒÔ¼°ÌÃÊ³¶¼¿ÉÏíÊÜ´Ë´ÎÓÅ»İ ¡ù´ËÉÌÆ·ÍâËÍÊ±Ìá¹©Ö½±­°ü×°",
+                    Name = "ç»å…¸æ‘©å¡å’–å•¡",
+                    ShortDescription = "æ‰€è°“COFFEEMOCHAï¼Œå°±æ˜¯é‚£æ®µåœ¨åŠå…¬æ¡Œä¸Šçš„åˆä¼‘æ—¶å…‰",
+                    Description = "ã€Œå’–å•¡æ‘©å¡ï¼Œå†æ¥ä¸€æ¯~ã€å•Šâ€”â€”æˆ‘ä»¬å°±çŸ¥é“åˆæ˜¯åˆ°ä¸‹åˆèŒ¶çš„æ—¶é—´äº†ã€‚æ‘©å¡å’–å•¡ï¼ˆCafeMochaï¼‰æ˜¯ä¸€ç§æœ€å¤è€çš„å’–å•¡ï¼Œå…¶å†å²è¦è¿½æº¯åˆ°å’–å•¡çš„èµ·æºã€‚å®ƒæ˜¯ç”±æ„å¤§åˆ©æµ“ç¼©å’–å•¡ã€å·§å…‹åŠ›é…±ã€é²œå¥¶æ²¹å’Œç‰›å¥¶æ··åˆè€Œæˆï¼Œæ‘©å¡å¾—åäºæœ‰åçš„æ‘©å¡æ¸¯ã€‚åäº”ä¸–çºªï¼Œæ•´ä¸ªä¸­ä¸œéå’–å•¡å›½å®¶å‘å¤–è¿è¾“ä¸šä¸å…´ç››ï¼Œä¹Ÿé—¨æ‘©å¡æ˜¯å½“æ—¶çº¢æµ·é™„è¿‘ä¸»è¦è¾“å‡ºä¸€ä¸ªå•†æ¸¯ï¼Œå½“æ—¶å’–å•¡ä¸»è¦æ˜¯é›†ä¸­åˆ°æ‘©å¡æ¸¯å†å‘å¤–è¾“å‡ºçš„éæ´²å’–å•¡ï¼Œéƒ½è¢«ç»Ÿç§°æ‘©å¡å’–å•¡ã€‚è€Œæ–°å…´çš„æ¸¯å£è™½ç„¶ä»£æ›¿äº†æ‘©å¡æ¸¯çš„åœ°ä½ï¼Œä½†æ˜¯æ‘©å¡æ¸¯æ—¶æœŸæ‘©å¡å’–å•¡çš„äº§åœ°ä¾ç„¶ä¿ç•™äº†ä¸‹æ¥ï¼Œè¿™äº›äº§åœ°æ‰€äº§çš„å’–å•¡è±†ï¼Œä»è¢«ç§°ä¸ºæ‘©å¡å’–å•¡è±†ã€‚",
+                    Remark = "ç»å…¸æ‘©å¡å’–å•¡ç°åœ¨æ­£åœ¨8æŠ˜ä¼˜æƒ ä¸­ï¼Œå¤–é€ä»¥åŠå ‚é£Ÿéƒ½å¯äº«å—æ­¤æ¬¡ä¼˜æƒ  â€»æ­¤å•†å“å¤–é€æ—¶æä¾›çº¸æ¯åŒ…è£…",
                     Price = (decimal)12.0,
                     CurrentDiscount = (decimal)0.8,
                     DiscountStartTime = new DateTime(2016, 3, 1, 12, 30, 0),
                     DiscountEndTime = new DateTime(2016, 5, 1, 12, 30, 0),
                     PublishTime = new DateTime(2016, 2, 1),
                     IsSeasonalProduct = false,
-                    CategoryId=context.ProductCategories.Single(c=>c.Name== "¿§·È").Id,
-                    Category=context.ProductCategories.Single(c=>c.Name=="¿§·È"),
+                    CategoryId=context.ProductCategories.Single(c=>c.Name== "å’–å•¡").Id,
+                    Category=context.ProductCategories.Single(c=>c.Name=="å’–å•¡"),
                     CoverImgUrl= "/ImgRepository/ProductImgs/1/dark-chocolate-mocha-avocado-mousse-4.jpg",
                     Properties = new List<ProductProperty>
                     {
-                        context.ProductProperties.Single(p=>p.Name=="ÀäÒû"),
-                        context.ProductProperties.Single(p=>p.Name=="ÈÈÒû"),
+                        context.ProductProperties.Single(p=>p.Name=="å†·é¥®"),
+                        context.ProductProperties.Single(p=>p.Name=="çƒ­é¥®"),
                     }
                 },
                 new Product
                 {
-                    Name = "²¼¶¡ÄÌÀÒÃÔÄãÌğµ°¸â",
-                    ShortDescription = "µ±²¼¶¡ÓëÄÌÀÒÅö×²ÔÚÒ»Æğ£¬»áÊÇÔõÑùµÄÒ»·¬»ğ»¨£¿£¡",
-                    Description = "×÷Îª±¾µêÌğµãÖĞµÄÈËÆøÉÌÆ·NO.1£¬¾ø¶Ô²»»áÁîÄúÊ§Íû",
-                    Remark = "ĞÂÔöÁËÀ¶İ®½´µÄÑ¡Ïî",
+                    Name = "å¸ƒä¸å¥¶é…ªè¿·ä½ ç”œè›‹ç³•",
+                    ShortDescription = "å½“å¸ƒä¸ä¸å¥¶é…ªç¢°æ’åœ¨ä¸€èµ·ï¼Œä¼šæ˜¯æ€æ ·çš„ä¸€ç•ªç«èŠ±ï¼Ÿï¼",
+                    Description = "ä½œä¸ºæœ¬åº—ç”œç‚¹ä¸­çš„äººæ°”å•†å“NO.1ï¼Œç»å¯¹ä¸ä¼šä»¤æ‚¨å¤±æœ›",
+                    Remark = "æ–°å¢äº†è“è“é…±çš„é€‰é¡¹",
                     Price = (decimal)10.0,
                     PublishTime = new DateTime(2016, 2, 5),
                     IsSeasonalProduct = false,
-                    CategoryId = context.ProductCategories.Single(c => c.Name == "Ìğµã").Id,
-                    Category = context.ProductCategories.Single(c => c.Name == "Ìğµã"),
+                    CategoryId = context.ProductCategories.Single(c => c.Name == "ç”œç‚¹").Id,
+                    Category = context.ProductCategories.Single(c => c.Name == "ç”œç‚¹"),
                     CoverImgUrl = "/ImgRepository/ProductImgs/2/wallhaven-284723.jpg",
                     Properties =new List<ProductProperty>
                     {
-                        context.ProductProperties.Single(p=>p.Name=="éÙ×Ó½´"),
-                        context.ProductProperties.Single(p=>p.Name=="À¶İ®½´"),
+                        context.ProductProperties.Single(p=>p.Name=="æ©˜å­é…±"),
+                        context.ProductProperties.Single(p=>p.Name=="è“è“é…±"),
                     }
                 },
                 new Product
                 {
-                    Name = "·ãÌÇ²è",
-                    ShortDescription = "²»½ö½öÊÇ·ãÌÇÓë²èµÄÈÚºÏ",
-                    Description = "·ãÌÇ²èÓĞÒ»¸öÓÅµã¡ª¡ªËü²»ÊÇºÜÌğ£¡",
-                    Remark = "Ä¿Ç°½öÓĞ´ó±­×°",
+                    Name = "æ«ç³–èŒ¶",
+                    ShortDescription = "ä¸ä»…ä»…æ˜¯æ«ç³–ä¸èŒ¶çš„èåˆ",
+                    Description = "æ«ç³–èŒ¶æœ‰ä¸€ä¸ªä¼˜ç‚¹â€”â€”å®ƒä¸æ˜¯å¾ˆç”œï¼",
+                    Remark = "ç›®å‰ä»…æœ‰å¤§æ¯è£…",
                     Price = (decimal)5.0,
                     PublishTime = new DateTime(2016, 5, 1),
                     IsSeasonalProduct = true,
                     SaleStartTime = new DateTime(2016, 6, 10, 0 ,0 ,0),
                     SaleEndTime = new DateTime(2016, 9, 10, 0, 0, 0),
-                    CategoryId = context.ProductCategories.Single(c => c.Name == "ÒûÆ·").Id,
-                    Category = context.ProductCategories.Single(c => c.Name == "ÒûÆ·"),
+                    CategoryId = context.ProductCategories.Single(c => c.Name == "é¥®å“").Id,
+                    Category = context.ProductCategories.Single(c => c.Name == "é¥®å“"),
                     CoverImgUrl = "/ImgRepository/ProductImgs/3/tea-01.jpg",
                     Properties = new List<ProductProperty>
                     {
-                        context.ProductProperties.Single(p=>p.Name=="ÀäÒû"),
+                        context.ProductProperties.Single(p=>p.Name=="å†·é¥®"),
                     }
                 }
             );
@@ -148,32 +148,32 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
                 {
                     Name="p1-d1.jpg",
                     Url= "/ImgRepository/ProductImgs/1/p1-d1.jpg",
-                    Product= context.Products.Single(c => c.Name == "¾­µäÄ¦¿¨¿§·È"),
-                    ProductId= context.Products.Single(c => c.Name == "¾­µäÄ¦¿¨¿§·È").Id,
+                    Product= context.Products.Single(c => c.Name == "ç»å…¸æ‘©å¡å’–å•¡"),
+                    ProductId= context.Products.Single(c => c.Name == "ç»å…¸æ‘©å¡å’–å•¡").Id,
                     RecordTime=DateTime.Now
                 },
                 new ProductImage
                 {
                     Name = "p1-d2.jpg",
                     Url = "/ImgRepository/ProductImgs/1/p1-d2.jpg",
-                    Product = context.Products.Single(c => c.Name == "¾­µäÄ¦¿¨¿§·È"),
-                    ProductId = context.Products.Single(c => c.Name == "¾­µäÄ¦¿¨¿§·È").Id,
+                    Product = context.Products.Single(c => c.Name == "ç»å…¸æ‘©å¡å’–å•¡"),
+                    ProductId = context.Products.Single(c => c.Name == "ç»å…¸æ‘©å¡å’–å•¡").Id,
                     RecordTime = DateTime.Now
                 },
                 new ProductImage
                 {
                     Name = "cheese1.jpg",
                     Url = "/ImgRepository/ProductImgs/2/cheese1.jpg",
-                    Product = context.Products.Single(c => c.Name == "²¼¶¡ÄÌÀÒÃÔÄãÌğµ°¸â"),
-                    ProductId = context.Products.Single(c => c.Name == "²¼¶¡ÄÌÀÒÃÔÄãÌğµ°¸â").Id,
+                    Product = context.Products.Single(c => c.Name == "å¸ƒä¸å¥¶é…ªè¿·ä½ ç”œè›‹ç³•"),
+                    ProductId = context.Products.Single(c => c.Name == "å¸ƒä¸å¥¶é…ªè¿·ä½ ç”œè›‹ç³•").Id,
                     RecordTime = DateTime.Now
                 },
                 new ProductImage
                 {
                     Name = "tea1.jpg",
                     Url = "/ImgRepository/ProductImgs/3/tea1.jpg",
-                    Product = context.Products.Single(c => c.Name == "·ãÌÇ²è"),
-                    ProductId = context.Products.Single(c => c.Name == "·ãÌÇ²è").Id,
+                    Product = context.Products.Single(c => c.Name == "æ«ç³–èŒ¶"),
+                    ProductId = context.Products.Single(c => c.Name == "æ«ç³–èŒ¶").Id,
                     RecordTime = DateTime.Now
                 }
             );
@@ -184,13 +184,13 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
             {
                 new ArticleCategory
                 {
-                    Name="»î¶¯ĞÅÏ¢",
-                    Description="µêÆÌÖĞ¸÷ÖÖ»î¶¯µÄ¹«¸æ",
+                    Name="æ´»åŠ¨ä¿¡æ¯",
+                    Description="åº—é“ºä¸­å„ç§æ´»åŠ¨çš„å…¬å‘Š",
                 },
                 new ArticleCategory
                 {
-                    Name="´ÙÏúĞÅÏ¢",
-                    Description="¶ÔÏŞÊ±ÌØ¼ÛÉÌÆ·ÄÚÈİµÄÍ¨Öª",
+                    Name="ä¿ƒé”€ä¿¡æ¯",
+                    Description="å¯¹é™æ—¶ç‰¹ä»·å•†å“å†…å®¹çš„é€šçŸ¥",
                 },
             };
             articleCategories.ForEach(singleCategory => context.ArticleCategories.AddOrUpdate(p => p.Name, singleCategory));
@@ -200,18 +200,18 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
             {
                 new ArticleTag
                 {
-                    Name="ÏÄÈÕ",
-                    Description="ºÍÑ×Ñ×ÏÄÈÕÓĞ¹ØµÄÎÄÕÂ",
+                    Name="å¤æ—¥",
+                    Description="å’Œç‚ç‚å¤æ—¥æœ‰å…³çš„æ–‡ç« ",
                 },
                 new ArticleTag
                 {
-                    Name="¿§·È",
-                    Description="Óë¿§·ÈÓĞ¹ØÏµµÄÎÄÕÂ",
+                    Name="å’–å•¡",
+                    Description="ä¸å’–å•¡æœ‰å…³ç³»çš„æ–‡ç« ",
                 },
                 new ArticleTag
                 {
-                    Name="Ò¹¼ä",
-                    Description="ÖØµãÔÚÒ¹¼äµÄĞÅÏ¢",
+                    Name="å¤œé—´",
+                    Description="é‡ç‚¹åœ¨å¤œé—´çš„ä¿¡æ¯",
                 },
             };
             articleTags.ForEach(singleTag => context.ArticleTags.AddOrUpdate(p => p.Name, singleTag));
@@ -223,14 +223,14 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
                 new Character
                 {
                     Name="Rise",
-                    Description="ÕæÊÇÒ»¸ö¾üÊÂ°®ºÃÕß",
+                    Description="çœŸæ˜¯ä¸€ä¸ªå†›äº‹çˆ±å¥½è€…",
                     ImgUrl="/ImgRepository/CharacterImgs/001.jpg",
                     Color="#c7b6ff"
                 },
                 new Character
                 {
                     Name="Chiya",
-                    Description="Ã¿Ìì¶¼ÎªÏë³öĞÂµÄÀ÷º¦²Ëµ¥¶øÅ¬Á¦×Å",
+                    Description="æ¯å¤©éƒ½ä¸ºæƒ³å‡ºæ–°çš„å‰å®³èœå•è€ŒåŠªåŠ›ç€",
                     ImgUrl="/ImgRepository/CharacterImgs/002.jpg",
                     Color="#b9ecba"
                 },
@@ -243,60 +243,60 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
                 a => a.Title,
                 new Article
                 {
-                    Title = "¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼",
-                    ShortDescription = "¹§Ï²RandallÏÈÉú¶áµÃ¹ğ¹Ú",
-                    Description = "Ò»Æª¹ØÓÚµÚÒ»»ØÆË¿ËÅÆ´óÕ½»ñ½±½á¹ûµÄÎÄÕÂ",
-                    Content= "ÔÚÉÏÖÜÄ©Ò¹¼ä¾ÙĞĞµÄ....",
+                    Title = "ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ",
+                    ShortDescription = "æ­å–œRandallå…ˆç”Ÿå¤ºå¾—æ¡‚å† ",
+                    Description = "ä¸€ç¯‡å…³äºç¬¬ä¸€å›æ‰‘å…‹ç‰Œå¤§æˆ˜è·å¥–ç»“æœçš„æ–‡ç« ",
+                    Content= "åœ¨ä¸Šå‘¨æœ«å¤œé—´ä¸¾è¡Œçš„....",
                     CoverImgUrl = "/ImgRepository/ArticleImgs/1/wallhaven-278958.jpg",
                     IsPublished =true,
                     PostTime=DateTime.Now,
                     ModifyTime=DateTime.Now,
-                    CategoryId = context.ArticleCategories.Single(c => c.Name == "»î¶¯ĞÅÏ¢").Id,
-                    Category= context.ArticleCategories.Single(c => c.Name == "»î¶¯ĞÅÏ¢"),
+                    CategoryId = context.ArticleCategories.Single(c => c.Name == "æ´»åŠ¨ä¿¡æ¯").Id,
+                    Category= context.ArticleCategories.Single(c => c.Name == "æ´»åŠ¨ä¿¡æ¯"),
                     //Dialogs=new List<ArticleDialog>
                     //{
                     //    new ArticleDialog
                     //    {
                     //        CharacterId=context.Characters.Single(c => c.Name == "Rise").Id,
                     //        Character=context.Characters.Single(c => c.Name == "Rise"),
-                    //        ArticleId=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼").Id,
-                    //        Article=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼"),
-                    //        Message="ÂÖÅÌÂğ£¿µÂÖİÂğ£¿»¹ÊÇ³é¹íÅÆÄØ£¿",
+                    //        ArticleId=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ").Id,
+                    //        Article=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ"),
+                    //        Message="è½®ç›˜å—ï¼Ÿå¾·å·å—ï¼Ÿè¿˜æ˜¯æŠ½é¬¼ç‰Œå‘¢ï¼Ÿ",
                     //        SequenceNumber=1
                     //    },
                     //    new ArticleDialog
                     //    {
                     //        CharacterId=context.Characters.Single(c => c.Name == "Chiya").Id,
                     //        Character=context.Characters.Single(c => c.Name == "Chiya"),
-                    //        Message="ÆÕÍ¨À´Ëµ¶¼ÊÇ21µã¾öÊ¤°É£¬±Ï¾¹ÊÇÕıÊ½µÄÆË¿ËÅÆ±ÈÈü",
+                    //        Message="æ™®é€šæ¥è¯´éƒ½æ˜¯21ç‚¹å†³èƒœå§ï¼Œæ¯•ç«Ÿæ˜¯æ­£å¼çš„æ‰‘å…‹ç‰Œæ¯”èµ›",
                     //        SequenceNumber=2
                     //    },
                     //    new ArticleDialog
                     //    {
                     //        CharacterId=context.Characters.Single(c => c.Name == "Rise").Id,
                     //        Character=context.Characters.Single(c => c.Name == "Rise"),
-                    //        Message="ËùÒÔËµÕâ´ÎµÄ½±Æ·»áÊÇ¡ª¡ª",
+                    //        Message="æ‰€ä»¥è¯´è¿™æ¬¡çš„å¥–å“ä¼šæ˜¯â€”â€”",
                     //        SequenceNumber=3
                     //    },
                     //    new ArticleDialog
                     //    {
                     //        CharacterId=context.Characters.Single(c => c.Name == "Chiya").Id,
                     //        Character=context.Characters.Single(c => c.Name == "Chiya"),
-                    //        Message="ÏÂ´Î¶íÂŞË¹ÂÖÅÌ¶Ä¿ÉÒÔÊ¹ÓÃ·Àµ¯Í·¿øµÄ»ú»á£¡",
+                    //        Message="ä¸‹æ¬¡ä¿„ç½—æ–¯è½®ç›˜èµŒå¯ä»¥ä½¿ç”¨é˜²å¼¹å¤´ç›”çš„æœºä¼šï¼",
                     //        SequenceNumber=4
                     //    },
                     //    new ArticleDialog
                     //    {
                     //        CharacterId=context.Characters.Single(c => c.Name == "Rise").Id,
                     //        Character=context.Characters.Single(c => c.Name == "Rise"),
-                    //        Message="ÊÀ½çÉÏ»áÓĞÕâÖÖ½±Æ·Âğ£¿£¡",
+                    //        Message="ä¸–ç•Œä¸Šä¼šæœ‰è¿™ç§å¥–å“å—ï¼Ÿï¼",
                     //        SequenceNumber=5
                     //    }
                     //},
                     Tags = new List<ArticleTag>
                     {
-                        context.ArticleTags.Single(p=>p.Name=="ÏÄÈÕ"),
-                        context.ArticleTags.Single(p=>p.Name=="Ò¹¼ä"),
+                        context.ArticleTags.Single(p=>p.Name=="å¤æ—¥"),
+                        context.ArticleTags.Single(p=>p.Name=="å¤œé—´"),
                     }                 
                 }
             );
@@ -308,45 +308,45 @@ namespace RabbitHouse.Migrations.RabbitHouseDbContext
                     {
                         CharacterId=context.Characters.Single(c => c.Name == "Rise").Id,
                         Character=context.Characters.Single(c => c.Name == "Rise"),
-                        ArticleId=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼").Id,
-                        Article=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼"),
-                        Message="ÂÖÅÌÂğ£¿µÂÖİÂğ£¿»¹ÊÇ³é¹íÅÆÄØ£¿",
+                        ArticleId=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ").Id,
+                        Article=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ"),
+                        Message="è½®ç›˜å—ï¼Ÿå¾·å·å—ï¼Ÿè¿˜æ˜¯æŠ½é¬¼ç‰Œå‘¢ï¼Ÿ",
                         SequenceNumber=1
                     },
                     new ArticleDialog
                     {
                         CharacterId=context.Characters.Single(c => c.Name == "Chiya").Id,
                         Character=context.Characters.Single(c => c.Name == "Chiya"),
-                        ArticleId=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼").Id,
-                        Article=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼"),
-                        Message="ÆÕÍ¨À´Ëµ¶¼ÊÇ21µã¾öÊ¤°É£¬±Ï¾¹ÊÇÕıÊ½µÄÆË¿ËÅÆ±ÈÈü",
+                        ArticleId=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ").Id,
+                        Article=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ"),
+                        Message="æ™®é€šæ¥è¯´éƒ½æ˜¯21ç‚¹å†³èƒœå§ï¼Œæ¯•ç«Ÿæ˜¯æ­£å¼çš„æ‰‘å…‹ç‰Œæ¯”èµ›",
                         SequenceNumber=2
                     },
                     new ArticleDialog
                     {
                         CharacterId=context.Characters.Single(c => c.Name == "Rise").Id,
                         Character=context.Characters.Single(c => c.Name == "Rise"),
-                        ArticleId=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼").Id,
-                        Article=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼"),
-                        Message="ËùÒÔËµÕâ´ÎµÄ½±Æ·»áÊÇ¡ª¡ª",
+                        ArticleId=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ").Id,
+                        Article=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ"),
+                        Message="æ‰€ä»¥è¯´è¿™æ¬¡çš„å¥–å“ä¼šæ˜¯â€”â€”",
                         SequenceNumber=3
                     },
                     new ArticleDialog
                     {
                         CharacterId=context.Characters.Single(c => c.Name == "Chiya").Id,
                         Character=context.Characters.Single(c => c.Name == "Chiya"),
-                        ArticleId=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼").Id,
-                        Article=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼"),
-                        Message="ÏÂ´Î¶íÂŞË¹ÂÖÅÌ¶Ä¿ÉÒÔÊ¹ÓÃ·Àµ¯Í·¿øµÄ»ú»á£¡",
+                        ArticleId=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ").Id,
+                        Article=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ"),
+                        Message="ä¸‹æ¬¡ä¿„ç½—æ–¯è½®ç›˜èµŒå¯ä»¥ä½¿ç”¨é˜²å¼¹å¤´ç›”çš„æœºä¼šï¼",
                         SequenceNumber=4
                     },
                     new ArticleDialog
                     {
                         CharacterId=context.Characters.Single(c => c.Name == "Rise").Id,
                         Character=context.Characters.Single(c => c.Name == "Rise"),
-                        ArticleId=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼").Id,
-                        Article=context.Articles.Single(a=>a.Title=="¡¸µÚÒ»»ØÒ¹¼äÆË¿ËÅÆ´óÕ½¡¹½á¹û¹«²¼"),
-                        Message="ÊÀ½çÉÏ»áÓĞÕâÖÖ½±Æ·Âğ£¿£¡",
+                        ArticleId=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ").Id,
+                        Article=context.Articles.Single(a=>a.Title=="ã€Œç¬¬ä¸€å›å¤œé—´æ‰‘å…‹ç‰Œå¤§æˆ˜ã€ç»“æœå…¬å¸ƒ"),
+                        Message="ä¸–ç•Œä¸Šä¼šæœ‰è¿™ç§å¥–å“å—ï¼Ÿï¼",
                         SequenceNumber=5
                     }
             };
