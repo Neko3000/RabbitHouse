@@ -1,0 +1,182 @@
+﻿@model RabbitHouse.Models.Product
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "ProductDetail";
+}
+
+<div class="page-body">
+    <section class="product-detail-bg">
+        <div class="product-detail">
+            <div class="container">
+                <div class="product-detail-position">在线订单<span>></span>经典摩卡咖啡</div>
+            </div>
+            <div class="container">
+                <div class="product-detail-img visible-sm visible-xs">
+                    <img class="img-responsive" src="@Model.Imgs[0].Url" />
+                </div>
+                <div class="product-detail-carousel visible-lg visible-md">
+                    <div id="carousel-example-generic" class="carousel carousel-solid slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            @for (int i = 0; i < Model.Imgs.Count; i++)
+                            {
+                                <li data-target="#carousel-example-generic" data-slide-to="@i" class="@(i==0?"active":"")"><div class="fill-round"></div></li>
+                            }
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="hover-clear-mask"></div>
+                        <div class="carousel-inner" role="listbox">
+                            @for (int i = 0; i < Model.Imgs.Count; i++)
+                            {
+                                <div class="item @(i==0?"active":"")">
+                                    <img src="@Model.Imgs[i].Url" alt="...">
+                                    @*<div class="carousel-caption">
+                                        find another
+                                    </div>*@
+                                </div>
+                            }
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <div class="control-block" aria-hidden="true">
+                                <i class="fa fa-angle-left"></i>
+                            </div>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <div class="control-block" aria-hidden="true">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="product-detail-info">
+                            <h2>@Model.Name</h2>
+                            <h3>@Model.ShortDescription</h3>
+                            <p>￥@Model.Price</p>
+                            @if (Model.CurrentDiscount != null)
+                            {
+                                <div class="price-off-label">@(string.Format("{0:D2}", (int)(100 * (1 - @Model.CurrentDiscount))))%OFF</div>
+                            }
+                            <!--
+                                <hr />
+                                -->
+                            <span>
+                                @Model.Remark
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="product-detail-property-select">
+                            <div class="select-block-container">
+                                @using (Html.BeginForm("AddToCart", "ShoppingCart", FormMethod.Post))
+                                {
+                                    @Html.Hidden("ProductId", Model.Id)
+                                    <div class="select-block">
+                                        <div class="select-head">数量</div>
+                                        <div class="count-selector">
+                                            <input class="solid-input-box" name="Count" type="text" value="1" />
+                                            <div id="button-sub"><i class="fa fa-angle-up"></i></div>
+                                            <div id="button-add"><i class="fa fa-angle-down"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="select-block">
+                                        <div class="select-head">属性</div>
+                                        <div class="property-group property-group-selector">
+                                            <input name="ProductPropertyId" type="hidden" value="@Model.Properties.First().Id" />
+                                            @for (int i = 0; i < Model.Properties.Count; i++)
+                                            {
+                                                <div class="property @(i==0?"active":"")" data-value="@Model.Properties[i].Id">
+                                                    <img src="@Model.Properties[i].ImgUrl" />
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="position-middle-container product-detail-buy-button-group">
+                                        <button class="btn btn-coffee solid-button position-middle-object add-to-cart-button" id="add-to-cart">
+                                            <div class="add-to-cart-button-content">
+                                                <i class="fa fa-caret-right"></i>加入购物车
+                                            </div>
+                                            <div class="add-to-cart-button-hint">
+                                                <i class="fa fa-check"></i>已加入
+                                            </div>
+                                        </button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <hr />
+                <div class="product-detail-content">
+                    @Html.Raw(Model.Description)
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            //animation
+            $('#add-to-cart').click(function () {
+                var content = $(this).find('.add-to-cart-button-content');
+                var hint = $(this).find('.add-to-cart-button-hint');
+
+                content.css('left', -120);
+                hint.css({
+                    left: 28,
+                    opacity:0
+                });
+
+                hint.animate({ opacity: 1 }, {
+                    duration: 400,
+                    easing: "swing",
+                    complete: function () {
+                        content.animate({ left: 0 }, {
+                            duration: 800,
+                            easing: "swing",
+                            complete: function () { }
+                        });
+                        hint.animate({ left: 130 }, {
+                            duration: 800,
+                            easing: "swing",
+                            complete: function () { }
+                        });
+                    }
+                });
+
+            });
+            
+
+            $('input[name="ProductPropertyId"]').val()
+            $(".property-group .property").click(function () {
+                $(this).siblings().removeClass('active');
+                $(this).toggleClass('active');
+            });
+
+            $('form').submit(function () {
+                    $('input[name="ProductPropertyId"]').val($(".property-group .property.active").data('value'));
+                    $.ajax({
+                        url: "@Url.Action("AddToCart","ShoppingCart")",
+                        type: this.method,
+                        data: $(this).serialize(),
+                        success: function (result) {
+                            //alert(result);
+                            $('#current-count').text(result);
+                        }
+                    });
+
+                return false;
+            });
+        });
+    </script>
+    }

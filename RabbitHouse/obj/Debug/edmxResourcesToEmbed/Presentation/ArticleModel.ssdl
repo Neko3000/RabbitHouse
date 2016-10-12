@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RabbitHouseDbContextModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ArticleCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="UrlSlug" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ArticleDialogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="CharacterId" Type="int" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="SequenceNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="ShortDescription" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Meta" Type="nvarchar(max)" />
+    <Property Name="UrlSlug" Type="nvarchar(max)" />
+    <Property Name="PostTime" Type="datetime" Nullable="false" />
+    <Property Name="ModifyTime" Type="datetime" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="CoverImgUrl" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ArticleTagArticles">
+    <Key>
+      <PropertyRef Name="ArticleTag_Id" />
+      <PropertyRef Name="Article_Id" />
+    </Key>
+    <Property Name="ArticleTag_Id" Type="int" Nullable="false" />
+    <Property Name="Article_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArticleTags">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="UrlSlug" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Characters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ImgUrl" Type="nvarchar(max)" />
+    <Property Name="Color" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_ArticleDialogs_dbo_Articles_ArticleId">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArticleDialogs" Type="Self.ArticleDialogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleDialogs">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ArticleDialogs_dbo_Characters_CharacterId">
+    <End Role="Characters" Type="Self.Characters" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArticleDialogs" Type="Self.ArticleDialogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Characters">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleDialogs">
+        <PropertyRef Name="CharacterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Articles_dbo_ArticleCategories_CategoryId">
+    <End Role="ArticleCategories" Type="Self.ArticleCategories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ArticleTagArticles_dbo_Articles_Article_Id">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArticleTagArticles" Type="Self.ArticleTagArticles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleTagArticles">
+        <PropertyRef Name="Article_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ArticleTagArticles_dbo_ArticleTags_ArticleTag_Id">
+    <End Role="ArticleTags" Type="Self.ArticleTags" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArticleTagArticles" Type="Self.ArticleTagArticles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleTags">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleTagArticles">
+        <PropertyRef Name="ArticleTag_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RabbitHouseDbContextModel1StoreContainer">
+    <EntitySet Name="ArticleCategories" EntityType="Self.ArticleCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleDialogs" EntityType="Self.ArticleDialogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleTagArticles" EntityType="Self.ArticleTagArticles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticleTags" EntityType="Self.ArticleTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Characters" EntityType="Self.Characters" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_ArticleDialogs_dbo_Articles_ArticleId" Association="Self.FK_dbo_ArticleDialogs_dbo_Articles_ArticleId">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="ArticleDialogs" EntitySet="ArticleDialogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ArticleDialogs_dbo_Characters_CharacterId" Association="Self.FK_dbo_ArticleDialogs_dbo_Characters_CharacterId">
+      <End Role="Characters" EntitySet="Characters" />
+      <End Role="ArticleDialogs" EntitySet="ArticleDialogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Articles_dbo_ArticleCategories_CategoryId" Association="Self.FK_dbo_Articles_dbo_ArticleCategories_CategoryId">
+      <End Role="ArticleCategories" EntitySet="ArticleCategories" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ArticleTagArticles_dbo_Articles_Article_Id" Association="Self.FK_dbo_ArticleTagArticles_dbo_Articles_Article_Id">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="ArticleTagArticles" EntitySet="ArticleTagArticles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ArticleTagArticles_dbo_ArticleTags_ArticleTag_Id" Association="Self.FK_dbo_ArticleTagArticles_dbo_ArticleTags_ArticleTag_Id">
+      <End Role="ArticleTags" EntitySet="ArticleTags" />
+      <End Role="ArticleTagArticles" EntitySet="ArticleTagArticles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

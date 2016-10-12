@@ -1,0 +1,108 @@
+﻿@model RabbitHouse.ViewModels.OrderRecordViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="page-body">
+    <div class="bg-light-blue user-center-bg">
+        <div class="user-center-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3 position-middle-container">
+                            <div class="user-center-nav-link position-middle-object">
+                                <a href="">
+                                    <div class="symbol">
+                                        <i class="fa fa-calculator"></i>
+                                    </div>
+                                    <div class="description hidden-xs hidden-sm">
+                                        <div class="description-ch">历史订单</div>
+                                        <div class="description-en">Order Record</div>
+                                    </div>
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order-list-block position-middle-container">
+            <div class="order-list-bg position-middle-object">
+                <div class="container">
+                    @foreach (var order in Model.Orders)
+                    {
+                        <div class="single-order">
+                            <div class="single-order-header">
+                                #id=@order.Id
+                            </div>
+                            <div class="single-order-content">
+                                <div class="order-detail-list">
+                                    @foreach (var orderDetail in order.OrderDetails)
+                                    {
+                                        <div class="single-order-detail">
+                                            <div class="row">
+                                                <div class="col-md-1 col-sm-6">
+                                                    <div class="order-detail-thumbnail">
+                                                        <img src="@orderDetail.Product.CoverImgUrl" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-6">
+                                                    <div class="order-detail-name">
+                                                        @orderDetail.Product.Name
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1 col-sm-4">
+                                                    <div class="order-detail-property">
+                                                        <img src="@orderDetail.ProductProperty.ImgUrl" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-4">
+                                                    <div class="order-detail-price">
+                                                        ￥@orderDetail.UnitPrice.ToString("#0.00")
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1 col-sm-4">
+                                                    <div class="order-detail-count">
+                                                        x @orderDetail.Count
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 col-sm-12">
+                                                    <div class="order-detail-sum">
+                                                        = ￥@((orderDetail.UnitPrice*orderDetail.Count).ToString("#0.00"))
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+
+                                <div class="order-sum-container">
+                                    <div class="order-sum">
+                                        合计：￥@order.Total.ToString("#0.00")
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="single-order-footer">
+                                <div class="order-address">
+                                    <p>@order.PostalCode @order.Country @order.Province @order.City @order.Locality</p>
+                                    <p>@order.RecipientName</p>
+                                </div>
+                                <div class="order-contact-info">
+                                    <p>@order.PhoneNumber</p>
+                                    <p>@order.Email</p>
+                                </div>
+                                <div class="order-note">
+                                    <i class="fa fa-info-circle"></i>@order.Note
+                                </div>
+                                <div class="order-time">
+                                    <time>@order.RecordTime</time>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

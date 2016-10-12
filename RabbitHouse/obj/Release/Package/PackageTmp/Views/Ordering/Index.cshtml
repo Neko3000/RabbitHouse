@@ -1,0 +1,191 @@
+﻿@model RabbitHouse.ViewModels.ProductListViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Index";
+}
+<div class="page-body">
+    <section class="user-block">
+        <div class="container">
+            <div class="login-container  visible-xs visible-sm">
+                @{
+                    Html.RenderAction("_LoginPartial", "Home");
+                }
+            </div>
+        </div>
+    </section>
+    <section class="filter-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="filter catagory-filter">
+                        <div class="filter-head">类别：</div>
+                        <div class="filter-content">
+                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category="咖啡", sort=Model.CurrentSort,isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=Model.CurrentIsOffProduct })"><div class="filter-factor catagory-filter-property @(Model.CurrentCategory=="咖啡"?"active":"")"><i class="fa fa-coffee"></i>咖啡</div></a>
+                            <div class="filter-factor catagory-filter-property">饮品</div>
+                            <div class="filter-factor catagory-filter-property">主食</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="filter order-filter">
+                        <div class="filter-head">排序：</div>
+                        <div class="filter-content">
+                            <div class="btn-group btn-group-solid filter-factor order-filter-property">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    价格
+                                    <img src="~/Content/img/ordering/common/narrow-drop.png" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceDesc", isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=Model.CurrentIsOffProduct }) })">价格从高到低</a></li>
+                                    <li><a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort="priceAsc", isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=Model.CurrentIsOffProduct }) })">价格从低到高</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group btn-group-solid  filter-factor order-filter-property">
+                                <button type="button" class="btn btn-default btn-solid dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    销量
+                                    <img src="~/Content/img/ordering/common/narrow-drop.png" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">销量从高到低</a></li>
+                                    <li><a href="#">销量从低到高</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="filter specific-filter">
+                        <div class="filter-head">筛选：</div>
+                        <div class="filter-content">
+                            <div class="filter-factor specific-filter-property @(Model.CurrentIsOffProduct?"active":"")">
+                                <div class="solid-input-radio">
+                                    <div class="rect-outline">
+                                        <div class="rect">
+                                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort=Model.CurrentSort , isSeasonalProduct=Model.CurrentIsSeasonalProduct,isOffProduct=!Model.CurrentIsOffProduct })"></a>
+                                        </div>
+                                    </div>
+                                    <div class="show-text">特价商品</div>
+                                </div>
+                            </div>
+
+                            <div class="filter-factor specific-filter-property @(Model.CurrentIsSeasonalProduct?"active":"")">
+                                <div class="solid-input-radio">
+                                    <div class="rect-outline">
+                                        <div class="rect">
+                                            <a href="@Url.Action("Index","Ordering",new { keyword=Model.CurrentKeyword , category=Model.CurrentCategory, sort=Model.CurrentSort , isSeasonalProduct=!Model.CurrentIsSeasonalProduct ,isOffProduct=Model.CurrentIsOffProduct})"></a>
+                                        </div>
+                                    </div>
+                                    <div class="show-text">时季商品</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="search-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 position-middle-container">
+                    <div class="search-box position-middle-object">
+                        @using (Html.BeginForm("Index","Ordering"))
+                        {
+                            <input name="keyword" id="keyword"/>
+                            <button type="submit" class="btn btn-coffee"><i class="fa fa-search"></i></button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="product-list-block">
+        @foreach (var item in Model.Products)
+        {
+            <div class="single-product-container">
+                <div class="single-product center-block  bg-coffee">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-3 position-middle-container">
+                                <div class="product-thumbnail position-middle-object">
+                                    <img src="@item.CoverImgUrl" />
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-7">
+                                <div class="product-content">
+                                    <h3>@item.ShortDescription</h3>
+                                    <h2>@item.Name</h2>
+
+                                    <div class="property-group">
+                                        @foreach (var prop in item.Properties)
+                                        {
+                                            <div class="property">
+                                                <img src="@prop.ImgUrl" />
+                                            </div>
+                                        }
+                                    </div>
+ 
+                                    <p>￥@item.Price</p>
+                                    @if (item.CurrentDiscount != null)
+                                    {
+                                        <div class="price-off-label">@string.Format("{0:D2}", (int)((1 - item.CurrentDiscount) * 100))%OFF</div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-2">
+                                <div class="product-button-block">
+                                    <div class="button-group">
+                                        <div class="glass-button"><a href="@Url.Action("ProductDetail", "Ordering", new { id = item.Id })">商品详情</a></div>
+                                        <div class="glass-button">加入购物车</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="page-list">
+            <div class="page-list-box">
+                <a href="" class="pervious-btn"></a>
+                <div class="page-btn"><a href="">1</a></div>
+                <div class="page-btn"><a href="">2</a></div>
+                <div class="page-btn page-btn-current"><a href="">3</a></div>
+                <div class="page-btn"><a href="">4</a></div>
+                <div class="page-btn"><a href="">5</a></div>
+                <a href="" class="next-btn"></a>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+    <script>
+            $('#keyword').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url:"@Url.Action("QuickAutoComplete","Ordering")",
+                        type: "POST",
+                        dataType:"json",
+                        data: {prefix:request.term},
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item.Name;
+                            }));
+                        },
+                        error: function () {
+                            alert("failed");
+                        }
+                    });
+                },
+                minLength:1,
+                message: {
+                    noResults:"",results:""
+                }
+            });
+    </script>
+    }

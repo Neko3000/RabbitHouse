@@ -1,0 +1,281 @@
+﻿@model RabbitHouse.ViewModels.ArticleManageCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
+}
+
+<div class="pageheader">
+    <h2><i class="fa fa-edit"></i> ArticleManage<span>进行文章管理</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
+            <li>文章</li>
+            <li><a href="@Url.Action("Index","ArticleManage")">文章列表</a></li>
+            <li class="active">创建文章</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+        @using (Html.BeginForm("Create", "ArticleManage", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-bordered", enctype = "multipart/form-data" }))
+        {
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close"></a>
+                    <a class="minimize"></a>
+                </div>
+                <h4 class="panel-title">创建文章</h4>
+                <p>您可以在此创建一篇新的文章.</p>
+            </div>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <div class="panel-body panel-body-nopadding">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ArticleCategoryForArticle, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(model => model.ArticleCategoryForArticle, new SelectList(Model.ArticleCategories, "Id", "Name"), htmlAttributes: new { @class = "form-control", @data_placeholder = "..." })
+                        @Html.ValidationMessageFor(model => model.ArticleCategoryForArticle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShortDescription, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.ShortDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.ShortDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CoverImg, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        <img id="post-img" class="mb10" src="@Model.CoverImgUrl" alt="..." />
+                        @Html.EditorFor(model => model.CoverImgUrl, new { htmlAttributes = new { @id = "post-img-path", @class = "form-control mb10", @placeholder = "", @readonly = "readonly" } })
+                        <input name="CoverImg" id="CoverImg" class="form-control" placeholder="" type="file" />
+                        @Html.ValidationMessageFor(model => model.CoverImg, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Meta, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Meta, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Meta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UrlSlug, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.UrlSlug, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.UrlSlug, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsPublished, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-6">
+                        <div class="checkbox block">
+                            <label>
+                                @Html.CheckBoxFor(model => model.IsPublished, htmlAttributes: new { @class = "", @placeholder = "" })
+                                已发布
+                            </label>
+                            @Html.ValidationMessageFor(model => model.IsPublished, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PostTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.PostTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.PostTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ModifyTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.ModifyTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.ModifyTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ArticleTagsForArticle, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        <input name="ArticleTagsForArticle" id="tags" class="form-control" placeholder="" value="" />
+                        @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ArticleDialogs, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="model-submit-block col-sm-6">
+                        <div class="model-area mb5">
+                            @for (int i = 0; i < Model.ArticleDialogs.Count; i++)
+                            {
+                                <div class="single-model row mb10">
+                                    <div class="col-sm-3 mb5">
+                                        @Html.DropDownListFor(model => model.ArticleDialogs[i].CharacterId, new SelectList(Model.Characters, "Id", "Name", Model.ArticleDialogs[i].CharacterId), htmlAttributes: new { @class = "form-control", @data_placeholder = "..." })
+                                    </div>
+                                    <div class="col-sm-12">
+                                        @Html.EditorFor(model => model.ArticleDialogs[i].Message, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="">
+                            <button class="btn btn-primary btn-xs" id="add-factor-button" type="button">ADD</button>
+                            <button class="btn btn-default btn-xs" id="remove-factor-button" type="button">DELETE</button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ArticleDialogs, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @class = "form-control", @placeholder = "Enter text here...", @id = "wysiwyg", @rows = "10" })
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <button class="btn btn-primary" type="submit">保存</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div><!-- contentpanel -->
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bracket/GeneralFormScript")
+    @Scripts.Render("~/bundles/bracket/WysiwygEditorScript")
+
+
+    @Scripts.Render("~/bundles/sitebehavior")
+    <script>
+        jQuery(document).ready(function () {
+
+            //dialogs
+            $('.model-submit-block').modelSubmitBlock(@Model.ArticleDialogs.Count);
+
+            // HTML5 WYSIWYG Editor
+            jQuery('#wysiwyg').wysihtml5({ color: true, html: true });
+
+            //read and show img
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#post-img').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+
+                }
+            }
+
+            $("#CoverImg").change(function (e) {
+                readURL(this);
+                $('#post-img-path').val(e.target.files[0].name);
+            });
+
+            "use strict";
+
+            // Tags Input
+            jQuery('#tags').tagsInput({ width: 'auto' });
+
+            // Select2
+            jQuery(".select2").select2({
+                width: '100%'
+            });
+
+            // Textarea Autogrow
+            jQuery('#autoResizeTA').autogrow();
+
+            // Color Picker
+            if (jQuery('#colorpicker').length > 0) {
+                jQuery('#colorSelector').ColorPicker({
+                    onShow: function (colpkr) {
+                        jQuery(colpkr).fadeIn(500);
+                        return false;
+                    },
+                    onHide: function (colpkr) {
+                        jQuery(colpkr).fadeOut(500);
+                        return false;
+                    },
+                    onChange: function (hsb, hex, rgb) {
+                        jQuery('#colorSelector span').css('backgroundColor', '#' + hex);
+                        jQuery('#colorpicker').val('#' + hex);
+                    }
+                });
+            }
+
+            // Color Picker Flat Mode
+            jQuery('#colorpickerholder').ColorPicker({
+                flat: true,
+                onChange: function (hsb, hex, rgb) {
+                    jQuery('#colorpicker3').val('#' + hex);
+                }
+            });
+
+            // Date Picker
+            jQuery('#datepicker').datepicker();
+
+            jQuery('#datepicker-inline').datepicker();
+
+            jQuery('#datepicker-multiple').datepicker({
+                numberOfMonths: 3,
+                showButtonPanel: true
+            });
+
+            // Spinner
+            var spinner = jQuery('#spinner').spinner();
+            spinner.spinner('value', 0);
+
+            // Input Masks
+            jQuery("#date").mask("99/99/9999");
+            jQuery("#phone").mask("(999) 999-9999");
+            jQuery("#ssn").mask("999-99-9999");
+
+            // Time Picker
+            jQuery('#timepicker').timepicker({ defaultTIme: false });
+            jQuery('#timepicker2').timepicker({ showMeridian: false });
+            jQuery('#timepicker3').timepicker({ minuteStep: 15 });
+
+
+        });
+
+    </script>
+}

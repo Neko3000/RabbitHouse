@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Intros";
+}
+
+<div class="page-body">
+
+    <section class="present-block present-block-h600">
+        <div class="post-card-block post-card-middle">
+            <img src="~/Content/img/intros/section-r/post-card1.png" />
+        </div>
+        <div class="black-mask"></div>
+        <img src="~/Content/img/intros/section-r/wallhaven-322539.jpg" />
+    </section>
+    <section class="present-block present-block-h400">
+        <div class="post-card-block post-card-right">
+            <img src="~/Content/img/intros/section-r/post-card2.png" />
+        </div>
+        <div class="black-mask"></div>
+        <img src="~/Content/img/intros/section-r/wallhaven-74351.jpg" />
+    </section>
+    <section class="present-block present-block-h400 last-block">
+        <div class="post-card-block post-card-left">
+            <img src="~/Content/img/intros/section-r/post-card3.png" />
+        </div>
+        <div class="black-mask"></div>
+        <img  src="~/Content/img/intros/section-r/wallhaven-133148.jpg" />
+    </section>
+
+    <section class="composition-block-group">
+        <div class="composition-block-text">
+            <p>我们致力于全方位的下午茶方案</p>
+        </div>
+        <div class="variable-block">
+            <div class="single-block" id="coffee-block">
+                <i class="fa fa-coffee"></i>
+                <span class="block-name">coffee</span>
+                <span class="block-percentage">40%</span>
+            </div>
+            <div class="single-block" id="dessert-block">
+                <i class="fa fa-cutlery"></i>
+                <span class="block-name">dessert</span>
+                <span class="block-percentage">30%</span>
+            </div>
+            <div class="single-block" id="music-block">
+                <i class="fa fa-music"></i>
+                <span class="block-name">classic music</span>
+                <span class="block-percentage">10%</span>
+            </div>
+            <div class="single-block" id="drink-block">
+                <i class="fa fa-beer"></i>
+                <span class="block-name">drink</span>
+                <span class="block-percentage">20%</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="position-middle-container">
+            <img class="position-middle-object img-responsive" src="~/Content/img/intros/logo-injection.jpg" />
+        </div>
+    </section>
+
+    <section class="glass-board glass-board-bottom">
+        <p class="center-text">一切都源自于，精湛的技艺。</p>
+        <div class="black-mask"></div>
+        <img src="~/Content/img/intros/coffee-beans-grinde.jpg" />
+    </section>
+</div>
+
+@section scripts{
+    <script>
+        $('.variable-block').variableBlock();
+    </script>
+}
+

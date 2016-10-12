@@ -1,0 +1,150 @@
+﻿@model AccountAdmin.ViewModels.RolesAdminEditViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
+}
+
+<div class="pageheader">
+    <h2><i class="fa fa-edit"></i> RolesAdmin<span>进行权限的管理</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
+            <li>权限</li>
+            <li><a href="@Url.Action("Index","RolesAdmin")">权限列表</a></li>
+            <li class="active">编辑权限</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+        @using (Html.BeginForm("Edit", "RolesAdmin", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-bordered" }))
+        {
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close"></a>
+                    <a class="minimize"></a>
+                </div>
+                <h4 class="panel-title">权限信息</h4>
+                <p>您可以在此查看并编辑单个权限的信息.</p>
+            </div>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.HiddenFor(model => model.RoleId)
+
+            <div class="panel-body panel-body-nopadding">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6 control-content">
+                        @Html.DisplayFor(model => model.RoleId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleName, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.RoleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "用户名" } })
+                        @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <button class="btn btn-primary" type="submit">保存</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    
+</div><!-- contentpanel -->
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Content/bracket/js/jquery.autogrow-textarea.js"></script>
+    <script src="~/Content/bracket/js/bootstrap-timepicker.min.js"></script>
+    <script src="~/Content/bracket/js/jquery.maskedinput.min.js"></script>
+    <script src="~/Content/bracket/js/jquery.tagsinput.min.js"></script>
+    <script src="~/Content/bracket/js/jquery.mousewheel.js"></script>
+    <script src="~/Content/bracket/js/select2.min.js"></script>
+    <script src="~/Content/bracket/js/dropzone.min.js"></script>
+    <script src="~/Content/bracket/js/colorpicker.js"></script>
+
+    <script>
+jQuery(document).ready(function(){
+
+    "use strict";
+
+  // Tags Input
+  jQuery('#tags').tagsInput({width:'auto'});
+
+  // Select2
+  jQuery(".select2").select2({
+    width: '100%'
+  });
+
+  // Textarea Autogrow
+  jQuery('#autoResizeTA').autogrow();
+
+  // Color Picker
+  if(jQuery('#colorpicker').length > 0) {
+	 jQuery('#colorSelector').ColorPicker({
+			onShow: function (colpkr) {
+				jQuery(colpkr).fadeIn(500);
+				return false;
+			},
+			onHide: function (colpkr) {
+				jQuery(colpkr).fadeOut(500);
+				return false;
+			},
+			onChange: function (hsb, hex, rgb) {
+				jQuery('#colorSelector span').css('backgroundColor', '#' + hex);
+				jQuery('#colorpicker').val('#'+hex);
+			}
+	 });
+  }
+
+  // Color Picker Flat Mode
+	jQuery('#colorpickerholder').ColorPicker({
+		flat: true,
+		onChange: function (hsb, hex, rgb) {
+			jQuery('#colorpicker3').val('#'+hex);
+		}
+	});
+
+  // Date Picker
+  jQuery('#datepicker').datepicker();
+
+  jQuery('#datepicker-inline').datepicker();
+
+  jQuery('#datepicker-multiple').datepicker({
+    numberOfMonths: 3,
+    showButtonPanel: true
+  });
+
+  // Spinner
+  var spinner = jQuery('#spinner').spinner();
+  spinner.spinner('value', 0);
+
+  // Input Masks
+  jQuery("#date").mask("99/99/9999");
+  jQuery("#phone").mask("(999) 999-9999");
+  jQuery("#ssn").mask("999-99-9999");
+
+  // Time Picker
+  jQuery('#timepicker').timepicker({defaultTIme: false});
+  jQuery('#timepicker2').timepicker({showMeridian: false});
+  jQuery('#timepicker3').timepicker({minuteStep: 15});
+
+
+});
+    </script>
+}

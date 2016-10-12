@@ -1,0 +1,52 @@
+﻿@model RabbitHouse.ViewModels.NewsListViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "News";
+}
+
+<div class="page-body">
+    <section class="glass-board">
+        <div class="left-bottom-text-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 left-bottom-text">店铺情报</div>
+                    <div class="col-xs-12 left-bottom-text">新闻信息</div>
+                    <div class="col-xs-12 left-bottom-text left-bottom-text-smaller">您所想要知道的活动和公告全在这了</div>
+                </div>
+            </div>
+        </div>
+        <div class="black-mask"></div>
+        <img src="~/Content/img/news/wallhaven-180537.jpg" />
+    </section>
+    <section class="news-list-block">
+        <div class="container">
+            <div class="row">
+                    @foreach (var article in Model.Articles)
+                    {
+                        <div class="col-xs-12 col-md-6 col-lg-3">
+                            <div class="single-news">
+                                <img src="@article.CoverImgUrl" />
+                                <div class="text-area">
+                                    <h2><a href="@Url.Action("NewsDetails","News",new { id = article.Id })">@article.Title</a></h2>
+                                    <p>@article.ShortDescription</p>
+                                    <span>@article.PostTime.ToShortDateString()</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+            </div>
+        </div>
+        <div class="page-list">
+            <div class="page-list-box">
+                <a href="" class="pervious-btn"></a>
+                <div class="page-btn"><a href="">1</a></div>
+                <div class="page-btn"><a href="">2</a></div>
+                <div class="page-btn page-btn-current"><a href="">3</a></div>
+                <div class="page-btn"><a href="">4</a></div>
+                <div class="page-btn"><a href="">5</a></div>
+                <a href="" class="next-btn"></a>
+            </div>
+        </div>
+    </section>
+</div>
+

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RabbitHouseDbContextModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ArticleCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UrlSlug" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Articles" Relationship="Self.FK_dbo_Articles_dbo_ArticleCategories_CategoryId" FromRole="ArticleCategories" ToRole="Articles" />
+  </EntityType>
+  <EntityType Name="ArticleDialogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CharacterId" Type="Int32" Nullable="false" />
+    <Property Name="ArticleId" Type="Int32" Nullable="false" />
+    <Property Name="SequenceNumber" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Articles" Relationship="Self.FK_dbo_ArticleDialogs_dbo_Articles_ArticleId" FromRole="ArticleDialogs" ToRole="Articles" />
+    <NavigationProperty Name="Characters" Relationship="Self.FK_dbo_ArticleDialogs_dbo_Characters_CharacterId" FromRole="ArticleDialogs" ToRole="Characters" />
+  </EntityType>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Meta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UrlSlug" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PostTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+    <Property Name="CoverImgUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ArticleCategories" Relationship="Self.FK_dbo_Articles_dbo_ArticleCategories_CategoryId" FromRole="Articles" ToRole="ArticleCategories" />
+    <NavigationProperty Name="ArticleDialogs" Relationship="Self.FK_dbo_ArticleDialogs_dbo_Articles_ArticleId" FromRole="Articles" ToRole="ArticleDialogs" />
+    <NavigationProperty Name="ArticleTags" Relationship="Self.ArticleTagArticles" FromRole="Articles" ToRole="ArticleTags" />
+  </EntityType>
+  <EntityType Name="ArticleTags">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UrlSlug" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Articles" Relationship="Self.ArticleTagArticles" FromRole="ArticleTags" ToRole="Articles" />
+  </EntityType>
+  <EntityType Name="Characters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImgUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ArticleDialogs" Relationship="Self.FK_dbo_ArticleDialogs_dbo_Characters_CharacterId" FromRole="Characters" ToRole="ArticleDialogs" />
+  </EntityType>
+  <Association Name="FK_dbo_Articles_dbo_ArticleCategories_CategoryId">
+    <End Role="ArticleCategories" Type="Self.ArticleCategories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArticleCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ArticleDialogs_dbo_Articles_ArticleId">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArticleDialogs" Type="Self.ArticleDialogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleDialogs">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ArticleDialogs_dbo_Characters_CharacterId">
+    <End Role="Characters" Type="Self.Characters" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ArticleDialogs" Type="Self.ArticleDialogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Characters">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticleDialogs">
+        <PropertyRef Name="CharacterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ArticleTagArticles">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+    <End Role="ArticleTags" Type="Self.ArticleTags" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ArticleCategories" EntityType="Self.ArticleCategories" />
+    <EntitySet Name="ArticleDialogs" EntityType="Self.ArticleDialogs" />
+    <EntitySet Name="Articles" EntityType="Self.Articles" />
+    <EntitySet Name="ArticleTags" EntityType="Self.ArticleTags" />
+    <EntitySet Name="Characters" EntityType="Self.Characters" />
+    <AssociationSet Name="FK_dbo_Articles_dbo_ArticleCategories_CategoryId" Association="Self.FK_dbo_Articles_dbo_ArticleCategories_CategoryId">
+      <End Role="ArticleCategories" EntitySet="ArticleCategories" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ArticleDialogs_dbo_Articles_ArticleId" Association="Self.FK_dbo_ArticleDialogs_dbo_Articles_ArticleId">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="ArticleDialogs" EntitySet="ArticleDialogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ArticleDialogs_dbo_Characters_CharacterId" Association="Self.FK_dbo_ArticleDialogs_dbo_Characters_CharacterId">
+      <End Role="Characters" EntitySet="Characters" />
+      <End Role="ArticleDialogs" EntitySet="ArticleDialogs" />
+    </AssociationSet>
+    <AssociationSet Name="ArticleTagArticles" Association="Self.ArticleTagArticles">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="ArticleTags" EntitySet="ArticleTags" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

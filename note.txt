@@ -1,0 +1,2 @@
+//账户数据
+Update-Database -ConfigurationTypeName SchoolLibrary.Migrations.ApplicationDbMigration.Configuration

@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RabbitHouseDbContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CartElements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="RecordTime" Type="datetime" Nullable="false" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="ProductProperty_Id" Type="int" />
+    <Property Name="CartId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="ProductProperty_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RecipientName" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="PostalCode" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="Province" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="Locality" Type="nvarchar(max)" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="RecordTime" Type="datetime" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="UrlSlug" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="RecordTime" Type="datetime" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductProperties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ImgUrl" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductPropertyProducts">
+    <Key>
+      <PropertyRef Name="ProductProperty_Id" />
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="ProductProperty_Id" Type="int" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ShortDescription" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CurrentDiscount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountStartTime" Type="datetime" />
+    <Property Name="DiscountEndTime" Type="datetime" />
+    <Property Name="PublishTime" Type="datetime" Nullable="false" />
+    <Property Name="IsSeasonalProduct" Type="bit" Nullable="false" />
+    <Property Name="SaleStartTime" Type="datetime" />
+    <Property Name="SaleEndTime" Type="datetime" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="CoverImgUrl" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_CartElements_dbo_ProductProperties_ProductProperty_Id">
+    <End Role="ProductProperties" Type="Self.ProductProperties" Multiplicity="0..1" />
+    <End Role="CartElements" Type="Self.CartElements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductProperties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartElements">
+        <PropertyRef Name="ProductProperty_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CartElements_dbo_Products_Product_Id">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="CartElements" Type="Self.CartElements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartElements">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderDetails_dbo_Orders_OrderId">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderDetails_dbo_ProductProperties_ProductProperty_Id">
+    <End Role="ProductProperties" Type="Self.ProductProperties" Multiplicity="0..1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductProperties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ProductProperty_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderDetails_dbo_Products_Product_Id">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductImages_dbo_Products_ProductId">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="ProductImages" Type="Self.ProductImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductImages">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductPropertyProducts_dbo_ProductProperties_ProductProperty_Id">
+    <End Role="ProductProperties" Type="Self.ProductProperties" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductPropertyProducts" Type="Self.ProductPropertyProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductProperties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPropertyProducts">
+        <PropertyRef Name="ProductProperty_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductPropertyProducts_dbo_Products_Product_Id">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductPropertyProducts" Type="Self.ProductPropertyProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductPropertyProducts">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Products_dbo_ProductCategories_CategoryId">
+    <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RabbitHouseDbContextModelStoreContainer">
+    <EntitySet Name="CartElements" EntityType="Self.CartElements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductProperties" EntityType="Self.ProductProperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPropertyProducts" EntityType="Self.ProductPropertyProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_CartElements_dbo_ProductProperties_ProductProperty_Id" Association="Self.FK_dbo_CartElements_dbo_ProductProperties_ProductProperty_Id">
+      <End Role="ProductProperties" EntitySet="ProductProperties" />
+      <End Role="CartElements" EntitySet="CartElements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CartElements_dbo_Products_Product_Id" Association="Self.FK_dbo_CartElements_dbo_Products_Product_Id">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="CartElements" EntitySet="CartElements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderDetails_dbo_Orders_OrderId" Association="Self.FK_dbo_OrderDetails_dbo_Orders_OrderId">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderDetails_dbo_ProductProperties_ProductProperty_Id" Association="Self.FK_dbo_OrderDetails_dbo_ProductProperties_ProductProperty_Id">
+      <End Role="ProductProperties" EntitySet="ProductProperties" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderDetails_dbo_Products_Product_Id" Association="Self.FK_dbo_OrderDetails_dbo_Products_Product_Id">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductImages_dbo_Products_ProductId" Association="Self.FK_dbo_ProductImages_dbo_Products_ProductId">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductImages" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductPropertyProducts_dbo_ProductProperties_ProductProperty_Id" Association="Self.FK_dbo_ProductPropertyProducts_dbo_ProductProperties_ProductProperty_Id">
+      <End Role="ProductProperties" EntitySet="ProductProperties" />
+      <End Role="ProductPropertyProducts" EntitySet="ProductPropertyProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductPropertyProducts_dbo_Products_Product_Id" Association="Self.FK_dbo_ProductPropertyProducts_dbo_Products_Product_Id">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductPropertyProducts" EntitySet="ProductPropertyProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Products_dbo_ProductCategories_CategoryId" Association="Self.FK_dbo_Products_dbo_ProductCategories_CategoryId">
+      <End Role="ProductCategories" EntitySet="ProductCategories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

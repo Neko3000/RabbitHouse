@@ -1,0 +1,316 @@
+﻿@model RabbitHouse.ViewModels.ProductManageCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
+}
+
+<div class="pageheader">
+    <h2><i class="fa fa-edit"></i> ProductManage<span>进行商品管理</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
+            <li>商品属性</li>
+            <li><a href="@Url.Action("Index","ProductManage")">商品列表</a></li>
+            <li class="active">创建商品</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+        @using (Html.BeginForm("Create", "ProductManage", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-bordered", enctype = "multipart/form-data" }))
+        {
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close"></a>
+                    <a class="minimize"></a>
+                </div>
+                <h4 class="panel-title">创建商品</h4>
+                <p>您可以在此创建一个新的商品.</p>
+            </div>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <div class="panel-body panel-body-nopadding">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductCategoryForProduct, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(model => model.ProductCategoryForProduct, new SelectList(Model.ProductCategories, "Id", "Name", Model.ProductCategoryForProduct), htmlAttributes: new { @class = "form-control", @data_placeholder = "选择账户权限..." })
+                        @Html.ValidationMessageFor(model => model.ProductCategoryForProduct, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShortDescription, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.ShortDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.ShortDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CoverImg, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        <img id="post-img" class="mb10" src="@Model.CoverImgUrl" alt="..." />
+                        @Html.EditorFor(model => model.CoverImgUrl, new { htmlAttributes = new { @id = "post-img-path", @class = "form-control mb10", @placeholder = "", @readonly = "readonly" } })
+                        <input name="CoverImg" id="CoverImg" class="form-control" placeholder="" type="file" />
+                        @Html.ValidationMessageFor(model => model.CoverImg, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">￥</span>
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CurrentDiscount, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.CurrentDiscount, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.CurrentDiscount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DiscountStartTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.DiscountStartTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.DiscountStartTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DiscountEndTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.DiscountEndTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.DiscountEndTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsSeasonalProduct, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-md-6">
+                        <div class="checkbox block">
+                            <label>
+                                @Html.CheckBoxFor(model => model.IsSeasonalProduct, new { htmlAttributes = new { @class = "", @placeholder = "" } })
+                                时季商品
+                            </label>
+                            @Html.ValidationMessageFor(model => model.IsSeasonalProduct, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SaleStartTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.SaleStartTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.SaleStartTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SaleEndTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.SaleEndTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.SaleEndTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductPropertyForProduct, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.ListBoxFor(model => model.ProductPropertyForProduct, new MultiSelectList(Model.ProductProperties, "Id", "Name", Model.ProductPropertyForProduct), htmlAttributes: new { @class = "select2", @data_placeholder = "" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PublishTime, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.PublishTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.PublishTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("内容图片", htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        <div class="dropzone" id="my-dropzone" name="mainFileUploader">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                            </div>
+                            @*store uploadedImages to product*@
+                            <input name="UploadImgsIdString" type="text" hidden="" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <button class="btn btn-primary" type="submit">保存</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div><!-- contentpanel -->
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bracket/GeneralFormScript")
+
+    <script>
+        jQuery(document).ready(function () {
+            //read and show img
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#post-img').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+
+                }
+            }
+
+            $("#CoverImg").change(function (e) {
+                readURL(this);
+                $('#post-img-path').val(e.target.files[0].name);
+            });
+
+            "use strict";
+
+            // Tags Input
+            jQuery('#tags').tagsInput({ width: 'auto' });
+
+            // Select2
+            jQuery(".select2").select2({
+                width: '100%'
+            });
+
+            // Textarea Autogrow
+            jQuery('#autoResizeTA').autogrow();
+
+            // Color Picker
+            if (jQuery('#colorpicker').length > 0) {
+                jQuery('#colorSelector').ColorPicker({
+                    onShow: function (colpkr) {
+                        jQuery(colpkr).fadeIn(500);
+                        return false;
+                    },
+                    onHide: function (colpkr) {
+                        jQuery(colpkr).fadeOut(500);
+                        return false;
+                    },
+                    onChange: function (hsb, hex, rgb) {
+                        jQuery('#colorSelector span').css('backgroundColor', '#' + hex);
+                        jQuery('#colorpicker').val('#' + hex);
+                    }
+                });
+            }
+
+            // Color Picker Flat Mode
+            jQuery('#colorpickerholder').ColorPicker({
+                flat: true,
+                onChange: function (hsb, hex, rgb) {
+                    jQuery('#colorpicker3').val('#' + hex);
+                }
+            });
+
+            // Date Picker
+            jQuery('#datepicker').datepicker();
+
+            jQuery('#datepicker-inline').datepicker();
+
+            jQuery('#datepicker-multiple').datepicker({
+                numberOfMonths: 3,
+                showButtonPanel: true
+            });
+
+            // Spinner
+            var spinner = jQuery('#spinner').spinner();
+            spinner.spinner('value', 0);
+
+            // Input Masks
+            jQuery("#date").mask("99/99/9999");
+            jQuery("#phone").mask("(999) 999-9999");
+            jQuery("#ssn").mask("999-99-9999");
+
+            // Time Picker
+            jQuery('#timepicker').timepicker({ defaultTIme: false });
+            jQuery('#timepicker2').timepicker({ showMeridian: false });
+            jQuery('#timepicker3').timepicker({ minuteStep: 15 });
+
+
+        });
+
+        Dropzone.options.myDropzone = {
+            url: "/ProductManage/UploadImgs",
+            autoProcessQueue: true,
+            uploadMultiple: true,
+            parallelUploads: 100,
+            maxFiles: 100,
+            acceptedFiles: "image/*",
+
+            init: function () {
+
+                var submitButton = document.querySelector("#submit-all");
+                var wrapperThis = this;
+
+                this.on("successmultiple", function (file, result) {
+                    var idString = "";
+                    $.each(result.Info, function (i, item) {
+                        //alert(item.Id);
+                        //alert(item.FileName);
+                        idString = idString + item.Id.toString() + ",";
+                    });
+                    //alert(idString.toString());
+                    $("input[name='UploadImgsIdString']").val($("input[name='UploadImgsIdString']").val() + idString);
+                });
+
+                this.on('sendingmultiple', function (data, xhr, formData) {
+
+                });
+            }
+        };
+    </script>
+}

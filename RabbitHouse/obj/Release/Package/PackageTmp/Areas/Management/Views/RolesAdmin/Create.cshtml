@@ -1,0 +1,58 @@
+﻿@model AccountAdmin.ViewModels.RolesAdminCreateViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutBracket.cshtml";
+}
+
+<div class="pageheader">
+    <h2><i class="fa fa-edit"></i> RolesAdmin<span>进行权限的管理</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","SystemManage")">首页</a></li>
+            <li>权限</li>
+            <li class="active">添加权限</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+        @using (Html.BeginForm("Create", "RolesAdmin", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal form-bordered" }))
+        {
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a class="panel-close"></a>
+                    <a class="minimize"></a>
+                </div>
+                <h4 class="panel-title">添加一个新的权限</h4>
+                <p>您可以在此添加一个新的权限.</p>
+            </div>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <div class="panel-body panel-body-nopadding">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleName, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.RoleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "包含其含义" } })
+                        @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <button class="btn btn-primary" type="submit">保存</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div><!-- contentpanel -->
+
+

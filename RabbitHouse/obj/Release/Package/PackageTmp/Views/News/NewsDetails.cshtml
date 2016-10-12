@@ -1,0 +1,66 @@
+﻿@model RabbitHouse.Models.Article
+@{
+    Layout = "~/Views/Shared/_LayoutNormal.cshtml";
+    ViewBag.Title = "Article";
+}
+
+<div class="page-body">
+    <section class="article-bg">
+        <div class="article">
+            <div class="article-top-area">
+                <div class="container">
+                    <div class="article-position"><a href="@Url.Action("Index")">新闻公告</a><span>></span>@Model.Title</div>
+                </div>
+
+                <div class="container">
+                    <div class="article-info-box">
+                        <h2 class="article-title">@Model.Title</h2>
+                        <h3 class="article-discription">@Model.ShortDescription</h3>
+                        <p class="article-category">@Model.Category.Name</p>
+                        <div class="article-tags">
+                            @foreach (var tag in Model.Tags)
+                            {
+                                <div class="single-article-tag">
+                                    @tag.Name
+                                </div>
+                            }
+                        </div>
+                        <time class="article-time">发布时间-@((Model.PostTime).ToShortDateString())</time>
+                        <time class="article-time">更新时间-@(((DateTime)(Model.ModifyTime??Model.PostTime)).ToShortDateString())</time>
+                    </div>
+                </div>
+            </div>
+            <div class="article-middle-area">
+                <div class="container">
+                    @foreach (var dialog in Model.Dialogs)
+                    {
+                        <div class="single-dialog @(dialog.SequenceNumber %2 == 0 ? "single-dialog-right" : "single-dialog-left") ">
+                            <div class="avator">
+                                <img src="@dialog.Character.ImgUrl" />
+                            </div>
+
+                            <div class="dialog" style="background-color:@dialog.Character.Color;">
+                                <p>@dialog.Message</p>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="article-bottom-area">
+                <div class="container">
+                    @Html.Raw(Model.Content)
+                    <div class="article-editor">店长</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('.single-dialog').singleDialog();
+        });
+    </script>
+}
